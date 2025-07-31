@@ -19,7 +19,12 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
   ];
 
   return (
-    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg" style={{ width: '100%', maxWidth: '100%' }}>
+    <div className="border rounded-2xl p-3 shadow-lg" style={{ 
+      width: '100%', 
+      maxWidth: '100%',
+      background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(262, 35%, 15%) 100%)',
+      borderColor: 'hsl(262, 50%, 40%)'
+    }}>
       {/* Facebook-style horizontal scrolling row */}
       <div className="horizontal-scroll-container" style={{ overflowX: 'scroll', width: '100%' }}>
         {quickActions.map((action, index) => (
@@ -29,8 +34,8 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
             className="horizontal-scroll-item bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
             style={{ 
               border: 'none',
-              background: '#374151',
-              color: '#e5e7eb',
+              background: 'hsl(262, 30%, 25%)',
+              color: 'hsl(262, 70%, 85%)',
               cursor: 'pointer',
               outline: 'none'
             }}

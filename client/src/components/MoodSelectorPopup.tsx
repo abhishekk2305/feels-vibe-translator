@@ -37,7 +37,12 @@ export default function MoodSelectorPopup({
   };
 
   return (
-    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg" style={{ width: '100%', maxWidth: '100%' }}>
+    <div className="border rounded-2xl p-3 shadow-lg" style={{ 
+      width: '100%', 
+      maxWidth: '100%',
+      background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(262, 35%, 15%) 100%)',
+      borderColor: 'hsl(262, 50%, 40%)'
+    }}>
       {/* Facebook-style horizontal scrolling row */}
       <div className="horizontal-scroll-container" style={{ overflowX: 'scroll', width: '100%' }}>
         {moods.map((mood) => {
@@ -52,9 +57,9 @@ export default function MoodSelectorPopup({
               style={{
                 border: 'none',
                 background: isSelected 
-                  ? 'linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))'
-                  : '#374151',
-                color: isSelected ? '#ffffff' : '#e5e7eb',
+                  ? 'linear-gradient(135deg, hsl(262, 83%, 58%), hsl(262, 83%, 48%))'
+                  : 'hsl(262, 30%, 25%)',
+                color: isSelected ? '#ffffff' : 'hsl(262, 70%, 85%)',
                 cursor: 'pointer',
                 outline: 'none',
                 boxShadow: isSelected ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 2px rgba(255, 255, 255, 0.5)' : 'none'
