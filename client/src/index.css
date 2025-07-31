@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(262, 83%, 58%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(324, 93%, 68%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Gen Z inspired custom colors */
+  --primary-dark: hsl(252, 83%, 53%);
+  --accent-blue: hsl(214, 95%, 61%);
+  --accent-orange: hsl(24, 95%, 61%);
+  --neon-green: hsl(142, 76%, 36%);
+  --neon-yellow: hsl(45, 93%, 47%);
+  --dark-bg: hsl(240, 21%, 9%);
+  --semi-dark: hsl(237, 22%, 15%);
+}
+
+.dark {
+  --background: hsl(240, 21%, 9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 21%, 9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(237, 22%, 15%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(262, 83%, 58%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(324, 93%, 68%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Gen Z Styling */
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.story-ring {
+  background: linear-gradient(45deg, hsl(262, 83%, 58%), hsl(324, 93%, 68%), hsl(214, 95%, 61%), hsl(24, 95%, 61%));
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.floating-btn {
+  box-shadow: 0 8px 32px hsla(262, 83%, 58%, 0.3);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom colors as CSS variables for Tailwind */
+.bg-dark-bg {
+  background-color: hsl(240, 21%, 9%);
+}
+
+.bg-semi-dark {
+  background-color: hsl(237, 22%, 15%);
+}
+
+.text-primary {
+  color: hsl(262, 83%, 58%);
+}
+
+.text-secondary {
+  color: hsl(324, 93%, 68%);
+}
+
+.text-accent-blue {
+  color: hsl(214, 95%, 61%);
+}
+
+.text-accent-orange {
+  color: hsl(24, 95%, 61%);
+}
+
+.text-neon-green {
+  color: hsl(142, 76%, 36%);
+}
+
+.text-neon-yellow {
+  color: hsl(45, 93%, 47%);
+}
+
+.bg-primary {
+  background-color: hsl(262, 83%, 58%);
+}
+
+.bg-secondary {
+  background-color: hsl(324, 93%, 68%);
+}
+
+.bg-accent-blue {
+  background-color: hsl(214, 95%, 61%);
+}
+
+.bg-accent-orange {
+  background-color: hsl(24, 95%, 61%);
+}
+
+.bg-neon-green {
+  background-color: hsl(142, 76%, 36%);
+}
+
+.bg-neon-yellow {
+  background-color: hsl(45, 93%, 47%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceLight {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px hsla(262, 83%, 58%, 0.4); }
+  50% { box-shadow: 0 0 30px hsla(262, 83%, 58%, 0.8); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-bounce-light {
+  animation: bounceLight 0.6s ease-in-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Touch feedback */
+.touch-feedback:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .max-w-sm {
+    max-width: 100%;
+  }
+}
+
+/* PWA status bar styling */
+@media (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Dark theme adjustments for better Gen Z aesthetics */
+.dark .bg-white {
+  background-color: hsl(237, 22%, 15%);
+}
+
+.dark .text-black {
+  color: hsl(0, 0%, 98%);
+}
+
+.dark .border-gray-200 {
+  border-color: hsl(240, 3.7%, 25%);
+}
+
+.dark .bg-gray-100 {
+  background-color: hsl(240, 3.7%, 20%);
+}
+
+.dark .bg-gray-800 {
+  background-color: hsl(240, 3.7%, 12%);
+}
+
+.dark .text-gray-600 {
+  color: hsl(240, 5%, 64.9%);
+}
+
+.dark .text-gray-400 {
+  color: hsl(240, 5%, 54%);
+}
+
+.dark .text-gray-300 {
+  color: hsl(240, 5%, 74%);
+}
+
+/* Custom scrollbar for desktop */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(240, 21%, 9%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(262, 83%, 58%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(252, 83%, 53%);
+  }
+}
