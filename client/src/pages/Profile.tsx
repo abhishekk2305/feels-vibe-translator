@@ -99,8 +99,10 @@ export default function Profile() {
 
           {/* Profile Info */}
           <div className="px-6 pb-6">
-            <div className="flex items-end justify-between -mt-16 mb-4">
-              <div className="w-24 h-24 rounded-full border-4 border-dark-bg overflow-hidden bg-gray-700 flex-shrink-0">
+            {/* Profile Picture and Button Section */}
+            <div className="relative -mt-16 mb-4 h-24">
+              {/* Profile Picture - left side */}
+              <div className="absolute left-0 bottom-0 w-24 h-24 rounded-full border-4 border-dark-bg overflow-hidden bg-gray-700">
                 {userProfile.profileImageUrl ? (
                   <img 
                     src={userProfile.profileImageUrl} 
@@ -113,7 +115,9 @@ export default function Profile() {
                   </div>
                 )}
               </div>
-              <div className="flex-shrink-0">
+              
+              {/* Edit Profile Button - right side */}
+              <div className="absolute right-0 bottom-0">
                 {isOwnProfile ? (
                   <Button className="gradient-bg text-white px-6 py-2 rounded-xl font-semibold">
                     Edit Profile
