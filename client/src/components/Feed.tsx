@@ -124,9 +124,47 @@ export default function Feed() {
   }
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 px-4">
       {(posts as any[]).map((post: any) => (
-        <Post key={post.id} post={post} />
+        <div key={post.id} className="mb-6 p-4 rounded-xl" style={{ 
+          background: '#FFFFFF',
+          border: '1px solid hsl(262, 50%, 85%)',
+          boxShadow: '0 4px 12px hsla(262, 50%, 50%, 0.1)'
+        }}>
+          <div className="flex items-center mb-3">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3" style={{ 
+              background: 'linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 100%)'
+            }}>
+              <span className="text-white font-semibold">{post.user.firstName?.[0] || post.user.username[0]}</span>
+            </div>
+            <div>
+              <h4 className="font-semibold" style={{ color: 'hsl(262, 83%, 58%)' }}>{post.user.username}</h4>
+              <p className="text-xs" style={{ color: 'hsl(262, 60%, 50%)' }}>2h ago • {post.mood}</p>
+            </div>
+          </div>
+          
+          <p className="text-base mb-3" style={{ color: 'hsl(262, 70%, 35%)' }}>{post.content}</p>
+          
+          {post.caption && (
+            <p className="text-sm mb-3 italic" style={{ color: 'hsl(262, 60%, 50%)' }}>{post.caption}</p>
+          )}
+          
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <button className="flex items-center space-x-1" style={{ color: post.isLiked ? 'hsl(324, 93%, 68%)' : 'hsl(262, 60%, 50%)' }}>
+                <span>{post.isLiked ? '❤️' : '🤍'}</span>
+                <span className="text-sm">{post.likesCount}</span>
+              </button>
+              <button className="flex items-center space-x-1" style={{ color: 'hsl(262, 60%, 50%)' }}>
+                <span>💬</span>
+                <span className="text-sm">{post.commentsCount}</span>
+              </button>
+            </div>
+            <button style={{ color: 'hsl(262, 60%, 50%)' }}>
+              <span>📤</span>
+            </button>
+          </div>
+        </div>
       ))}
     </div>
   );
