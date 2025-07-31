@@ -330,14 +330,16 @@ export default function VibeCreatorSimple() {
                         });
                       }}
                     >
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <p className="text-white font-medium text-sm">{challenge.name}</p>
-                          <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
+                      <div className="flex justify-between items-center w-full">
+                        <div className="flex-1 min-w-0">
+                          <p className="text-white font-medium text-sm leading-tight">{challenge.name}</p>
+                          <p className="text-gray-400 text-xs mt-0.5">{challenge.hashtag}</p>
                         </div>
-                        <span className="text-xs bg-gray-700 text-gray-200 px-2 py-1 rounded-full border border-gray-600">
-                          {challenge.trend}
-                        </span>
+                        <div className="flex-shrink-0 ml-3">
+                          <span className="text-xs bg-gray-700 text-gray-200 px-2 py-1 rounded-full border border-gray-600">
+                            {challenge.trend}
+                          </span>
+                        </div>
                       </div>
                     </Button>
                   ))}
