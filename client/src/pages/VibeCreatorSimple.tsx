@@ -36,6 +36,7 @@ export default function VibeCreatorSimple() {
   const [showMoodSelector, setShowMoodSelector] = useState(false);
   const [showARStickers, setShowARStickers] = useState(false);
   const [showViralChallenge, setShowViralChallenge] = useState(false);
+  const [expandedTool, setExpandedTool] = useState<string | null>(null);
   const { toast } = useToast();
 
   const moods = [
@@ -176,7 +177,7 @@ export default function VibeCreatorSimple() {
 
         {/* Step 1: Input */}
         {step === 1 && (
-          <div className="p-4 space-y-4">
+          <div className="flex-1 p-4 space-y-4 overflow-y-auto">
             <Card className="bg-semi-dark border-gray-700 shadow-lg">
               <CardContent className="p-4">
                 <div className="flex items-center mb-3">
@@ -319,125 +320,101 @@ export default function VibeCreatorSimple() {
                 
                 <div className="grid grid-cols-2 gap-3">
                   <Button
-                    onClick={() => setShowARStickers(true)}
-                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-4 py-3 rounded-xl text-sm"
+                    onClick={() => setExpandedTool(expandedTool === 'ar' ? null : 'ar')}
+                    className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-all ${
+                      expandedTool === 'ar'
+                        ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white'
+                        : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
+                    }`}
                   >
                     <div className="w-4 h-4">📱</div>
                     AR Stickers
                   </Button>
                   
                   <Button
-                    onClick={() => setShowViralChallenge(true)}
-                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white px-4 py-3 rounded-xl text-sm"
+                    onClick={() => setExpandedTool(expandedTool === 'viral' ? null : 'viral')}
+                    className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-all ${
+                      expandedTool === 'viral'
+                        ? 'bg-gradient-to-r from-pink-600 to-purple-600 text-white'
+                        : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
+                    }`}
                   >
                     <div className="w-4 h-4">🔥</div>
                     Viral Challenge
                   </Button>
                 </div>
+
+                {/* AR Stickers Expanded Content */}
+                {expandedTool === 'ar' && (
+                  <div className="mt-4 p-4 bg-gray-800 rounded-xl border border-gray-600 animate-in slide-in-from-top-2 duration-200">
+                    <p className="text-gray-300 text-sm mb-3">Add interactive AR stickers to your photos and videos!</p>
+                    <div className="grid grid-cols-4 gap-2 mb-3">
+                      {['😎', '🔥', '💯', '✨', '🎉', '💖', '🚀', '⚡'].map((emoji, idx) => (
+                        <Button
+                          key={idx}
+                          className="aspect-square bg-gray-700 hover:bg-gray-600 text-lg border border-gray-600"
+                          onClick={() => {
+                            toast({
+                              title: "Sticker Added!",
+                              description: `${emoji} sticker ready to use`,
+                            });
+                          }}
+                        >
+                          {emoji}
+                        </Button>
+                      ))}
+                    </div>
+                    <Button
+                      onClick={() => setExpandedTool(null)}
+                      className="w-full bg-cyan-600 hover:bg-cyan-700 text-white text-sm py-2"
+                    >
+                      Done
+                    </Button>
+                  </div>
+                )}
+
+                {/* Viral Challenge Expanded Content */}
+                {expandedTool === 'viral' && (
+                  <div className="mt-4 p-4 bg-gray-800 rounded-xl border border-gray-600 animate-in slide-in-from-top-2 duration-200">
+                    <p className="text-gray-300 text-sm mb-3">Join trending challenges and create viral content!</p>
+                    <div className="space-y-2 mb-3">
+                      {[
+                        { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥" },
+                        { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨" },
+                        { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯" }
+                      ].map((challenge, idx) => (
+                        <Button
+                          key={idx}
+                          className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-3 h-auto"
+                          onClick={() => {
+                            toast({
+                              title: "Challenge Started!",
+                              description: `${challenge.name} challenge activated`,
+                            });
+                          }}
+                        >
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <p className="text-white text-sm font-medium">{challenge.name}</p>
+                              <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
+                            </div>
+                            <span className="text-lg">
+                              {challenge.trend}
+                            </span>
+                          </div>
+                        </Button>
+                      ))}
+                    </div>
+                    <Button
+                      onClick={() => setExpandedTool(null)}
+                      className="w-full bg-pink-600 hover:bg-pink-700 text-white text-sm py-2"
+                    >
+                      Done
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
-
-            {/* AR Stickers Popup */}
-            {showARStickers && (
-              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                <div className="bg-semi-dark border border-gray-600 rounded-2xl p-6 shadow-2xl max-w-md w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                      <span>📱</span>
-                      AR Stickers
-                    </h3>
-                    <Button
-                      onClick={() => setShowARStickers(false)}
-                      variant="ghost"
-                      className="text-gray-400 hover:text-white p-1 h-auto"
-                    >
-                      ✕
-                    </Button>
-                  </div>
-                  <p className="text-gray-300 mb-4">Add interactive AR stickers to your photos and videos!</p>
-                  <div className="grid grid-cols-3 gap-3 mb-4">
-                    {['😎', '🔥', '💯', '✨', '🎉', '💖'].map((emoji, idx) => (
-                      <Button
-                        key={idx}
-                        className="aspect-square bg-gray-700 hover:bg-gray-600 text-2xl border border-gray-600"
-                        onClick={() => {
-                          toast({
-                            title: "Sticker Added!",
-                            description: `${emoji} sticker ready to use`,
-                          });
-                          setShowARStickers(false);
-                        }}
-                      >
-                        {emoji}
-                      </Button>
-                    ))}
-                  </div>
-                  <Button
-                    onClick={() => setShowARStickers(false)}
-                    className="w-full bg-cyan-600 hover:bg-cyan-700 text-white"
-                  >
-                    Done
-                  </Button>
-                </div>
-              </div>
-            )}
-
-            {/* Viral Challenge Popup */}
-            {showViralChallenge && (
-              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                <div className="bg-semi-dark border border-gray-600 rounded-2xl p-6 shadow-2xl max-w-md w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                      <span>🔥</span>
-                      Viral Challenge
-                    </h3>
-                    <Button
-                      onClick={() => setShowViralChallenge(false)}
-                      variant="ghost"
-                      className="text-gray-400 hover:text-white p-1 h-auto"
-                    >
-                      ✕
-                    </Button>
-                  </div>
-                  <p className="text-gray-300 mb-4">Join trending challenges and create viral content!</p>
-                  <div className="space-y-3 mb-4">
-                    {[
-                      { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥 Trending" },
-                      { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨ Hot" },
-                      { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯 Viral" }
-                    ].map((challenge, idx) => (
-                      <Button
-                        key={idx}
-                        className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-3 h-auto"
-                        onClick={() => {
-                          toast({
-                            title: "Challenge Started!",
-                            description: `${challenge.name} challenge activated`,
-                          });
-                          setShowViralChallenge(false);
-                        }}
-                      >
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <p className="text-white font-medium">{challenge.name}</p>
-                            <p className="text-gray-400 text-sm">{challenge.hashtag}</p>
-                          </div>
-                          <span className="text-xs bg-pink-600 text-white px-2 py-1 rounded-full">
-                            {challenge.trend}
-                          </span>
-                        </div>
-                      </Button>
-                    ))}
-                  </div>
-                  <Button
-                    onClick={() => setShowViralChallenge(false)}
-                    className="w-full bg-pink-600 hover:bg-pink-700 text-white"
-                  >
-                    Done
-                  </Button>
-                </div>
-              </div>
-            )}
           </div>
         )}
 
