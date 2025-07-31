@@ -73,15 +73,14 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-dark-bg text-white">
       <div className="max-w-sm mx-auto">
-        {/* Header with Background - Smaller */}
+        {/* Header Navigation Only */}
         <div className="relative">
-          <div className="h-32 bg-gradient-to-br from-primary via-secondary to-accent-blue relative">
-            <div className="absolute inset-0 bg-black/20"></div>
+          <div className="flex justify-between items-center p-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setLocation("/")}
-              className="absolute top-4 left-4 text-white p-2 z-10"
+              className="text-white p-2"
             >
               <ArrowLeft className="w-4 h-4" />
             </Button>
@@ -90,7 +89,7 @@ export default function Profile() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setLocation("/settings")}
-                className="absolute top-4 right-4 text-white p-2 z-10"
+                className="text-white p-2"
               >
                 <Settings className="w-4 h-4" />
               </Button>
@@ -100,7 +99,7 @@ export default function Profile() {
           {/* Profile Info */}
           <div className="px-6 pb-6">
             {/* Profile Picture and Button Section */}
-            <div className="relative -mt-12 mb-4 h-20">
+            <div className="relative mb-4 h-20">
               {/* Profile Picture - left side */}
               <div className="absolute left-0 bottom-0 w-20 h-20 rounded-full border-4 border-dark-bg overflow-hidden bg-gray-700">
                 {userProfile.profileImageUrl ? (
