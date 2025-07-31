@@ -317,17 +317,25 @@ export default function VibeCreator() {
                     <span className="text-xs">Meme</span>
                   </Button>
                   <Button
-                    variant="outline"
-                    disabled
-                    className="p-3 flex flex-col items-center justify-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden min-h-[80px]"
+                    variant={contentStyle === "video" ? "default" : "outline"}
+                    onClick={() => setContentStyle("video")}
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 ${
+                      contentStyle === "video" 
+                        ? "gradient-bg text-white" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    } max-w-full overflow-hidden min-h-[80px]`}
                   >
                     <Video className="w-6 h-6" />
                     <span className="text-xs">Video</span>
                   </Button>
                   <Button
-                    variant="outline"
-                    disabled
-                    className="p-3 flex flex-col items-center justify-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden min-h-[80px]"
+                    variant={contentStyle === "quote" ? "default" : "outline"}
+                    onClick={() => setContentStyle("quote")}
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 ${
+                      contentStyle === "quote" 
+                        ? "gradient-bg text-white" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    } max-w-full overflow-hidden min-h-[80px]`}
                   >
                     <Quote className="w-6 h-6" />
                     <span className="text-xs">Quote</span>
