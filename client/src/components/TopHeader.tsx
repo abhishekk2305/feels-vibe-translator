@@ -5,21 +5,33 @@ import { useLocation } from "wouter";
 export default function TopHeader() {
   const [, setLocation] = useLocation();
 
+  const handleNotifications = () => {
+    setLocation("/activity");
+  };
+
   return (
-    <div className="flex items-center justify-between p-4 pt-8 bg-semi-dark sticky top-0 z-40">
-      <div className="flex items-center space-x-3">
-        <h1 className="text-2xl font-bold gradient-text font-poppins">feels✨</h1>
+    <div className="flex items-center justify-between px-4 py-3 bg-semi-dark sticky top-0 z-40">
+      <div className="flex items-center">
+        <h1 className="text-xl font-bold gradient-text font-poppins">feels✨</h1>
       </div>
       
-      <div className="flex items-center space-x-4">
-
+      <div className="flex items-center space-x-2">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleNotifications}
+          className="text-white p-2 relative hover:bg-gray-800"
+        >
+          <Bell className="w-4 h-4" />
+          <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary rounded-full"></div>
+        </Button>
         <Button
           variant="ghost"
           size="sm"
           onClick={() => setLocation("/messages")}
-          className="text-white p-2"
+          className="text-white p-2 hover:bg-gray-800"
         >
-          <MessageCircle className="w-5 h-5" />
+          <MessageCircle className="w-4 h-4" />
         </Button>
       </div>
     </div>
