@@ -103,7 +103,7 @@ export default function Profile() {
             {/* Profile Picture and Button Section */}
             <div className="relative mb-4 h-20">
               {/* Profile Picture - left side */}
-              <div className="absolute left-0 bottom-0 w-20 h-20 rounded-full border-4 border-dark-bg overflow-hidden bg-gray-700">
+              <div className="absolute left-0 bottom-0 w-20 h-20 rounded-full border-4 border-dark-bg overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30">
                 {userProfile.profileImageUrl ? (
                   <img 
                     src={userProfile.profileImageUrl} 

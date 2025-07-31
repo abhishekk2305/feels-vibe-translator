@@ -26,7 +26,7 @@ export default function Stories() {
   };
 
   return (
-    <div className="bg-semi-dark px-4 py-3 border-b border-gray-700">
+    <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 backdrop-blur-sm border-b border-purple-400/20 px-4 py-3">
       <div className="flex space-x-3 overflow-x-auto hide-scrollbar pb-2">
         {/* Add Story Button */}
         <div className="flex-shrink-0 text-center">

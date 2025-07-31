@@ -80,7 +80,7 @@ export default function Activity() {
             </div>
           ) : (
             notifications.map((notification) => (
-              <Card key={notification.id} className={`bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-400/20 backdrop-blur-sm ${!notification.isRead ? 'border-l-4 border-l-primary' : ''}`}>
+              <Card key={notification.id} className={`bg-card/80 border-border backdrop-blur-sm ${!notification.isRead ? 'border-l-4 border-l-primary' : ''}`}>
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 flex items-center justify-center">
@@ -91,7 +91,7 @@ export default function Activity() {
                           className="w-full h-full rounded-full object-cover"
                         />
                       ) : (
-                        <span className="text-sm font-medium">
+                        <span className="text-sm font-medium text-foreground">
                           {notification.user.username[0].toUpperCase()}
                         </span>
                       )}
@@ -99,14 +99,14 @@ export default function Activity() {
                     
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2">
-                        <span className="font-medium text-white">
+                        <span className="font-medium text-foreground">
                           {notification.user.username}
                         </span>
-                        <span className="text-gray-400 text-sm">
+                        <span className="text-muted-foreground text-sm">
                           {notification.content}
                         </span>
                       </div>
-                      <p className="text-gray-500 text-xs mt-1">
+                      <p className="text-muted-foreground text-xs mt-1">
                         {notification.time}
                       </p>
                     </div>
