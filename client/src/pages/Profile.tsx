@@ -99,35 +99,37 @@ export default function Profile() {
 
           {/* Profile Info */}
           <div className="px-6 pb-6">
-            <div className="flex items-start -mt-16 mb-4">
-              <div className="w-24 h-24 rounded-full border-4 border-dark-bg overflow-hidden bg-gray-700 flex-shrink-0">
-                {userProfile.profileImageUrl ? (
-                  <img 
-                    src={userProfile.profileImageUrl} 
-                    alt="Profile" 
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-2xl">
-                    {userProfile.firstName?.[0] || userProfile.username?.[0] || "?"}
-                  </div>
-                )}
-              </div>
-              <div className="ml-4 flex-1 mt-8">
-                {isOwnProfile ? (
-                  <Button className="gradient-bg text-white px-6 py-2 rounded-xl font-semibold w-full">
-                    Edit Profile
-                  </Button>
-                ) : (
-                  <div className="flex space-x-2">
-                    <Button className="gradient-bg text-white px-6 py-2 rounded-xl font-semibold flex-1">
-                      Follow
+            <div className="relative -mt-16 mb-4">
+              <div className="flex items-end justify-between">
+                <div className="w-24 h-24 rounded-full border-4 border-dark-bg overflow-hidden bg-gray-700">
+                  {userProfile.profileImageUrl ? (
+                    <img 
+                      src={userProfile.profileImageUrl} 
+                      alt="Profile" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-2xl">
+                      {userProfile.firstName?.[0] || userProfile.username?.[0] || "?"}
+                    </div>
+                  )}
+                </div>
+                <div className="mb-2">
+                  {isOwnProfile ? (
+                    <Button className="gradient-bg text-white px-6 py-2 rounded-xl font-semibold">
+                      Edit Profile
                     </Button>
-                    <Button variant="outline" className="px-4 py-2 rounded-xl">
-                      Message
-                    </Button>
-                  </div>
-                )}
+                  ) : (
+                    <div className="flex space-x-2">
+                      <Button className="gradient-bg text-white px-4 py-2 rounded-xl font-semibold">
+                        Follow
+                      </Button>
+                      <Button variant="outline" className="px-4 py-2 rounded-xl">
+                        Message
+                      </Button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 

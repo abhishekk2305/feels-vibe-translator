@@ -32,12 +32,12 @@ export default function Landing() {
           <div className="w-24 h-24 mx-auto glass-card rounded-full flex items-center justify-center mb-6 animate-pulse-glow">
             <span className="text-4xl">🎭</span>
           </div>
-          <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight text-container">Feels</h1>
+          <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight text-container">feels✨</h1>
           <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold mb-3 animate-bounce">
             ✨ UPDATED - JUL 31
           </div>
-          <p className="text-xl text-white/90 mb-2 font-medium">Transform your vibes into viral content</p>
-          <p className="text-sm text-white/75">AI-powered creativity at your fingertips</p>
+          <p className="text-xl text-white/90 mb-2 font-medium">turn ur vibes into viral content 💫</p>
+          <p className="text-sm text-white/75">AI-powered creativity that just hits different</p>
         </div>
 
         {!showDemo ? (
@@ -46,14 +46,14 @@ export default function Landing() {
               onClick={startDemo}
               className="w-full gradient-bg text-white hover:scale-105 transition-all duration-300 py-4 text-lg font-bold rounded-2xl shadow-2xl animate-pulse-glow"
             >
-              ✨ Experience the Magic
+              ✨ vibe check
             </Button>
             <Button 
               onClick={handleLogin}
               variant="outline"
               className="w-full glass-card border-white/30 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 py-4 text-lg font-semibold rounded-2xl"
             >
-              Sign In & Start Creating
+              let's go ✨
             </Button>
           </div>
         ) : (

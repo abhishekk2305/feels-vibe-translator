@@ -29,15 +29,15 @@ export default function Home() {
                   <span className="text-xl">🎭</span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-white mb-1">What's your vibe today?</h3>
-                  <p className="text-sm text-gray-300">Express your mood, get instant viral content</p>
+                  <h3 className="font-semibold text-white mb-1">what's ur vibe rn? 💭</h3>
+                  <p className="text-sm text-gray-300">express urself, get instant viral content</p>
                 </div>
                 <Button 
                   onClick={handleCreateVibe}
                   size="sm"
                   className="gradient-bg text-white rounded-full px-6 py-2 font-semibold hover:scale-105 transition-transform"
                 >
-                  ✨ Create
+                  ✨ vibe
                 </Button>
               </div>
             </CardContent>
