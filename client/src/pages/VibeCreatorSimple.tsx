@@ -177,7 +177,7 @@ export default function VibeCreatorSimple() {
 
         {/* Step 1: Input */}
         {step === 1 && (
-          <div className="flex-1 p-4 space-y-4 overflow-y-auto">
+          <div className="p-4 space-y-4 max-h-screen overflow-y-auto">
             <Card className="bg-semi-dark border-gray-700 shadow-lg">
               <CardContent className="p-4">
                 <div className="flex items-center mb-3">
@@ -346,71 +346,56 @@ export default function VibeCreatorSimple() {
 
                 {/* AR Stickers Expanded Content */}
                 {expandedTool === 'ar' && (
-                  <div className="mt-4 p-4 bg-gray-800 rounded-xl border border-gray-600 animate-in slide-in-from-top-2 duration-200">
-                    <p className="text-gray-300 text-sm mb-3">Add interactive AR stickers to your photos and videos!</p>
-                    <div className="grid grid-cols-4 gap-2 mb-3">
-                      {['😎', '🔥', '💯', '✨', '🎉', '💖', '🚀', '⚡'].map((emoji, idx) => (
+                  <div className="mt-3 p-3 bg-gray-800 rounded-lg border border-gray-600 animate-in slide-in-from-top-2 duration-200">
+                    <div className="grid grid-cols-6 gap-1.5 mb-2">
+                      {['😎', '🔥', '💯', '✨', '🎉', '💖'].map((emoji, idx) => (
                         <Button
                           key={idx}
-                          className="aspect-square bg-gray-700 hover:bg-gray-600 text-lg border border-gray-600"
+                          className="aspect-square bg-gray-700 hover:bg-gray-600 text-sm border border-gray-600 p-1"
                           onClick={() => {
                             toast({
-                              title: "Sticker Added!",
-                              description: `${emoji} sticker ready to use`,
+                              title: "Added!",
+                              description: `${emoji} sticker ready`,
                             });
+                            setExpandedTool(null);
                           }}
                         >
                           {emoji}
                         </Button>
                       ))}
                     </div>
-                    <Button
-                      onClick={() => setExpandedTool(null)}
-                      className="w-full bg-cyan-600 hover:bg-cyan-700 text-white text-sm py-2"
-                    >
-                      Done
-                    </Button>
                   </div>
                 )}
 
                 {/* Viral Challenge Expanded Content */}
                 {expandedTool === 'viral' && (
-                  <div className="mt-4 p-4 bg-gray-800 rounded-xl border border-gray-600 animate-in slide-in-from-top-2 duration-200">
-                    <p className="text-gray-300 text-sm mb-3">Join trending challenges and create viral content!</p>
-                    <div className="space-y-2 mb-3">
+                  <div className="mt-3 p-3 bg-gray-800 rounded-lg border border-gray-600 animate-in slide-in-from-top-2 duration-200">
+                    <div className="space-y-1.5">
                       {[
-                        { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥" },
-                        { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨" },
-                        { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯" }
+                        { name: "Vibe Check", hashtag: "#VibeCheck2025", trend: "🔥" },
+                        { name: "Mood Flip", hashtag: "#MoodFlip", trend: "✨" }
                       ].map((challenge, idx) => (
                         <Button
                           key={idx}
-                          className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-3 h-auto"
+                          className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-2 h-auto"
                           onClick={() => {
                             toast({
                               title: "Challenge Started!",
-                              description: `${challenge.name} challenge activated`,
+                              description: `${challenge.name} activated`,
                             });
+                            setExpandedTool(null);
                           }}
                         >
                           <div className="flex justify-between items-center">
                             <div>
-                              <p className="text-white text-sm font-medium">{challenge.name}</p>
+                              <p className="text-white text-xs font-medium">{challenge.name}</p>
                               <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
                             </div>
-                            <span className="text-lg">
-                              {challenge.trend}
-                            </span>
+                            <span className="text-sm">{challenge.trend}</span>
                           </div>
                         </Button>
                       ))}
                     </div>
-                    <Button
-                      onClick={() => setExpandedTool(null)}
-                      className="w-full bg-pink-600 hover:bg-pink-700 text-white text-sm py-2"
-                    >
-                      Done
-                    </Button>
                   </div>
                 )}
               </CardContent>
