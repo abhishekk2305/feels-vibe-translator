@@ -22,7 +22,49 @@ interface FeedPost {
 }
 
 export default function Feed() {
-  const { data: posts = [], isLoading, error } = useQuery({
+  // Mock posts for demonstration - in real app this would come from API
+  const mockPosts = [
+    {
+      id: "1",
+      content: "feeling absolutely amazing today! ✨",
+      mediaUrl: "",
+      caption: "AI turned my happiness into this magical moment",
+      detectedEmotion: "joy",
+      mood: "excited",
+      likesCount: 42,
+      commentsCount: 8,
+      isLiked: false,
+      createdAt: "2025-07-31T20:00:00Z",
+      user: {
+        id: "user1",
+        username: "sarah_vibes",
+        firstName: "Sarah",
+        lastName: "Chen",
+        profileImageUrl: ""
+      }
+    },
+    {
+      id: "2", 
+      content: "when the weekend hits different 🚀",
+      mediaUrl: "",
+      caption: "AI created the perfect weekend vibe",
+      detectedEmotion: "excitement",
+      mood: "hyped",
+      likesCount: 67,
+      commentsCount: 12,
+      isLiked: true,
+      createdAt: "2025-07-31T19:30:00Z",
+      user: {
+        id: "user2",
+        username: "mike_creates",
+        firstName: "Mike",
+        lastName: "Johnson", 
+        profileImageUrl: ""
+      }
+    }
+  ];
+
+  const { data: posts = mockPosts, isLoading, error } = useQuery({
     queryKey: ["/api/posts/feed"],
     refetchInterval: 30000, // Refresh feed every 30 seconds
   });
@@ -61,8 +103,8 @@ export default function Feed() {
         }}>
           <span className="text-3xl">🎭</span>
         </div>
-        <h3 className="text-xl font-bold mb-3" style={{ color: 'hsl(262, 83%, 58%)' }}>your feed is empty</h3>
-        <p className="text-base text-center mb-8 max-w-xs leading-relaxed" style={{ color: 'hsl(262, 70%, 85%)' }}>
+        <h3 className="text-xl font-bold mb-3" style={{ color: '#FFFFFF' }}>your feed is empty</h3>
+        <p className="text-base text-center mb-8 max-w-xs leading-relaxed" style={{ color: '#FFFFFF' }}>
           follow other creators or create your first vibe to see content here! ✨
         </p>
         <div className="w-full max-w-xs">
