@@ -51,13 +51,13 @@ export default function Activity() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 bg-semi-dark sticky top-0 z-40">
+        <div className="flex items-center justify-between p-4 bg-card sticky top-0 z-40">
           <div className="flex items-center space-x-3">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setLocation("/")}
-              className="text-white p-2"
+              className="text-foreground p-2"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>

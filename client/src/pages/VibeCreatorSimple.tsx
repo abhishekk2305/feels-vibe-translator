@@ -156,12 +156,12 @@ export default function VibeCreatorSimple() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto overflow-hidden">
         {/* Header */}
-        <div className="relative p-4 pt-8 bg-semi-dark border-b border-gray-700">
+        <div className="relative p-4 pt-8 bg-card border-b border-border">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/")}
-            className="text-white p-2 absolute left-4 top-8 z-10"
+            className="text-foreground p-2 absolute left-4 top-8 z-10"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
@@ -169,14 +169,14 @@ export default function VibeCreatorSimple() {
             <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-1">
               create vibe ✨
             </h1>
-            <p className="text-sm text-gray-400">turn ur feelings into viral content</p>
+            <p className="text-sm text-muted-foreground">turn ur feelings into viral content</p>
           </div>
         </div>
 
         {/* Step 1: Input */}
         {step === 1 && (
           <div className="p-4 space-y-4 max-h-screen overflow-y-auto">
-            <Card className="bg-semi-dark border-gray-700 shadow-lg">
+            <Card className="bg-card border-border shadow-lg">
               <CardContent className="p-4">
                 <div className="flex items-center mb-3">
                   <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">

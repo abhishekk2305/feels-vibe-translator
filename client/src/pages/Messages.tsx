@@ -67,20 +67,20 @@ export default function Messages() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 pt-8 bg-semi-dark">
+        <div className="flex items-center justify-between p-4 pt-8 bg-card">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/")}
-            className="text-white p-2"
+            className="text-foreground p-2"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="text-xl font-semibold">Messages</h1>
+          <h1 className="text-xl font-semibold text-foreground">Messages</h1>
           <Button
             variant="ghost"
             size="sm"
-            className="text-white p-2"
+            className="text-foreground p-2"
           >
             <Edit className="w-5 h-5" />
           </Button>
@@ -94,7 +94,7 @@ export default function Messages() {
               placeholder="Search messages..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-gray-800 border-gray-700 text-white pl-10 rounded-xl"
+              className="bg-input border-border text-foreground pl-10 rounded-xl"
             />
           </div>
         </div>
