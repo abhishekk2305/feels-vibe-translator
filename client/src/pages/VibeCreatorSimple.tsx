@@ -400,6 +400,54 @@ export default function VibeCreatorSimple() {
                 )}
               </CardContent>
             </Card>
+
+            {/* Tips Section to fill empty space */}
+            <Card className="bg-semi-dark border-gray-700 shadow-lg">
+              <CardContent className="p-4">
+                <div className="flex items-center mb-3">
+                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
+                    <div className="w-5 h-5 text-yellow-400">
+                      <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white flex items-center">
+                      Vibe Tips
+                      <span className="ml-2 text-xs">💡</span>
+                    </h3>
+                    <p className="text-sm text-gray-400">get the best AI results</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg border border-gray-600">
+                    <span className="text-green-400 text-lg flex-shrink-0">✨</span>
+                    <div>
+                      <p className="text-white text-sm font-medium">Be specific about emotions</p>
+                      <p className="text-gray-400 text-xs">instead of "sad", try "feeling overwhelmed after a long day"</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg border border-gray-600">
+                    <span className="text-blue-400 text-lg flex-shrink-0">🎯</span>
+                    <div>
+                      <p className="text-white text-sm font-medium">Add context</p>
+                      <p className="text-gray-400 text-xs">mention what happened or where you are for better content</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg border border-gray-600">
+                    <span className="text-purple-400 text-lg flex-shrink-0">🌟</span>
+                    <div>
+                      <p className="text-white text-sm font-medium">Use mood combos</p>
+                      <p className="text-gray-400 text-xs">select multiple moods for unique viral content</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         )}
 
