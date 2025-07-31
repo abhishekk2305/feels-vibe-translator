@@ -11,6 +11,7 @@ import VibeCreator from "@/pages/VibeCreatorSimple";
 import Profile from "@/pages/Profile";
 import Messages from "@/pages/Messages";
 import Settings from "@/pages/Settings";
+import Activity from "@/pages/Activity";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -31,6 +32,7 @@ function Router() {
           <Route path="/profile/:userId?" component={Profile} />
           <Route path="/messages" component={Messages} />
           <Route path="/settings" component={Settings} />
+          <Route path="/activity" component={Activity} />
         </>
       )}
       <Route component={NotFound} />
