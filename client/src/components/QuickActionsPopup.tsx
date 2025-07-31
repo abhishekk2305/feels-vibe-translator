@@ -35,9 +35,9 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
               outline: 'none'
             }}
           >
-            <div className="flex flex-col items-center justify-center h-full">
-              <span className="text-lg mb-0.5">{action.emoji}</span>
-              <span className="text-xs font-medium leading-none text-center">{action.label}</span>
+            <div className="flex flex-col items-center justify-center h-full w-full">
+              <span className="text-base leading-none">{action.emoji}</span>
+              <span className="text-xs font-medium leading-tight text-center mt-1" style={{ fontSize: '10px', lineHeight: '1.1' }}>{action.label}</span>
             </div>
           </button>
         ))}

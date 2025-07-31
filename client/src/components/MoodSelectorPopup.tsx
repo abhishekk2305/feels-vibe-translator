@@ -60,9 +60,9 @@ export default function MoodSelectorPopup({
                 boxShadow: isSelected ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 2px rgba(255, 255, 255, 0.5)' : 'none'
               }}
             >
-              <div className="flex flex-col items-center justify-center h-full">
-                <span className="text-lg mb-0.5">{mood.emoji}</span>
-                <span className="text-xs font-medium leading-none text-center">{mood.label}</span>
+              <div className="flex flex-col items-center justify-center h-full w-full">
+                <span className="text-base leading-none">{mood.emoji}</span>
+                <span className="text-xs font-medium leading-tight text-center mt-1" style={{ fontSize: '10px', lineHeight: '1.1' }}>{mood.label}</span>
               </div>
             </button>
           );

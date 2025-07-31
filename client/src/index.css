@@ -307,8 +307,10 @@ button * {
   height: 64px !important;
   min-width: 64px !important;
   border-radius: 50% !important;
-  padding: 8px !important;
+  padding: 4px !important;
   display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .gradient-border-inner {
