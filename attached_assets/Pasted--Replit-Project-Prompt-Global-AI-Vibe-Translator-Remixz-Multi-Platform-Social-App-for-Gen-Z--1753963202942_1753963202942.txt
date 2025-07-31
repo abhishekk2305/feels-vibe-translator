@@ -1,0 +1,116 @@
+🟢 Replit Project Prompt: Global AI Vibe Translator (Remixz) — Multi-Platform Social App for Gen Z
+⚡️ IMPORTANT OVERVIEW
+I want to build a world-class AI-powered social app for Gen Z — called Remixz — that works as BOTH:
+
+A true mobile app (for Android and iOS, using React Native/Expo or Flutter)
+
+AND a responsive web app (that’s also a PWA if possible, to “install” from a browser)
+
+Everything must look, feel, and function like a modern mobile-first social media platform (think TikTok, Instagram, Snapchat)—but with my unique “vibe→AI meme/video/image” twist!
+
+🔥 CORE FEATURES & USER FLOWS
+Main Features for MVP (Must Work on Both Mobile and Web):
+
+Onboarding: Fun, fluid intro that instantly demonstrates the “vibe translation” effect when the user tells/shows how they feel.
+
+Vibe/Emotion Detection: Users can express a feeling by:
+
+Typing text
+
+Speaking (voice-to-text)
+
+Uploading a selfie/pic
+The app uses AI to detect emotion or “mood” from this input.
+
+AI Meme / Image / Video Generation: Instantly generates a meme, image, or short video matching the mood, using AI models.
+
+Easy Customization: Users can edit the meme (text, stickers, effects), easily on both phone and web.
+
+Sharing: One-tap share to internal feed, chat, and external platforms (WhatsApp, Instagram, etc.) — “viral-first” flow.
+
+Discovery: Scrollable feeds (local, global, trending); comment, like, remix other users’ creations.
+
+Stories (Ephemeral Content): Posts that disappear after 24 hours.
+
+Direct Messaging (DM/Chat): Private chat for sharing memes and reactions.
+
+Short-Form Video Tools: Users can create/upload/consume quick, TikTok-style videos (with edits/effects).
+
+User Profile & Feeds: Each user has a profile, home feed, and can switch between global/local feeds.
+
+Safety & Moderation: All content is AI-moderated for privacy and community guidelines.
+
+Advanced/Future Features (Show me placeholders/comments for these):
+
+Duets, remixes, group mashes
+
+AR/AI filters, live streaming, interest groups/communities
+
+Gamification (badges, streaks), creator monetization, social commerce, analytics
+
+Voice posts, local language adaptation, personalization
+
+🔗 API & INTEGRATION INSTRUCTIONS (You MUST automate these)
+Please use these APIs/tools for each area (choose free/low-cost options):
+Vibe/Emotion detection:
+Use OpenAI or Hugging Face API for text; Whisper or AssemblyAI for voice; OpenAI/Azure for image-emotion if possible.
+
+AI meme/image/video generation:
+Use DALL·E, Stable Diffusion, or Replicate API for media; use Pillow or similar for text overlays.
+
+Voice-to-text:
+Whisper API or AssemblyAI—auto transcribe uploaded voice.
+
+Content moderation:
+OpenAI Moderation or Azure Moderator for text & images; moderate all uploads before display.
+
+Media storage:
+Store on AWS S3, Google Cloud Storage, or Cloudflare R2; deliver via a performant CDN.
+
+External sharing:
+Integrate with platform share APIs, WhatsApp, Telegram, Instagram. Use PWA install prompts for web.
+
+API KEYS
+Always tell me clearly if you need an API key. Show me how to add it securely inside Replit.
+
+📱 TECH STACK & PLATFORMS
+MOBILE APP: Build with React Native + Expo (preferred for easy testing, iOS/Android support), or Flutter if more suitable.
+
+WEB APP: Build in React, Next.js, or similar, fully responsive, PWA enabled if possible.
+
+Show me step-by-step how to preview the app on my phone (Expo Go, QR code, or similar) and web.
+
+Document any settings (API keys etc.) I can manage myself.
+
+👨💻 USER EXPERIENCE
+Build everything for:
+
+Mobile-first, touch-friendly navigation, gestures, and UI
+
+Modern, fun, Gen Z-inspired design and language
+
+Super simple onboarding — show off the “magic” AI in first use
+
+Easy troubleshooting for a non-coder; always explain next steps in plain language
+
+📋 IN CASE OF ERRORS OR MISSING INFO
+Pause and show me a clear, simple error message with instructions.
+
+If any service is unavailable, use the next-best free/popular service and tell me about it.
+
+👑 EXTRAS
+Include placeholders or comments for advanced/future features (e.g., AR, monetization) so we can expand later.
+
+Make it easy for me (a non-coder) to launch, demo, and share the app.
+
+🚀 SUMMARY:
+MOBILE (React Native/Expo or Flutter) + WEB (React/Next.js or PWA)
+
+All features above, all API integrations with key prompts
+
+Focus on viral, Gen Z-centric, creative, and real-time social flows
+
+Simple docs and admin management for a non-developer
+
+If anything needs my input to proceed, pause and prompt me in plain English.
+Thank you! Let’s make the next biggest mobile + web social app—step by step, no coding needed from me!
