@@ -7,9 +7,9 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
 import { ArrowLeft, Sparkles, Zap, Heart, Smile } from "lucide-react";
-import QuickActionsPopup from "@/components/QuickActionsPopup";
 import AnalyzingAnimation from "@/components/AnalyzingAnimation";
 import MoodSelectorPopup from "@/components/MoodSelectorPopup";
+import QuickActionsPopup from "@/components/QuickActionsPopup";
 
 interface VibeResult {
   emotion: string;

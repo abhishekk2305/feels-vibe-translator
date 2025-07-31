@@ -5,16 +5,17 @@ interface QuickActionsPopupProps {
 }
 
 export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupProps) {
-  // Quick vibe starters - different from mood selector!
+  console.log("QuickActionsPopup rendering with unique vibe starters");
+  // VIBE STARTERS - These are different from mood selector!
   const quickActions = [
-    { emoji: "🔥", label: "Hyped", prompt: "feeling so hyped and energetic right now, ready to take on anything!" },
-    { emoji: "😴", label: "Chill", prompt: "just vibing and feeling super chill, no stress just good vibes" },
-    { emoji: "💪", label: "Motivated", prompt: "feeling incredibly motivated and ready to crush my goals today" },
-    { emoji: "🤔", label: "Thoughtful", prompt: "in a really thoughtful mood, contemplating life and deep stuff" },
-    { emoji: "😂", label: "Funny", prompt: "everything seems hilarious today, in such a goofy mood lol" },
-    { emoji: "💖", label: "Grateful", prompt: "feeling so grateful for all the good things in my life right now" },
-    { emoji: "🌟", label: "Creative", prompt: "my creative energy is through the roof, ideas flowing everywhere" },
-    { emoji: "😌", label: "Peaceful", prompt: "feeling so peaceful and zen, everything is in perfect harmony" },
+    { emoji: "🚀", label: "Hyped", prompt: "feeling so hyped and energetic right now, ready to take on anything!" },
+    { emoji: "🌊", label: "Chill", prompt: "just vibing and feeling super chill, no stress just good vibes" },
+    { emoji: "⚡", label: "Motivated", prompt: "feeling incredibly motivated and ready to crush my goals today" },
+    { emoji: "🧠", label: "Thoughtful", prompt: "in a really thoughtful mood, contemplating life and deep stuff" },
+    { emoji: "🎭", label: "Funny", prompt: "everything seems hilarious today, in such a goofy mood lol" },
+    { emoji: "🙏", label: "Grateful", prompt: "feeling so grateful for all the good things in my life right now" },
+    { emoji: "✨", label: "Creative", prompt: "my creative energy is through the roof, ideas flowing everywhere" },
+    { emoji: "🕯️", label: "Peaceful", prompt: "feeling so peaceful and zen, everything is in perfect harmony" },
   ];
 
   return (
@@ -37,7 +38,7 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
       </div>
       
       <p className="text-xs text-gray-400 text-center mt-2">
-        Tap any vibe to get started instantly
+        Tap any vibe starter to get started instantly
       </p>
     </div>
   );
