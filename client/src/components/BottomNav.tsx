@@ -37,12 +37,7 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
       path: "/create",
       isSpecial: true,
     },
-    {
-      id: "activity",
-      label: "Activity",
-      icon: Heart,
-      path: "/activity",
-    },
+
     {
       id: "profile",
       label: "Profile",
