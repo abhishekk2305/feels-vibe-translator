@@ -72,15 +72,17 @@ export default function Messages() {
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/")}
-            className="text-primary p-2"
+            className="p-2"
+            style={{ color: 'hsl(262, 83%, 58%)' }}
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="text-xl font-semibold text-primary">Messages</h1>
+          <h1 className="text-xl font-semibold" style={{ color: 'hsl(262, 83%, 58%)' }}>Messages</h1>
           <Button
             variant="ghost"
             size="sm"
-            className="text-primary p-2"
+            className="p-2"
+            style={{ color: 'hsl(262, 83%, 58%)' }}
           >
             <Edit className="w-5 h-5" />
           </Button>

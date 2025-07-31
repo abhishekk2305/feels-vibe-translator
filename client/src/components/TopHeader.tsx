@@ -12,7 +12,7 @@ export default function TopHeader() {
   return (
     <div className="flex items-center justify-between px-4 py-3 bg-card sticky top-0 z-40">
       <div className="flex items-center">
-        <h1 className="text-xl font-bold text-primary font-poppins">feels✨</h1>
+        <h1 className="text-xl font-bold font-poppins" style={{ color: 'hsl(262, 83%, 58%)' }}>feels✨</h1>
       </div>
       
       <div className="flex items-center space-x-2">
@@ -20,7 +20,8 @@ export default function TopHeader() {
           variant="ghost"
           size="sm"
           onClick={handleNotifications}
-          className="text-primary p-2 relative hover:bg-accent"
+          className="p-2 relative hover:bg-accent"
+          style={{ color: 'hsl(262, 83%, 58%)' }}
         >
           <Bell className="w-4 h-4" />
           <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary rounded-full"></div>
@@ -29,7 +30,8 @@ export default function TopHeader() {
           variant="ghost"
           size="sm"
           onClick={() => setLocation("/messages")}
-          className="text-primary p-2 hover:bg-accent"
+          className="p-2 hover:bg-accent"
+          style={{ color: 'hsl(262, 83%, 58%)' }}
         >
           <MessageCircle className="w-4 h-4" />
         </Button>

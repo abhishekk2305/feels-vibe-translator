@@ -75,9 +75,8 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               key={item.id}
               variant="ghost"
               onClick={() => handleTabClick(item.id, item.path)}
-              className={`flex flex-col items-center space-y-1 p-2 min-w-0 hover:bg-transparent ${
-                isActive ? "text-primary" : "text-primary hover:text-primary"
-              }`}
+              className="flex flex-col items-center space-y-1 p-2 min-w-0 hover:bg-transparent"
+              style={{ color: 'hsl(262, 83%, 58%)' }}
             >
               <Icon className="w-5 h-5" />
               <span className="text-xs font-medium">{item.label}</span>

@@ -161,7 +161,8 @@ export default function VibeCreatorSimple() {
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/")}
-            className="text-primary p-2 absolute left-4 top-8 z-10"
+            className="p-2 absolute left-4 top-8 z-10"
+            style={{ color: 'hsl(262, 83%, 58%)' }}
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>

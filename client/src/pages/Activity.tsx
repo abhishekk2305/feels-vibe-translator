@@ -57,11 +57,12 @@ export default function Activity() {
               variant="ghost"
               size="sm"
               onClick={() => setLocation("/")}
-              className="text-primary p-2"
+              className="p-2"
+              style={{ color: 'hsl(262, 83%, 58%)' }}
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
-            <h1 className="text-xl font-bold text-primary">Activity</h1>
+            <h1 className="text-xl font-bold" style={{ color: 'hsl(262, 83%, 58%)' }}>Activity</h1>
           </div>
         </div>
 
