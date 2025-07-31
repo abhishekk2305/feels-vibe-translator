@@ -130,6 +130,7 @@ Preferred communication style: Simple, everyday language.
 - Casual language throughout: "what's ur vibe rn? 💭", "turn ur vibes into viral content 💫"
 - Button text updated: "vibe check", "let's go ✨", "vibe" instead of formal language
 - Authentic Gen Z energy that resonates with target audience
+- Profile page color theme matching: All text elements use vibrant purple-tinted colors that complement the Edit Profile button's gradient theme for visual consistency
 
 ### Advanced Creative Features
 - **AR Sticker Creator**: Live camera interface with draggable stickers, real-time scaling/rotation, color filters, and high-quality capture
