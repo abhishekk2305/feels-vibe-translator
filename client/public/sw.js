@@ -1,4 +1,4 @@
-const CACHE_NAME = 'remixz-v1';
+const CACHE_NAME = 'feels-v2';
 const urlsToCache = [
   '/',
   '/static/js/bundle.js',
@@ -8,15 +8,26 @@ const urlsToCache = [
 
 // Install Service Worker
 self.addEventListener('install', (event) => {
+  console.log('Service Worker installing - clearing old cache');
+  self.skipWaiting(); // Force activation
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-      .catch((error) => {
-        console.log('Cache install failed:', error);
-      })
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            console.log('Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(() => {
+      return caches.open(CACHE_NAME);
+    }).then((cache) => {
+      console.log('Opened new cache:', CACHE_NAME);
+      return cache.addAll(urlsToCache);
+    }).catch((error) => {
+      console.log('Cache install failed:', error);
+    })
   );
 });
 
@@ -63,20 +74,21 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Activate event - clean up old caches
+// Activate event - clean up old caches and take control immediately
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
-  
+  console.log('Service Worker activating - taking control');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
+          if (cacheName !== CACHE_NAME) {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
+    }).then(() => {
+      return self.clients.claim(); // Take control immediately
     })
   );
 });

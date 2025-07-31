@@ -33,6 +33,9 @@ export default function Landing() {
             <span className="text-4xl">🎭</span>
           </div>
           <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight">Feels</h1>
+          <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold mb-3 animate-bounce">
+            ✨ UPDATED - JUL 31
+          </div>
           <p className="text-xl text-white/90 mb-2 font-medium">Transform your vibes into viral content</p>
           <p className="text-sm text-white/75">AI-powered creativity at your fingertips</p>
         </div>
