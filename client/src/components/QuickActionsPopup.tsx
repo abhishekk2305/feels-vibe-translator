@@ -21,28 +21,20 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
   return (
     <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg">
       {/* Facebook-style horizontal scrolling row */}
-      <div 
-        className="overflow-x-auto overflow-y-hidden scrollbar-hide pb-2"
-        style={{ 
-          scrollBehavior: 'smooth',
-          WebkitOverflowScrolling: 'touch'
-        }}
-      >
-        <div className="flex gap-2" style={{ width: 'max-content' }}>
-          {quickActions.map((action, index) => (
-            <Button
-              key={index}
-              onClick={() => onActionSelect(action.prompt)}
-              className="flex-shrink-0 w-16 h-16 rounded-full p-2 bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
-              variant="ghost"
-            >
-              <div className="flex flex-col items-center justify-center h-full">
-                <span className="text-lg mb-0.5">{action.emoji}</span>
-                <span className="text-xs font-medium leading-none text-center">{action.label}</span>
-              </div>
-            </Button>
-          ))}
-        </div>
+      <div className="horizontal-scroll-container">
+        {quickActions.map((action, index) => (
+          <Button
+            key={index}
+            onClick={() => onActionSelect(action.prompt)}
+            className="horizontal-scroll-item bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
+            variant="ghost"
+          >
+            <div className="flex flex-col items-center justify-center h-full">
+              <span className="text-lg mb-0.5">{action.emoji}</span>
+              <span className="text-xs font-medium leading-none text-center">{action.label}</span>
+            </div>
+          </Button>
+        ))}
       </div>
       
       <p className="text-xs text-gray-400 text-center mt-2">

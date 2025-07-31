@@ -281,16 +281,29 @@ button * {
   animation-delay: 400ms;
 }
 
-/* Hide scrollbar for horizontal scrolling */
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+/* Horizontal scrolling container for Facebook-style reactions */
+.horizontal-scroll-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Safari and Chrome */
-  width: 0;
-  height: 0;
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.horizontal-scroll-item {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  padding: 8px;
 }
 
 .gradient-border-inner {
