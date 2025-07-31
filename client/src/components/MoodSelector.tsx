@@ -63,7 +63,7 @@ export default function MoodSelector({
                 <div className={`text-2xl mb-1 transition-transform duration-300 ${isSelected ? 'scale-110' : ''}`}>
                   {mood.emoji}
                 </div>
-                <p className={`text-xs font-medium ${isSelected ? 'text-white' : 'text-gray-300'} truncate`}>
+                <p className={`text-xs font-medium ${isSelected ? 'text-white' : 'text-gray-100'} truncate`}>
                   {mood.label}
                 </p>
                 

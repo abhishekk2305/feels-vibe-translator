@@ -33,7 +33,7 @@ export default function VibeCreator() {
   const [, setLocation] = useLocation();
   const [inputType, setInputType] = useState<"text" | "voice" | "image">("text");
   const [textInput, setTextInput] = useState("");
-  const [selectedMoods, setSelectedMoods] = useState<string[]>(["happy"]);
+  const [selectedMoods, setSelectedMoods] = useState<string[]>([]);
   const [contentStyle, setContentStyle] = useState("meme");
   const [vibeResult, setVibeResult] = useState<VibeResult | null>(null);
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
@@ -364,31 +364,37 @@ export default function VibeCreator() {
                 <h3 className="font-semibold mb-3 text-white">creative tools ✨</h3>
                 <div className="grid grid-cols-2 gap-3">
                   <Button
-                    onClick={() => setShowARCreator(!showARCreator)}
-                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all ${
+                    onClick={() => {
+                      setShowARCreator(!showARCreator);
+                      setShowChallengeGenerator(false); // Close the other one
+                    }}
+                    className={`p-3 flex flex-col items-center space-y-2 rounded-xl transition-all ${
                       showARCreator 
                         ? "gradient-bg text-white shadow-lg" 
-                        : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+                        : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white border border-gray-600"
                     }`}
                   >
-                    <Sparkles className="w-6 h-6" />
+                    <Sparkles className="w-5 h-5" />
                     <div className="text-center">
-                      <div className="text-xs font-semibold">AR Stickers</div>
-                      <div className="text-xs opacity-80">camera effects</div>
+                      <div className="text-sm font-semibold">AR Stickers</div>
+                      <div className="text-xs opacity-90">camera effects</div>
                     </div>
                   </Button>
                   <Button
-                    onClick={() => setShowChallengeGenerator(!showChallengeGenerator)}
-                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all ${
+                    onClick={() => {
+                      setShowChallengeGenerator(!showChallengeGenerator);
+                      setShowARCreator(false); // Close the other one
+                    }}
+                    className={`p-3 flex flex-col items-center space-y-2 rounded-xl transition-all ${
                       showChallengeGenerator 
                         ? "gradient-bg text-white shadow-lg" 
-                        : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+                        : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white border border-gray-600"
                     }`}
                   >
-                    <TrendingUp className="w-6 h-6" />
+                    <TrendingUp className="w-5 h-5" />
                     <div className="text-center">
-                      <div className="text-xs font-semibold">Viral Challenges</div>
-                      <div className="text-xs opacity-80">trending ideas</div>
+                      <div className="text-sm font-semibold">Viral Challenge Generator</div>
+                      <div className="text-xs opacity-90">trending ideas</div>
                     </div>
                   </Button>
                 </div>
