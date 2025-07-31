@@ -111,7 +111,7 @@ export default function Profile() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-xl">
+                  <div className="w-full h-full flex items-center justify-center text-xl text-foreground">
                     {userProfile.firstName?.[0] || userProfile.username?.[0] || "?"}
                   </div>
                 )}
@@ -152,15 +152,15 @@ export default function Profile() {
             {/* Stats */}
             <div className="flex items-center space-x-6 mb-6">
               <div className="text-center">
-                <div className="text-xl font-bold">{userProfile.stats.posts}</div>
+                <div className="text-xl font-bold text-foreground">{userProfile.stats.posts}</div>
                 <div className="text-xs text-muted-foreground">Posts</div>
               </div>
               <div className="text-center">
-                <div className="text-xl font-bold">{userProfile.stats.followers}</div>
+                <div className="text-xl font-bold text-foreground">{userProfile.stats.followers}</div>
                 <div className="text-xs text-muted-foreground">Followers</div>
               </div>
               <div className="text-center">
-                <div className="text-xl font-bold">{userProfile.stats.following}</div>
+                <div className="text-xl font-bold text-foreground">{userProfile.stats.following}</div>
                 <div className="text-xs text-muted-foreground">Following</div>
               </div>
               <div className="text-center">
