@@ -19,7 +19,9 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-6 bg-background relative overflow-hidden">
+    <div className="min-h-screen flex flex-col justify-center items-center p-6 relative overflow-hidden" style={{
+      background: 'linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 50%, hsl(214, 95%, 61%) 100%)'
+    }}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl animate-float"></div>
@@ -51,7 +53,8 @@ export default function Landing() {
             <Button 
               onClick={handleLogin}
               variant="outline"
-              className="w-full glass-card border-white/30 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 py-4 text-lg font-semibold rounded-2xl"
+              className="w-full border-2 border-white/50 bg-white/20 backdrop-blur-sm hover:bg-white/30 hover:scale-105 transition-all duration-300 py-4 text-lg font-semibold rounded-2xl"
+              style={{ color: 'white' }}
             >
               let's go ✨
             </Button>
