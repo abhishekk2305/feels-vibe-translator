@@ -22,20 +22,22 @@ export default function Home() {
         
         {/* Vibe Creator Prompt */}
         <div className="p-4">
-          <Card className="bg-gradient-to-r from-primary/20 to-secondary/20 border-primary/30">
+          <Card className="glass-card bg-gradient-to-r from-primary/20 to-secondary/20 border-primary/30 hover:scale-[1.02] transition-transform duration-300">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <span className="text-2xl">🎭</span>
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center animate-pulse-glow">
+                  <span className="text-xl">🎭</span>
+                </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-white">Create Your Vibe</h3>
-                  <p className="text-sm text-gray-300">Turn your mood into viral content</p>
+                  <h3 className="font-semibold text-white mb-1">What's your vibe today?</h3>
+                  <p className="text-sm text-gray-300">Express your mood, get instant viral content</p>
                 </div>
                 <Button 
                   onClick={handleCreateVibe}
                   size="sm"
-                  className="gradient-bg text-white rounded-full px-6"
+                  className="gradient-bg text-white rounded-full px-6 py-2 font-semibold hover:scale-105 transition-transform"
                 >
-                  Create
+                  ✨ Create
                 </Button>
               </div>
             </CardContent>

@@ -7,7 +7,11 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
-import { ArrowLeft, Camera, Mic, Keyboard, Image, Video, Quote } from "lucide-react";
+import { ArrowLeft, Camera, Mic, Keyboard, Image, Video, Quote, Sparkles, Zap } from "lucide-react";
+import MoodSelector from "@/components/MoodSelector";
+import VoiceRecorder from "@/components/VoiceRecorder";
+import AnalyzingAnimation from "@/components/AnalyzingAnimation";
+import QuickActions from "@/components/QuickActions";
 
 interface VibeResult {
   emotion: string;
@@ -31,16 +35,19 @@ export default function VibeCreator() {
   const [vibeResult, setVibeResult] = useState<VibeResult | null>(null);
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
   const [step, setStep] = useState(1); // 1: input, 2: analysis, 3: result
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   const moods = [
-    { id: "happy", emoji: "😊", label: "Happy" },
-    { id: "chill", emoji: "😴", label: "Chill" },
-    { id: "excited", emoji: "🔥", label: "Excited" },
-    { id: "motivated", emoji: "💪", label: "Motivated" },
-    { id: "thoughtful", emoji: "🤔", label: "Thoughtful" },
-    { id: "funny", emoji: "😂", label: "Funny" },
+    { id: "happy", emoji: "😊", label: "Happy", color: "from-yellow-400 to-orange-400" },
+    { id: "chill", emoji: "😴", label: "Chill", color: "from-blue-400 to-cyan-400" },
+    { id: "excited", emoji: "🔥", label: "Excited", color: "from-red-400 to-pink-400" },
+    { id: "motivated", emoji: "💪", label: "Motivated", color: "from-green-400 to-emerald-400" },
+    { id: "thoughtful", emoji: "🤔", label: "Thoughtful", color: "from-purple-400 to-indigo-400" },
+    { id: "funny", emoji: "😂", label: "Funny", color: "from-pink-400 to-rose-400" },
+    { id: "sad", emoji: "😢", label: "Sad", color: "from-gray-400 to-slate-400" },
+    { id: "angry", emoji: "😠", label: "Angry", color: "from-red-500 to-orange-500" },
   ];
 
   const analyzeTextMutation = useMutation({
@@ -50,7 +57,11 @@ export default function VibeCreator() {
     },
     onSuccess: (data) => {
       setVibeResult(data);
-      setStep(2);
+      setIsAnalyzing(true);
+      setTimeout(() => {
+        setIsAnalyzing(false);
+        setStep(2);
+      }, 2000); // Add dramatic pause for analysis
     },
     onError: (error) => {
       toast({
@@ -221,6 +232,13 @@ export default function VibeCreator() {
               </CardContent>
             </Card>
 
+            {/* Quick Actions for text input */}
+            {inputType === "text" && !textInput && (
+              <QuickActions 
+                onActionSelect={(prompt) => setTextInput(prompt)}
+              />
+            )}
+
             {/* Input Method Selection */}
             <Card className="bg-semi-dark border-gray-700">
               <CardContent className="p-4">
@@ -239,9 +257,13 @@ export default function VibeCreator() {
                     <span className="text-sm">Type</span>
                   </Button>
                   <Button
-                    variant="outline"
-                    disabled
-                    className="p-4 flex flex-col items-center space-y-2 bg-gray-800 text-gray-500 cursor-not-allowed"
+                    variant={inputType === "voice" ? "default" : "outline"}
+                    onClick={() => setInputType("voice")}
+                    className={`p-4 flex flex-col items-center space-y-2 ${
+                      inputType === "voice" 
+                        ? "gradient-bg text-white" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    }`}
                   >
                     <Mic className="w-6 h-6" />
                     <span className="text-sm">Voice</span>
@@ -309,28 +331,27 @@ export default function VibeCreator() {
               </CardContent>
             </Card>
 
-            {/* Mood Selection */}
-            <Card className="bg-semi-dark border-gray-700">
-              <CardContent className="p-4">
-                <h3 className="font-semibold mb-3 text-white">Mood Selector</h3>
-                <div className="flex flex-wrap gap-2">
-                  {moods.map((mood) => (
-                    <Button
-                      key={mood.id}
-                      variant={selectedMoods.includes(mood.id) ? "default" : "outline"}
-                      onClick={() => toggleMood(mood.id)}
-                      className={`rounded-full text-sm ${
-                        selectedMoods.includes(mood.id)
-                          ? "bg-primary text-white"
-                          : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                      }`}
-                    >
-                      {mood.emoji} {mood.label}
-                    </Button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            {/* Enhanced Mood Selection */}
+            <MoodSelector
+              moods={moods}
+              selectedMoods={selectedMoods}
+              onMoodChange={setSelectedMoods}
+              maxSelection={3}
+            />
+
+            {/* Voice Recording Interface */}
+            {inputType === "voice" && (
+              <VoiceRecorder 
+                onRecordingComplete={(blob) => {
+                  console.log("Voice recorded:", blob);
+                  toast({
+                    title: "Voice Recorded!",
+                    description: "Your audio is ready for analysis",
+                  });
+                }}
+                maxDuration={30}
+              />
+            )}
 
             {/* Generate Button */}
             <Button
@@ -353,8 +374,15 @@ export default function VibeCreator() {
           </div>
         )}
 
+        {/* Analyzing Animation */}
+        {isAnalyzing && (
+          <div className="p-4">
+            <AnalyzingAnimation message="AI is analyzing your vibe..." />
+          </div>
+        )}
+
         {/* Step 2: Analysis Results */}
-        {step === 2 && vibeResult && (
+        {step === 2 && vibeResult && !isAnalyzing && (
           <div className="p-4 space-y-6">
             <Card className="bg-semi-dark border-gray-700">
               <CardContent className="p-6">
