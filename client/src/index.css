@@ -6,9 +6,9 @@
 
 :root {
   --background: hsl(0, 0%, 98%);
-  --foreground: hsl(240, 21%, 15%);
+  --foreground: hsl(260, 30%, 25%);
   --muted: hsl(220, 13%, 95%);
-  --muted-foreground: hsl(220, 8.9%, 46.1%);
+  --muted-foreground: hsl(260, 20%, 55%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(240, 21%, 15%);
   --card: hsl(0, 0%, 100%);
@@ -43,9 +43,9 @@
 
 .dark {
   --background: hsl(240, 21%, 9%);
-  --foreground: hsl(0, 0%, 98%);
+  --foreground: hsl(260, 15%, 85%);
   --muted: hsl(237, 22%, 15%);
-  --muted-foreground: hsl(215, 16%, 47%);
+  --muted-foreground: hsl(260, 10%, 60%);
   --popover: hsl(240, 21%, 9%);
   --popover-foreground: hsl(0, 0%, 98%);
   --card: hsl(237, 22%, 15%);
