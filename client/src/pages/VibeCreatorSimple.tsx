@@ -153,7 +153,7 @@ export default function VibeCreatorSimple() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto overflow-hidden">
         {/* Header */}
         <div className="relative p-4 pt-8 bg-semi-dark border-b border-gray-700">

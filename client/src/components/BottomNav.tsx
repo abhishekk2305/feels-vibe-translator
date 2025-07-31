@@ -52,7 +52,7 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
   ];
 
   return (
-    <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm bg-semi-dark border-t border-gray-700 z-50">
+    <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm bg-card border-t border-border z-50">
       <div className="flex items-center justify-around py-3">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -76,7 +76,7 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               variant="ghost"
               onClick={() => handleTabClick(item.id, item.path)}
               className={`flex flex-col items-center space-y-1 p-2 min-w-0 hover:bg-transparent ${
-                isActive ? "text-primary" : "text-gray-400 hover:text-white"
+                isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <Icon className="w-5 h-5" />

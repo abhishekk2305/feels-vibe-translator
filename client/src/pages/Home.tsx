@@ -8,7 +8,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto relative">
         <TopHeader />
         <Stories />

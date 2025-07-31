@@ -10,7 +10,7 @@ export default function TopHeader() {
   };
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 bg-semi-dark sticky top-0 z-40">
+    <div className="flex items-center justify-between px-4 py-3 bg-card sticky top-0 z-40">
       <div className="flex items-center">
         <h1 className="text-xl font-bold gradient-text font-poppins">feels✨</h1>
       </div>
@@ -20,7 +20,7 @@ export default function TopHeader() {
           variant="ghost"
           size="sm"
           onClick={handleNotifications}
-          className="text-white p-2 relative hover:bg-gray-800"
+          className="text-foreground p-2 relative hover:bg-accent"
         >
           <Bell className="w-4 h-4" />
           <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary rounded-full"></div>
@@ -29,7 +29,7 @@ export default function TopHeader() {
           variant="ghost"
           size="sm"
           onClick={() => setLocation("/messages")}
-          className="text-white p-2 hover:bg-gray-800"
+          className="text-foreground p-2 hover:bg-accent"
         >
           <MessageCircle className="w-4 h-4" />
         </Button>

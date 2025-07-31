@@ -64,7 +64,7 @@ export default function Messages() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-4 pt-8 bg-semi-dark">
