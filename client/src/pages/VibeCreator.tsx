@@ -372,16 +372,16 @@ export default function VibeCreator() {
                         setShowChallengeGenerator(false); // Close the other one
                       }
                     }}
-                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all min-h-[80px] ${
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 rounded-xl transition-all min-h-[90px] ${
                       showARCreator 
                         ? "gradient-bg text-white shadow-lg" 
                         : "bg-gray-700 text-gray-100 hover:bg-gray-600 hover:text-white border border-gray-600"
                     }`}
                   >
-                    <Sparkles className="w-6 h-6" />
-                    <div className="text-center">
-                      <div className="text-sm font-bold">AR Stickers</div>
-                      <div className="text-xs opacity-90">camera effects</div>
+                    <Sparkles className="w-5 h-5 flex-shrink-0" />
+                    <div className="text-center w-full">
+                      <div className="text-xs font-bold leading-tight">AR Stickers</div>
+                      <div className="text-xs opacity-80 leading-tight">camera effects</div>
                     </div>
                   </Button>
                   <Button
@@ -393,16 +393,16 @@ export default function VibeCreator() {
                         setShowARCreator(false); // Close the other one
                       }
                     }}
-                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all min-h-[80px] ${
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 rounded-xl transition-all min-h-[90px] ${
                       showChallengeGenerator 
                         ? "gradient-bg text-white shadow-lg" 
                         : "bg-gray-700 text-gray-100 hover:bg-gray-600 hover:text-white border border-gray-600"
                     }`}
                   >
-                    <TrendingUp className="w-6 h-6" />
-                    <div className="text-center">
-                      <div className="text-sm font-bold">Viral Challenge</div>
-                      <div className="text-xs opacity-90">trending ideas</div>
+                    <TrendingUp className="w-5 h-5 flex-shrink-0" />
+                    <div className="text-center w-full">
+                      <div className="text-xs font-bold leading-tight">Viral Challenge</div>
+                      <div className="text-xs opacity-80 leading-tight">trending ideas</div>
                     </div>
                   </Button>
                 </div>
