@@ -37,9 +37,9 @@ export default function MoodSelectorPopup({
   };
 
   return (
-    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg max-w-full">
+    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg w-full">
       {/* Facebook-style horizontal scrolling row */}
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
+      <div className="flex gap-2 overflow-x-scroll pb-2 scrollbar-hide min-w-0" style={{ scrollBehavior: 'smooth', width: '100%' }}>
         {moods.map((mood) => {
           const isSelected = selectedMoods.includes(mood.id);
           return (

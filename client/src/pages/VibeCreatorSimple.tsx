@@ -259,7 +259,7 @@ export default function VibeCreatorSimple() {
 
             {/* Quick Actions Popup */}
             {showQuickActions && (
-              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 overflow-hidden">
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 w-full">
                 <QuickActionsPopup 
                   onActionSelect={(prompt) => {
                     setTextInput(prompt);
@@ -271,7 +271,7 @@ export default function VibeCreatorSimple() {
 
             {/* Mood Selector Popup */}
             {showMoodSelector && (
-              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 overflow-hidden">
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 w-full">
                 <MoodSelectorPopup
                   moods={moods}
                   selectedMoods={selectedMoods}
