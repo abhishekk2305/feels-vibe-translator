@@ -27,6 +27,7 @@ function Router() {
         <>
           <Route path="/" component={Home} />
           <Route path="/create" component={VibeCreator} />
+          <Route path="/vibe-creator" component={VibeCreator} />
           <Route path="/profile/:userId?" component={Profile} />
           <Route path="/messages" component={Messages} />
           <Route path="/settings" component={Settings} />
