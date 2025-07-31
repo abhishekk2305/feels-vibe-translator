@@ -34,9 +34,7 @@ export default function VibeCreatorSimple() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [showQuickActions, setShowQuickActions] = useState(false);
   const [showMoodSelector, setShowMoodSelector] = useState(false);
-  const [showARStickers, setShowARStickers] = useState(false);
   const [showViralChallenge, setShowViralChallenge] = useState(false);
-  const [expandedTool, setExpandedTool] = useState<string | null>(null);
   const { toast } = useToast();
 
   const moods = [
@@ -298,156 +296,59 @@ export default function VibeCreatorSimple() {
               Analyze My Vibe
             </Button>
 
-            {/* Creative Tools Section */}
-            <Card className="bg-semi-dark border-gray-700 shadow-lg">
-              <CardContent className="p-4">
-                <div className="flex items-center mb-3">
-                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
-                    <div className="w-5 h-5 text-cyan-400">
-                      <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white flex items-center">
-                      Creative Tools
-                      <span className="ml-2 text-xs">🎨</span>
-                    </h3>
-                    <p className="text-sm text-gray-400">AR stickers & viral challenges</p>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-3">
-                  <Button
-                    onClick={() => setExpandedTool(expandedTool === 'ar' ? null : 'ar')}
-                    className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-all ${
-                      expandedTool === 'ar'
-                        ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white'
-                        : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
-                    }`}
-                  >
-                    <div className="w-4 h-4">📱</div>
-                    AR Stickers
-                  </Button>
-                  
-                  <Button
-                    onClick={() => setExpandedTool(expandedTool === 'viral' ? null : 'viral')}
-                    className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm transition-all ${
-                      expandedTool === 'viral'
-                        ? 'bg-gradient-to-r from-pink-600 to-purple-600 text-white'
-                        : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
-                    }`}
-                  >
-                    <div className="w-4 h-4">🔥</div>
-                    Viral Challenge
-                  </Button>
-                </div>
+            {/* Viral Challenge Section */}
+            <Button
+              onClick={() => setShowViralChallenge(!showViralChallenge)}
+              variant="outline"
+              className={`w-full p-4 rounded-xl transition-all mb-4 ${
+                showViralChallenge 
+                  ? "gradient-bg text-white border-transparent" 
+                  : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-lg">🔥</span>
+                <span className="font-semibold">Viral Challenge</span>
+              </div>
+            </Button>
 
-                {/* AR Stickers Expanded Content */}
-                {expandedTool === 'ar' && (
-                  <div className="mt-3 p-3 bg-gray-800 rounded-lg border border-gray-600 animate-in slide-in-from-top-2 duration-200">
-                    <div className="grid grid-cols-6 gap-1.5 mb-2">
-                      {['😎', '🔥', '💯', '✨', '🎉', '💖'].map((emoji, idx) => (
-                        <Button
-                          key={idx}
-                          className="aspect-square bg-gray-700 hover:bg-gray-600 text-sm border border-gray-600 p-1"
-                          onClick={() => {
-                            toast({
-                              title: "Added!",
-                              description: `${emoji} sticker ready`,
-                            });
-                            setExpandedTool(null);
-                          }}
-                        >
-                          {emoji}
-                        </Button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Viral Challenge Expanded Content */}
-                {expandedTool === 'viral' && (
-                  <div className="mt-3 p-3 bg-gray-800 rounded-lg border border-gray-600 animate-in slide-in-from-top-2 duration-200">
-                    <div className="space-y-1.5">
-                      {[
-                        { name: "Vibe Check", hashtag: "#VibeCheck2025", trend: "🔥" },
-                        { name: "Mood Flip", hashtag: "#MoodFlip", trend: "✨" }
-                      ].map((challenge, idx) => (
-                        <Button
-                          key={idx}
-                          className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-2 h-auto"
-                          onClick={() => {
-                            toast({
-                              title: "Challenge Started!",
-                              description: `${challenge.name} activated`,
-                            });
-                            setExpandedTool(null);
-                          }}
-                        >
-                          <div className="flex justify-between items-center">
-                            <div>
-                              <p className="text-white text-xs font-medium">{challenge.name}</p>
-                              <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
-                            </div>
-                            <span className="text-sm">{challenge.trend}</span>
+            {/* Viral Challenge Expanded Content */}
+            {showViralChallenge && (
+              <Card className="bg-semi-dark border-gray-700 shadow-lg mb-4 animate-in slide-in-from-top-2 duration-200">
+                <CardContent className="p-4">
+                  <p className="text-gray-300 text-sm mb-3">Join trending challenges and create viral content!</p>
+                  <div className="space-y-2">
+                    {[
+                      { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥 Trending" },
+                      { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨ Hot" },
+                      { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯 Viral" }
+                    ].map((challenge, idx) => (
+                      <Button
+                        key={idx}
+                        className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-3 h-auto"
+                        onClick={() => {
+                          toast({
+                            title: "Challenge Started!",
+                            description: `${challenge.name} challenge activated`,
+                          });
+                          setShowViralChallenge(false);
+                        }}
+                      >
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <p className="text-white text-sm font-medium">{challenge.name}</p>
+                            <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
                           </div>
-                        </Button>
-                      ))}
-                    </div>
+                          <span className="text-xs bg-pink-600 text-white px-2 py-1 rounded-full">
+                            {challenge.trend}
+                          </span>
+                        </div>
+                      </Button>
+                    ))}
                   </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* Tips Section to fill empty space */}
-            <Card className="bg-semi-dark border-gray-700 shadow-lg">
-              <CardContent className="p-4">
-                <div className="flex items-center mb-3">
-                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
-                    <div className="w-5 h-5 text-yellow-400">
-                      <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white flex items-center">
-                      Vibe Tips
-                      <span className="ml-2 text-xs">💡</span>
-                    </h3>
-                    <p className="text-sm text-gray-400">get the best AI results</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg border border-gray-600">
-                    <span className="text-green-400 text-lg flex-shrink-0">✨</span>
-                    <div>
-                      <p className="text-white text-sm font-medium">Be specific about emotions</p>
-                      <p className="text-gray-400 text-xs">instead of "sad", try "feeling overwhelmed after a long day"</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg border border-gray-600">
-                    <span className="text-blue-400 text-lg flex-shrink-0">🎯</span>
-                    <div>
-                      <p className="text-white text-sm font-medium">Add context</p>
-                      <p className="text-gray-400 text-xs">mention what happened or where you are for better content</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg border border-gray-600">
-                    <span className="text-purple-400 text-lg flex-shrink-0">🌟</span>
-                    <div>
-                      <p className="text-white text-sm font-medium">Use mood combos</p>
-                      <p className="text-gray-400 text-xs">select multiple moods for unique viral content</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            )}
           </div>
         )}
 
