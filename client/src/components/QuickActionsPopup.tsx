@@ -31,13 +31,19 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
           <button
             key={index}
             onClick={() => onActionSelect(action.prompt)}
-            className="horizontal-scroll-item bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
+            className="horizontal-scroll-item transition-all duration-200 transform hover:scale-110"
             style={{ 
               border: 'none',
               background: 'hsl(262, 30%, 25%)',
               color: 'hsl(262, 70%, 85%)',
               cursor: 'pointer',
               outline: 'none'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'hsl(262, 35%, 30%)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'hsl(262, 30%, 25%)';
             }}
           >
             <div className="flex flex-col items-center justify-center h-full w-full">

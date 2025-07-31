@@ -206,6 +206,33 @@
   box-sizing: border-box !important;
 }
 
+/* Horizontal scroll items - Purple theme */
+.horizontal-scroll-item {
+  min-width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(262, 30%, 25%) !important;
+  color: hsl(262, 70%, 85%) !important;
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 4px 0;
+  gap: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
 /* Grid and flex containers */
 .grid, .flex {
   max-width: 100% !important;

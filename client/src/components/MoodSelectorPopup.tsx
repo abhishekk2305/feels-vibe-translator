@@ -51,9 +51,7 @@ export default function MoodSelectorPopup({
             <button
               key={mood.id}
               onClick={() => handleMoodClick(mood.id)}
-              className={`
-                horizontal-scroll-item transition-all duration-200 transform hover:scale-110
-              `}
+              className="horizontal-scroll-item transition-all duration-200 transform hover:scale-110"
               style={{
                 border: 'none',
                 background: isSelected 
@@ -63,6 +61,16 @@ export default function MoodSelectorPopup({
                 cursor: 'pointer',
                 outline: 'none',
                 boxShadow: isSelected ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 2px rgba(255, 255, 255, 0.5)' : 'none'
+              }}
+              onMouseEnter={(e) => {
+                if (!isSelected) {
+                  e.currentTarget.style.background = 'hsl(262, 35%, 30%)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isSelected) {
+                  e.currentTarget.style.background = 'hsl(262, 30%, 25%)';
+                }
               }}
             >
               <div className="flex flex-col items-center justify-center h-full w-full">
