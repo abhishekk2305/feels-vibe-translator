@@ -7,7 +7,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
-import { ArrowLeft, Camera, Mic, Keyboard, Image, Video, Quote, Sparkles, Zap, TrendingUp } from "lucide-react";
+import { ArrowLeft, Camera, Mic, Keyboard, Image, Video, Quote, Sparkles, Zap, TrendingUp, Share2, ExternalLink } from "lucide-react";
+import { SiWhatsapp, SiInstagram } from "react-icons/si";
 import MoodSelector from "@/components/MoodSelector";
 import VoiceRecorder from "@/components/VoiceRecorder";
 import AnalyzingAnimation from "@/components/AnalyzingAnimation";
@@ -364,25 +365,31 @@ export default function VibeCreator() {
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     onClick={() => setShowARCreator(!showARCreator)}
-                    className={`p-4 flex flex-col items-center space-y-2 ${
+                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all ${
                       showARCreator 
-                        ? "gradient-bg text-white" 
-                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                        ? "gradient-bg text-white shadow-lg" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
                     }`}
                   >
                     <Sparkles className="w-6 h-6" />
-                    <span className="text-xs">AR Stickers</span>
+                    <div className="text-center">
+                      <div className="text-xs font-semibold">AR Stickers</div>
+                      <div className="text-xs opacity-80">camera effects</div>
+                    </div>
                   </Button>
                   <Button
                     onClick={() => setShowChallengeGenerator(!showChallengeGenerator)}
-                    className={`p-4 flex flex-col items-center space-y-2 ${
+                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all ${
                       showChallengeGenerator 
-                        ? "gradient-bg text-white" 
-                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                        ? "gradient-bg text-white shadow-lg" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
                     }`}
                   >
                     <TrendingUp className="w-6 h-6" />
-                    <span className="text-xs">Viral Challenges</span>
+                    <div className="text-center">
+                      <div className="text-xs font-semibold">Viral Challenges</div>
+                      <div className="text-xs opacity-80">trending ideas</div>
+                    </div>
                   </Button>
                 </div>
               </CardContent>
@@ -505,16 +512,31 @@ export default function VibeCreator() {
           <div className="p-4 space-y-6">
             <Card className="bg-semi-dark border-gray-700">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-4">Your AI Creation!</h3>
+                <h3 className="text-xl font-semibold text-white mb-4 text-center">ur vibe is ready! ✨</h3>
                 
-                <div className="relative rounded-xl overflow-hidden mb-4">
+                <div className="relative rounded-xl overflow-hidden mb-4 shadow-2xl">
                   <img 
                     src={memeResult.imageUrl} 
                     alt="Generated content" 
                     className="w-full aspect-square object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white font-bold text-center">{memeResult.caption}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+                  
+                  {/* Enhanced Caption Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <p className="text-white font-bold text-lg text-center leading-tight">
+                        {memeResult.caption}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* AI Badge */}
+                  <div className="absolute top-4 right-4">
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full text-white text-xs font-semibold flex items-center space-x-1">
+                      <Sparkles className="w-3 h-3" />
+                      <span>AI Generated</span>
+                    </div>
                   </div>
                 </div>
 
@@ -522,32 +544,77 @@ export default function VibeCreator() {
                   <Button
                     onClick={handlePost}
                     disabled={createPostMutation.isPending}
-                    className="w-full gradient-bg text-white py-3 rounded-xl font-semibold"
+                    className="w-full gradient-bg text-white py-4 rounded-xl font-semibold text-lg"
                   >
                     {createPostMutation.isPending ? (
                       <>
                         <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                        Posting...
+                        posting to feed...
                       </>
                     ) : (
-                      "Share to Feed 🚀"
+                      <>
+                        <Share2 className="w-5 h-5 mr-2" />
+                        share to feels feed
+                      </>
                     )}
                   </Button>
                   
                   <div className="grid grid-cols-2 gap-3">
                     <Button
+                      onClick={() => {
+                        const shareText = `Check out my AI vibe: ${memeResult.caption}`;
+                        const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+                        window.open(shareUrl, '_blank');
+                      }}
                       variant="outline"
-                      className="bg-green-600 hover:bg-green-700 text-white border-green-600"
+                      className="bg-green-500 hover:bg-green-600 text-white border-green-500 flex items-center justify-center"
                     >
+                      <SiWhatsapp className="w-4 h-4 mr-2" />
                       WhatsApp
                     </Button>
                     <Button
+                      onClick={() => {
+                        navigator.clipboard.writeText(`Check out my AI vibe: ${memeResult.caption}`);
+                        toast({
+                          title: "Copied!",
+                          description: "paste this in ur instagram story",
+                        });
+                      }}
                       variant="outline"
-                      className="bg-pink-600 hover:bg-pink-700 text-white border-pink-600"
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-purple-500 flex items-center justify-center"
                     >
+                      <SiInstagram className="w-4 h-4 mr-2" />
                       Instagram
                     </Button>
                   </div>
+
+                  {/* Download Button */}
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = memeResult.imageUrl;
+                      link.download = 'my-vibe.png';
+                      link.click();
+                    }}
+                    className="w-full bg-gray-800 hover:bg-gray-700 border-gray-600 text-white py-3 rounded-xl"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    download image
+                  </Button>
+
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      setStep(1);
+                      setVibeResult(null);
+                      setMemeResult(null);
+                      setTextInput("");
+                    }}
+                    className="w-full text-gray-400 hover:text-white py-3"
+                  >
+                    create another vibe ✨
+                  </Button>
                 </div>
               </CardContent>
             </Card>

@@ -124,12 +124,14 @@ export class OpenAIService {
         messages: [
           {
             role: "system",
-            content: `You are a Gen Z meme creator. Create a funny, relatable meme concept based on the user's emotion and text. The meme should be:
-            - Trendy and Gen Z appropriate
-            - Funny and shareable
-            - Relatable to the emotion/mood
-            - Safe for social media
-            Return JSON with 'imagePrompt' (for DALL-E) and 'caption' (meme text overlay)`,
+            content: `You are a professional viral content creator specializing in high-quality social media visuals. Create engaging, shareable content based on the user's emotion and text. The content should be:
+            - Premium quality and Instagram-worthy
+            - Authentic and relatable to Gen Z
+            - Emotionally resonant and shareable
+            - Motivational or inspirational when appropriate
+            - Safe for all social media platforms
+            - Professional yet trendy aesthetic
+            Return JSON with 'imagePrompt' (detailed description for high-quality DALL-E image) and 'caption' (engaging social media caption with emojis and hashtags)`,
           },
           {
             role: "user",
@@ -141,13 +143,25 @@ export class OpenAIService {
 
       const memeContent = JSON.parse(promptResponse.choices[0].message.content || "{}");
       
-      // Generate the actual image
+      // Generate the actual image with enhanced quality
+      const enhancedPrompt = `Create a high-quality, professional social media image: ${memeContent.imagePrompt}. 
+
+Style requirements:
+- Premium digital art quality, HD resolution
+- Instagram-worthy aesthetic with modern typography
+- Vibrant colors and cinematic lighting
+- Clean, polished design suitable for viral sharing
+- Professional meme/quote format with clear text overlay
+- Trendy Gen Z visual style with artistic composition
+- Eye-catching and share-worthy appearance
+- High production value, not amateur-looking`;
+
       const imageResponse = await openai.images.generate({
         model: "dall-e-3",
-        prompt: `Create a funny, Gen Z-style meme image: ${memeContent.imagePrompt}. The image should be colorful, trendy, and perfect for social media sharing.`,
+        prompt: enhancedPrompt,
         n: 1,
         size: "1024x1024",
-        quality: "standard",
+        quality: "hd", // Use HD quality for better results
       });
 
       return {
