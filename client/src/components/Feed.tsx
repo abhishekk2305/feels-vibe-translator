@@ -38,7 +38,7 @@ export default function Feed() {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center py-12 px-6">
-        <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+        <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
           <span className="text-2xl">😔</span>
         </div>
         <h3 className="text-lg font-semibold mb-2 text-white">Something went wrong</h3>
@@ -52,7 +52,7 @@ export default function Feed() {
   if ((posts as any[]).length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 px-6">
-        <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+        <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
           <span className="text-2xl">🎭</span>
         </div>
         <h3 className="text-lg font-semibold mb-2 text-white">Your feed is empty</h3>

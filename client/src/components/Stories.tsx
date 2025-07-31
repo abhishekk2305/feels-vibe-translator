@@ -43,7 +43,7 @@ export default function Stories() {
         {(stories as any[]).map((story: any) => (
           <div key={story.id} className="flex-shrink-0 text-center">
             <div className="story-ring rounded-full p-0.5">
-              <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-700">
+              <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30">
                 {story.user.profileImageUrl ? (
                   <img 
                     src={story.user.profileImageUrl} 
@@ -67,19 +67,19 @@ export default function Stories() {
         {(stories as any[]).length === 0 && (
           <>
             <div className="flex-shrink-0 text-center opacity-50">
-              <div className="w-16 h-16 rounded-full bg-gray-700 mb-2 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-2 flex items-center justify-center">
                 <span className="text-lg">😊</span>
               </div>
               <span className="text-xs text-gray-500">sarah_vibe</span>
             </div>
             <div className="flex-shrink-0 text-center opacity-50">
-              <div className="w-16 h-16 rounded-full bg-gray-700 mb-2 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-2 flex items-center justify-center">
                 <span className="text-lg">🎨</span>
               </div>
               <span className="text-xs text-gray-500">mike_remix</span>
             </div>
             <div className="flex-shrink-0 text-center opacity-50">
-              <div className="w-16 h-16 rounded-full bg-gray-700 mb-2 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-2 flex items-center justify-center">
                 <span className="text-lg">🚀</span>
               </div>
               <span className="text-xs text-gray-500">luna_art</span>

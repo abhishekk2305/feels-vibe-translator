@@ -70,8 +70,8 @@ export default function Activity() {
         <div className="p-4 space-y-3">
           {notifications.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12">
-              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <Heart className="w-8 h-8 text-gray-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
+                <Heart className="w-8 h-8" style={{ color: 'hsl(262, 83%, 58%)' }} />
               </div>
               <h3 className="text-lg font-semibold mb-2">No notifications yet</h3>
               <p className="text-gray-400 text-sm text-center">
@@ -80,10 +80,10 @@ export default function Activity() {
             </div>
           ) : (
             notifications.map((notification) => (
-              <Card key={notification.id} className={`bg-semi-dark border-gray-700 ${!notification.isRead ? 'border-l-4 border-l-primary' : ''}`}>
+              <Card key={notification.id} className={`bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-400/20 backdrop-blur-sm ${!notification.isRead ? 'border-l-4 border-l-primary' : ''}`}>
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 flex items-center justify-center">
                       {notification.user.profileImageUrl ? (
                         <img 
                           src={notification.user.profileImageUrl} 
