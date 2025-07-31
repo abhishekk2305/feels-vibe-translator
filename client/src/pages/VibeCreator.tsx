@@ -7,11 +7,13 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
-import { ArrowLeft, Camera, Mic, Keyboard, Image, Video, Quote, Sparkles, Zap } from "lucide-react";
+import { ArrowLeft, Camera, Mic, Keyboard, Image, Video, Quote, Sparkles, Zap, TrendingUp } from "lucide-react";
 import MoodSelector from "@/components/MoodSelector";
 import VoiceRecorder from "@/components/VoiceRecorder";
 import AnalyzingAnimation from "@/components/AnalyzingAnimation";
 import QuickActions from "@/components/QuickActions";
+import ARStickerCreator from "@/components/ARStickerCreator";
+import ViralChallengeGenerator from "@/components/ViralChallengeGenerator";
 
 interface VibeResult {
   emotion: string;
@@ -36,6 +38,8 @@ export default function VibeCreator() {
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
   const [step, setStep] = useState(1); // 1: input, 2: analysis, 3: result
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [showARCreator, setShowARCreator] = useState(false);
+  const [showChallengeGenerator, setShowChallengeGenerator] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -350,6 +354,64 @@ export default function VibeCreator() {
                   });
                 }}
                 maxDuration={30}
+              />
+            )}
+
+            {/* Creative Tools Section */}
+            <Card className="bg-semi-dark border-gray-700">
+              <CardContent className="p-4">
+                <h3 className="font-semibold mb-3 text-white">creative tools ✨</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <Button
+                    onClick={() => setShowARCreator(!showARCreator)}
+                    className={`p-4 flex flex-col items-center space-y-2 ${
+                      showARCreator 
+                        ? "gradient-bg text-white" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    }`}
+                  >
+                    <Sparkles className="w-6 h-6" />
+                    <span className="text-xs">AR Stickers</span>
+                  </Button>
+                  <Button
+                    onClick={() => setShowChallengeGenerator(!showChallengeGenerator)}
+                    className={`p-4 flex flex-col items-center space-y-2 ${
+                      showChallengeGenerator 
+                        ? "gradient-bg text-white" 
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    }`}
+                  >
+                    <TrendingUp className="w-6 h-6" />
+                    <span className="text-xs">Viral Challenges</span>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* AR Sticker Creator */}
+            {showARCreator && (
+              <ARStickerCreator 
+                onStickerComplete={(imageData) => {
+                  toast({
+                    title: "AR Sticker Ready! ✨",
+                    description: "ur custom AR creation is fire",
+                  });
+                  setShowARCreator(false);
+                }}
+              />
+            )}
+
+            {/* Viral Challenge Generator */}
+            {showChallengeGenerator && (
+              <ViralChallengeGenerator 
+                onChallengeSelect={(challenge) => {
+                  setTextInput(challenge.description);
+                  setShowChallengeGenerator(false);
+                  toast({
+                    title: "Challenge Selected! 🔥",
+                    description: `ready to create: ${challenge.title}`,
+                  });
+                }}
               />
             )}
 
