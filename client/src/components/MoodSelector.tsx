@@ -34,8 +34,8 @@ export default function MoodSelector({
   return (
     <div className="space-y-4">
       <div className="text-center">
-        <h3 className="text-lg font-semibold text-white mb-2">Select Your Mood</h3>
-        <p className="text-sm text-gray-400">Choose up to {maxSelection} moods that match your vibe</p>
+        <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 65%)' }}>Select Your Mood</h3>
+        <p className="text-sm" style={{ color: 'hsl(262, 60%, 55%)' }}>Choose up to {maxSelection} moods that match your vibe</p>
       </div>
       
       <div className="grid grid-cols-2 gap-3">

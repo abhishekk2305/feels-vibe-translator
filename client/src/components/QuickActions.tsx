@@ -63,10 +63,10 @@ export default function QuickActions({ onActionSelect }: QuickActionsProps) {
   return (
     <Card className="glass-card">
       <CardContent className="p-4">
-        <h3 className="text-lg font-semibold text-white mb-4 text-center">
+        <h3 className="text-lg font-semibold mb-4 text-center" style={{ color: 'hsl(262, 70%, 65%)' }}>
           Quick Vibe Starters
         </h3>
-        <p className="text-sm text-gray-400 text-center mb-6">
+        <p className="text-sm text-center mb-6" style={{ color: 'hsl(262, 60%, 55%)' }}>
           Choose a vibe to get started instantly
         </p>
         

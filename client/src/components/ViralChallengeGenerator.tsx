@@ -251,8 +251,8 @@ ${currentChallenge.hashtags.join(' ')}`;
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-orange-500 to-red-600 flex items-center justify-center">
             <TrendingUp className="w-8 h-8 text-white" />
           </div>
-          <h3 className="text-lg font-semibold text-white mb-2">Viral Challenge Generator 🔥</h3>
-          <p className="text-gray-400">get the next trending challenge before everyone else</p>
+          <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 65%)' }}>Viral Challenge Generator 🔥</h3>
+          <p style={{ color: 'hsl(262, 60%, 55%)' }}>get the next trending challenge before everyone else</p>
         </div>
 
         {!currentChallenge ? (
