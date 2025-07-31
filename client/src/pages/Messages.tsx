@@ -76,7 +76,7 @@ export default function Messages() {
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="text-xl font-semibold text-foreground">Messages</h1>
+          <h1 className="text-xl font-semibold text-primary">Messages</h1>
           <Button
             variant="ghost"
             size="sm"

@@ -61,7 +61,7 @@ export default function Activity() {
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
-            <h1 className="text-xl font-bold">Activity</h1>
+            <h1 className="text-xl font-bold text-primary">Activity</h1>
           </div>
         </div>
 

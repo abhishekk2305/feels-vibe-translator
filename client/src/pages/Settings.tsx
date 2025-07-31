@@ -32,7 +32,7 @@ export default function Settings() {
           >
             <ArrowLeft className="w-4 h-4" />
           </Button>
-          <h1 className="text-lg font-semibold">Settings</h1>
+          <h1 className="text-lg font-semibold text-primary">Settings</h1>
           <div className="w-8"></div>
         </div>
 
