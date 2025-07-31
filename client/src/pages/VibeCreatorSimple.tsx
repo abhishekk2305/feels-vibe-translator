@@ -34,7 +34,7 @@ export default function VibeCreatorSimple() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [showQuickActions, setShowQuickActions] = useState(false);
   const [showMoodSelector, setShowMoodSelector] = useState(false);
-  const [showViralChallenge, setShowViralChallenge] = useState(false);
+
   const { toast } = useToast();
 
   const moods = [
@@ -296,59 +296,47 @@ export default function VibeCreatorSimple() {
               Analyze My Vibe
             </Button>
 
-            {/* Viral Challenge Section */}
-            <Button
-              onClick={() => setShowViralChallenge(!showViralChallenge)}
-              variant="outline"
-              className={`w-full p-4 rounded-xl transition-all mb-4 ${
-                showViralChallenge 
-                  ? "gradient-bg text-white border-transparent" 
-                  : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
-              }`}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-lg">🔥</span>
-                <span className="font-semibold">Viral Challenge</span>
-              </div>
-            </Button>
-
-            {/* Viral Challenge Expanded Content */}
-            {showViralChallenge && (
-              <Card className="bg-semi-dark border-gray-700 shadow-lg mb-4 animate-in slide-in-from-top-2 duration-200">
-                <CardContent className="p-4">
-                  <p className="text-gray-300 text-sm mb-3">Join trending challenges and create viral content!</p>
-                  <div className="space-y-2">
-                    {[
-                      { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥 Trending" },
-                      { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨ Hot" },
-                      { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯 Viral" }
-                    ].map((challenge, idx) => (
-                      <Button
-                        key={idx}
-                        className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-3 h-auto"
-                        onClick={() => {
-                          toast({
-                            title: "Challenge Started!",
-                            description: `${challenge.name} challenge activated`,
-                          });
-                          setShowViralChallenge(false);
-                        }}
-                      >
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <p className="text-white text-sm font-medium">{challenge.name}</p>
-                            <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
-                          </div>
-                          <span className="text-xs bg-pink-600 text-white px-2 py-1 rounded-full">
-                            {challenge.trend}
-                          </span>
-                        </div>
-                      </Button>
-                    ))}
+            {/* Viral Challenge Section - Always Open */}
+            <Card className="bg-gradient-to-r from-pink-900/30 to-orange-900/30 border-pink-600/50 shadow-lg mb-4">
+              <CardContent className="p-3">
+                <div className="flex items-center mb-2">
+                  <div className="bg-gradient-to-r from-pink-600 to-orange-600 rounded-full p-1.5 mr-2">
+                    <span className="text-white text-sm">🔥</span>
                   </div>
-                </CardContent>
-              </Card>
-            )}
+                  <div>
+                    <h3 className="text-pink-200 font-semibold text-sm">Viral Challenges</h3>
+                    <p className="text-pink-300/70 text-xs">join trending challenges</p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-1.5">
+                  {[
+                    { name: "Vibe Check", hashtag: "#VibeCheck2025", trend: "🔥", color: "from-red-500 to-pink-500" },
+                    { name: "Mood Flip", hashtag: "#MoodFlip", trend: "✨", color: "from-purple-500 to-pink-500" },
+                    { name: "Energy Boost", hashtag: "#EnergyBoost", trend: "💯", color: "from-orange-500 to-red-500" }
+                  ].map((challenge, idx) => (
+                    <Button
+                      key={idx}
+                      className={`w-full text-left bg-gradient-to-r ${challenge.color} hover:opacity-90 border-0 p-2 h-auto transition-all`}
+                      onClick={() => {
+                        toast({
+                          title: "Challenge Started!",
+                          description: `${challenge.name} challenge activated`,
+                        });
+                      }}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <p className="text-white text-xs font-medium">{challenge.name}</p>
+                          <p className="text-white/70 text-xs">{challenge.hashtag}</p>
+                        </div>
+                        <span className="text-sm">{challenge.trend}</span>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         )}
 
