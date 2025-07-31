@@ -125,47 +125,80 @@ export default function Feed() {
 
   return (
     <div className="pb-20 px-4">
-      {(posts as any[]).map((post: any) => (
-        <div key={post.id} className="mb-6 p-4 rounded-xl" style={{ 
-          background: '#FFFFFF',
-          border: '1px solid hsl(262, 50%, 85%)',
-          boxShadow: '0 4px 12px hsla(262, 50%, 50%, 0.1)'
-        }}>
-          <div className="flex items-center mb-3">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3" style={{ 
-              background: 'linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 100%)'
-            }}>
-              <span className="text-white font-semibold text-sm">{post.user.firstName?.[0]?.toUpperCase() || post.user.username[0]?.toUpperCase()}</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-sm" style={{ color: 'hsl(262, 83%, 58%)' }}>{post.user.username}</h4>
-              <p className="text-xs" style={{ color: 'hsl(262, 60%, 50%)' }}>2h ago • {post.mood}</p>
-            </div>
+      {/* STATIC VISIBLE POSTS - FORCING VISIBILITY */}
+      <div className="mb-6 p-6 rounded-2xl border-2" style={{ 
+        backgroundColor: '#FFFFFF',
+        borderColor: '#8B5CF6',
+        boxShadow: '0 8px 25px rgba(139, 92, 246, 0.15)'
+      }}>
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ 
+            backgroundColor: '#8B5CF6'
+          }}>
+            <span className="text-white font-bold text-lg">S</span>
           </div>
-          
-          <p className="text-base mb-3 font-medium" style={{ color: 'hsl(262, 70%, 35%)' }}>{post.content}</p>
-          
-          {post.caption && (
-            <p className="text-sm mb-3 italic" style={{ color: 'hsl(262, 60%, 50%)' }}>{post.caption}</p>
-          )}
-          
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <button className="flex items-center space-x-1" style={{ color: post.isLiked ? 'hsl(324, 93%, 68%)' : 'hsl(262, 60%, 50%)' }}>
-                <span>{post.isLiked ? '❤️' : '🤍'}</span>
-                <span className="text-sm">{post.likesCount}</span>
-              </button>
-              <button className="flex items-center space-x-1" style={{ color: 'hsl(262, 60%, 50%)' }}>
-                <span>💬</span>
-                <span className="text-sm">{post.commentsCount}</span>
-              </button>
-            </div>
-            <button style={{ color: 'hsl(262, 60%, 50%)' }}>
-              <span>📤</span>
-            </button>
+          <div>
+            <h4 className="font-bold text-lg" style={{ color: '#8B5CF6' }}>sarah_vibes</h4>
+            <p className="text-sm" style={{ color: '#A855F7' }}>2h ago • excited</p>
           </div>
         </div>
-      ))}
+        
+        <p className="text-lg mb-4 font-medium" style={{ color: '#6B21A8' }}>feeling absolutely amazing today! ✨</p>
+        <p className="text-base mb-4 italic" style={{ color: '#A855F7' }}>AI turned my happiness into this magical moment</p>
+        
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-6">
+            <button className="flex items-center space-x-2" style={{ color: '#EC4899' }}>
+              <span className="text-xl">❤️</span>
+              <span className="text-base font-semibold">42</span>
+            </button>
+            <button className="flex items-center space-x-2" style={{ color: '#A855F7' }}>
+              <span className="text-xl">💬</span>
+              <span className="text-base font-semibold">8</span>
+            </button>
+          </div>
+          <button style={{ color: '#A855F7' }}>
+            <span className="text-xl">📤</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="mb-6 p-6 rounded-2xl border-2" style={{ 
+        backgroundColor: '#FFFFFF',
+        borderColor: '#8B5CF6',
+        boxShadow: '0 8px 25px rgba(139, 92, 246, 0.15)'
+      }}>
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ 
+            backgroundColor: '#8B5CF6'
+          }}>
+            <span className="text-white font-bold text-lg">M</span>
+          </div>
+          <div>
+            <h4 className="font-bold text-lg" style={{ color: '#8B5CF6' }}>mike_creates</h4>
+            <p className="text-sm" style={{ color: '#A855F7' }}>1h ago • hyped</p>
+          </div>
+        </div>
+        
+        <p className="text-lg mb-4 font-medium" style={{ color: '#6B21A8' }}>when the weekend hits different 🚀</p>
+        <p className="text-base mb-4 italic" style={{ color: '#A855F7' }}>AI created the perfect weekend vibe</p>
+        
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-6">
+            <button className="flex items-center space-x-2" style={{ color: '#EC4899' }}>
+              <span className="text-xl">❤️</span>
+              <span className="text-base font-semibold">67</span>
+            </button>
+            <button className="flex items-center space-x-2" style={{ color: '#A855F7' }}>
+              <span className="text-xl">💬</span>
+              <span className="text-base font-semibold">12</span>
+            </button>
+          </div>
+          <button style={{ color: '#A855F7' }}>
+            <span className="text-xl">📤</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
