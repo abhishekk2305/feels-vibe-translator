@@ -285,13 +285,16 @@ button * {
 .horizontal-scroll-container {
   display: flex;
   gap: 8px;
-  overflow-x: auto;
+  overflow-x: scroll !important;
   overflow-y: hidden;
   padding-bottom: 8px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  white-space: nowrap;
+  max-width: 100%;
+  width: 100%;
 }
 
 .horizontal-scroll-container::-webkit-scrollbar {
@@ -300,10 +303,12 @@ button * {
 
 .horizontal-scroll-item {
   flex: 0 0 auto;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  padding: 8px;
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 64px !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  display: inline-flex !important;
 }
 
 .gradient-border-inner {

@@ -19,21 +19,27 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
   ];
 
   return (
-    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg">
+    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg" style={{ width: '100%', maxWidth: '100%' }}>
       {/* Facebook-style horizontal scrolling row */}
-      <div className="horizontal-scroll-container">
+      <div className="horizontal-scroll-container" style={{ overflowX: 'scroll', width: '100%' }}>
         {quickActions.map((action, index) => (
-          <Button
+          <button
             key={index}
             onClick={() => onActionSelect(action.prompt)}
             className="horizontal-scroll-item bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
-            variant="ghost"
+            style={{ 
+              border: 'none',
+              background: '#374151',
+              color: '#e5e7eb',
+              cursor: 'pointer',
+              outline: 'none'
+            }}
           >
             <div className="flex flex-col items-center justify-center h-full">
               <span className="text-lg mb-0.5">{action.emoji}</span>
               <span className="text-xs font-medium leading-none text-center">{action.label}</span>
             </div>
-          </Button>
+          </button>
         ))}
       </div>
       

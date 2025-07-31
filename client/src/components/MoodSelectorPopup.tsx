@@ -37,29 +37,34 @@ export default function MoodSelectorPopup({
   };
 
   return (
-    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg">
+    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg" style={{ width: '100%', maxWidth: '100%' }}>
       {/* Facebook-style horizontal scrolling row */}
-      <div className="horizontal-scroll-container">
+      <div className="horizontal-scroll-container" style={{ overflowX: 'scroll', width: '100%' }}>
         {moods.map((mood) => {
           const isSelected = selectedMoods.includes(mood.id);
           return (
-            <Button
+            <button
               key={mood.id}
               onClick={() => handleMoodClick(mood.id)}
               className={`
                 horizontal-scroll-item transition-all duration-200 transform hover:scale-110
-                ${isSelected 
-                  ? `bg-gradient-to-r ${mood.color} text-white shadow-lg ring-2 ring-white/50` 
-                  : "bg-gray-700 hover:bg-gray-600 text-gray-200"
-                }
               `}
-              variant="ghost"
+              style={{
+                border: 'none',
+                background: isSelected 
+                  ? 'linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))'
+                  : '#374151',
+                color: isSelected ? '#ffffff' : '#e5e7eb',
+                cursor: 'pointer',
+                outline: 'none',
+                boxShadow: isSelected ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 2px rgba(255, 255, 255, 0.5)' : 'none'
+              }}
             >
               <div className="flex flex-col items-center justify-center h-full">
                 <span className="text-lg mb-0.5">{mood.emoji}</span>
                 <span className="text-xs font-medium leading-none text-center">{mood.label}</span>
               </div>
-            </Button>
+            </button>
           );
         })}
       </div>
