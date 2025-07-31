@@ -220,22 +220,53 @@ export default function VibeCreator() {
         {/* Step 1: Input */}
         {step === 1 && (
           <div className="p-4 space-y-6">
-            {/* AI Prompt Input */}
-            <Card className="bg-semi-dark border-gray-700">
-              <CardContent className="p-4">
-                <h3 className="font-semibold mb-3 flex items-center text-white">
-                  <span className="text-primary mr-2">🧠</span>
-                  Tell AI Your Vibe
-                </h3>
-                <Textarea
-                  placeholder="Describe how you're feeling or what you want to create..."
-                  value={textInput}
-                  onChange={(e) => setTextInput(e.target.value)}
-                  className="bg-gray-800 border-gray-600 text-white resize-none"
-                  rows={4}
-                />
-              </CardContent>
-            </Card>
+            {/* AI Prompt Input - Enhanced */}
+            <div className="relative">
+              <Card className="bg-gradient-to-br from-purple-900/40 via-blue-900/40 to-pink-900/40 border-gray-600 shadow-xl backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full p-3 shadow-lg">
+                      <div className="animate-pulse">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-center mb-2 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                    Tell AI Your Vibe
+                  </h3>
+                  <p className="text-center text-gray-300 text-sm mb-4">
+                    describe ur current mood and watch the magic happen ✨
+                  </p>
+                  <div className="relative">
+                    <Textarea
+                      placeholder="what's ur vibe rn? feeling excited, stressed, creative, or something else entirely..."
+                      value={textInput}
+                      onChange={(e) => setTextInput(e.target.value)}
+                      className="bg-gray-800/60 border-gray-500 text-white resize-none placeholder-gray-400 rounded-xl backdrop-blur-sm focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300"
+                      rows={4}
+                    />
+                    <div className="absolute -top-2 -right-2">
+                      <div className="bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full p-1 animate-bounce">
+                        <span className="text-xs">💭</span>
+                      </div>
+                    </div>
+                  </div>
+                  {textInput && (
+                    <div className="mt-3 p-2 bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg border border-green-500/30">
+                      <p className="text-xs text-green-300 flex items-center">
+                        <span className="mr-1">✓</span>
+                        vibe captured! ready to analyze ur energy
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+              {/* Floating particles effect */}
+              <div className="absolute -top-1 -left-1 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-75"></div>
+              <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-75 animation-delay-1000"></div>
+            </div>
 
             {/* Quick Actions for text input */}
             {inputType === "text" && !textInput && (
