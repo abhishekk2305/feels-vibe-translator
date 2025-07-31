@@ -37,7 +37,7 @@ export default function VibeCreator() {
   const [contentStyle, setContentStyle] = useState("meme");
   const [vibeResult, setVibeResult] = useState<VibeResult | null>(null);
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
-  const [step, setStep] = useState(1); // 1: input, 2: analysis, 3: result
+  const [step, setStep] = useState(1); // 1: input, 2: customize, 3: analysis, 4: result
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [showARCreator, setShowARCreator] = useState(false);
   const [showChallengeGenerator, setShowChallengeGenerator] = useState(false);
@@ -62,11 +62,8 @@ export default function VibeCreator() {
     },
     onSuccess: (data) => {
       setVibeResult(data);
-      setIsAnalyzing(true);
-      setTimeout(() => {
-        setIsAnalyzing(false);
-        setStep(2);
-      }, 2000); // Add dramatic pause for analysis
+      setStep(3);
+      setIsAnalyzing(false);
     },
     onError: (error) => {
       toast({
@@ -156,8 +153,13 @@ export default function VibeCreator() {
         });
         return;
       }
-      analyzeTextMutation.mutate(textInput);
+      setStep(2); // Go to customize step first
     }
+  };
+
+  const handleStartAnalysis = () => {
+    setIsAnalyzing(true);
+    analyzeTextMutation.mutate(textInput);
   };
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -483,20 +485,11 @@ export default function VibeCreator() {
             {/* Generate Button */}
             <Button
               onClick={handleAnalyze}
-              disabled={analyzeTextMutation.isPending || analyzeImageMutation.isPending}
+              disabled={!textInput.trim() || analyzeTextMutation.isPending || analyzeImageMutation.isPending}
               className="w-full gradient-bg text-white py-4 rounded-2xl font-semibold text-lg"
             >
-              {(analyzeTextMutation.isPending || analyzeImageMutation.isPending) ? (
-                <>
-                  <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                  Analyzing Your Vibe...
-                </>
-              ) : (
-                <>
-                  <span className="mr-2">✨</span>
-                  Analyze My Vibe
-                </>
-              )}
+              <span className="mr-2">✨</span>
+              Next: Customize
             </Button>
           </div>
         )}
