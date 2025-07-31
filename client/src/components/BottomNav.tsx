@@ -79,7 +79,7 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               style={{ color: 'hsl(262, 83%, 58%)' }}
             >
               <Icon className="w-5 h-5" style={{ color: 'hsl(262, 83%, 58%)' }} />
-              <span className="text-xs font-medium">{item.label}</span>
+              <span className="text-xs font-medium" style={{ color: 'hsl(262, 83%, 58%)' }}>{item.label}</span>
             </Button>
           );
         })}

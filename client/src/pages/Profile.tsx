@@ -143,9 +143,9 @@ export default function Profile() {
                   : userProfile.username || "Unknown User"
                 }
               </h2>
-              <p className="mb-2" style={{ color: 'hsl(262, 83%, 58%)' }}>@{userProfile.username || "unknown"}</p>
+              <p className="mb-2 text-muted-foreground">@{userProfile.username || "unknown"}</p>
               {userProfile.bio && (
-                <p className="text-sm" style={{ color: 'hsl(262, 83%, 58%)' }}>{userProfile.bio}</p>
+                <p className="text-sm text-muted-foreground">{userProfile.bio}</p>
               )}
             </div>
 
@@ -153,19 +153,19 @@ export default function Profile() {
             <div className="flex items-center space-x-6 mb-6">
               <div className="text-center">
                 <div className="text-xl font-bold">{userProfile.stats.posts}</div>
-                <div className="text-xs" style={{ color: 'hsl(262, 83%, 58%)' }}>Posts</div>
+                <div className="text-xs text-muted-foreground">Posts</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold">{userProfile.stats.followers}</div>
-                <div className="text-xs" style={{ color: 'hsl(262, 83%, 58%)' }}>Followers</div>
+                <div className="text-xs text-muted-foreground">Followers</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold">{userProfile.stats.following}</div>
-                <div className="text-xs" style={{ color: 'hsl(262, 83%, 58%)' }}>Following</div>
+                <div className="text-xs text-muted-foreground">Following</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold gradient-text">{userProfile.stats.vibeScore}</div>
-                <div className="text-xs" style={{ color: 'hsl(262, 83%, 58%)' }}>Vibe Score</div>
+                <div className="text-xs text-muted-foreground">Vibe Score</div>
               </div>
             </div>
 
@@ -174,24 +174,21 @@ export default function Profile() {
               <TabsList className="grid w-full grid-cols-3 bg-muted rounded-lg">
                 <TabsTrigger 
                   value="posts" 
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center space-x-2"
-                  style={{ color: 'hsl(262, 83%, 58%)' }}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-pink-400 data-[state=active]:text-white flex items-center space-x-2 text-muted-foreground"
                 >
                   <Grid className="w-4 h-4" />
                   <span>Posts</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="remixes" 
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center space-x-2"
-                  style={{ color: 'hsl(262, 83%, 58%)' }}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-pink-400 data-[state=active]:text-white flex items-center space-x-2 text-muted-foreground"
                 >
                   <Repeat className="w-4 h-4" />
                   <span>Remixes</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="liked" 
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center space-x-2"
-                  style={{ color: 'hsl(262, 83%, 58%)' }}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-pink-400 data-[state=active]:text-white flex items-center space-x-2 text-muted-foreground"
                 >
                   <Heart className="w-4 h-4" />
                   <span>Liked</span>
