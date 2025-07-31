@@ -43,7 +43,7 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
         ))}
       </div>
       
-      <p className="text-xs text-gray-400 text-center mt-2">
+      <p className="text-xs text-center mt-2" style={{ color: 'hsl(262, 60%, 55%)' }}>
         Tap any vibe starter to get started instantly
       </p>
     </div>

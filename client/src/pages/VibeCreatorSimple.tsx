@@ -231,8 +231,11 @@ export default function VibeCreatorSimple() {
                 className={`flex-1 p-3 rounded-xl transition-all ${
                   showQuickActions 
                     ? "gradient-bg text-white border-transparent" 
-                    : "bg-card text-foreground border-border hover:bg-accent"
+                    : "bg-card border-border hover:bg-accent"
                 }`}
+                style={{ 
+                  color: showQuickActions ? 'white' : 'hsl(262, 70%, 65%)'
+                }}
               >
                 <Zap className="w-4 h-4 mr-2" />
                 <span className="text-sm">Quick Vibes</span>
@@ -246,8 +249,11 @@ export default function VibeCreatorSimple() {
                 className={`flex-1 p-3 rounded-xl transition-all ${
                   showMoodSelector 
                     ? "gradient-bg text-white border-transparent" 
-                    : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+                    : "bg-gray-800 border-gray-600 hover:bg-gray-700"
                 }`}
+                style={{ 
+                  color: showMoodSelector ? 'white' : 'hsl(262, 70%, 65%)'
+                }}
               >
                 <Heart className="w-4 h-4 mr-2" />
                 <span className="text-sm">Select Mood</span>
