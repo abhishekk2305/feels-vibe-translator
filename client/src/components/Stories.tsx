@@ -26,7 +26,10 @@ export default function Stories() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 backdrop-blur-sm border-b border-purple-400/20 px-4 py-3">
+    <div className="backdrop-blur-sm px-4 py-3" style={{ 
+      background: 'linear-gradient(90deg, hsl(262, 40%, 5%) 0%, hsl(324, 40%, 5%) 100%)',
+      borderBottom: '1px solid hsl(262, 50%, 20%)'
+    }}>
       <div className="flex space-x-3 overflow-x-auto hide-scrollbar pb-2">
         {/* Add Story Button */}
         <div className="flex-shrink-0 text-center">
@@ -36,14 +39,17 @@ export default function Stories() {
           >
             <Plus className="w-6 h-6 text-white" />
           </Button>
-          <span className="text-xs text-gray-400">Your Story</span>
+          <span className="text-xs" style={{ color: 'hsl(262, 60%, 55%)' }}>Your Story</span>
         </div>
         
         {/* Story Items */}
         {(stories as any[]).map((story: any) => (
           <div key={story.id} className="flex-shrink-0 text-center">
             <div className="story-ring rounded-full p-0.5">
-              <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30">
+              <div className="w-16 h-16 rounded-full overflow-hidden" style={{ 
+                background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
+                border: '1px solid hsl(262, 50%, 40%)'
+              }}>
                 {story.user.profileImageUrl ? (
                   <img 
                     src={story.user.profileImageUrl} 
@@ -51,13 +57,13 @@ export default function Stories() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-lg font-medium text-white">
+                  <div className="w-full h-full flex items-center justify-center text-lg font-medium" style={{ color: 'hsl(262, 70%, 85%)' }}>
                     {story.user.username?.[0] || "?"}
                   </div>
                 )}
               </div>
             </div>
-            <span className="text-xs text-gray-400 mt-1 block truncate w-16">
+            <span className="text-xs mt-1 block truncate w-16" style={{ color: 'hsl(262, 60%, 55%)' }}>
               {story.user.username}
             </span>
           </div>
@@ -67,22 +73,31 @@ export default function Stories() {
         {(stories as any[]).length === 0 && (
           <>
             <div className="flex-shrink-0 text-center opacity-50">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-2 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full mb-2 flex items-center justify-center" style={{ 
+                background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
+                border: '1px solid hsl(262, 50%, 40%)'
+              }}>
                 <span className="text-lg">😊</span>
               </div>
-              <span className="text-xs text-gray-500">sarah_vibe</span>
+              <span className="text-xs" style={{ color: 'hsl(262, 50%, 45%)' }}>sarah_vibe</span>
             </div>
             <div className="flex-shrink-0 text-center opacity-50">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-2 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full mb-2 flex items-center justify-center" style={{ 
+                background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
+                border: '1px solid hsl(262, 50%, 40%)'
+              }}>
                 <span className="text-lg">🎨</span>
               </div>
-              <span className="text-xs text-gray-500">mike_remix</span>
+              <span className="text-xs" style={{ color: 'hsl(262, 50%, 45%)' }}>mike_remix</span>
             </div>
             <div className="flex-shrink-0 text-center opacity-50">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-2 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full mb-2 flex items-center justify-center" style={{ 
+                background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
+                border: '1px solid hsl(262, 50%, 40%)'
+              }}>
                 <span className="text-lg">🚀</span>
               </div>
-              <span className="text-xs text-gray-500">luna_art</span>
+              <span className="text-xs" style={{ color: 'hsl(262, 50%, 45%)' }}>luna_art</span>
             </div>
           </>
         )}

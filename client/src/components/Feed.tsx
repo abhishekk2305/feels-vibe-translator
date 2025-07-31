@@ -30,7 +30,7 @@ export default function Feed() {
   if (isLoading) {
     return (
       <div className="flex justify-center py-12">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full"></div>
+        <div className="animate-spin w-8 h-8 border-4 border-t-transparent rounded-full" style={{ borderColor: 'hsl(262, 83%, 58%)', borderTopColor: 'transparent' }}></div>
       </div>
     );
   }
@@ -38,11 +38,14 @@ export default function Feed() {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center py-12 px-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{ 
+          background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
+          border: '1px solid hsl(262, 50%, 40%)'
+        }}>
           <span className="text-2xl">😔</span>
         </div>
-        <h3 className="text-lg font-semibold mb-2 text-white">Something went wrong</h3>
-        <p className="text-gray-400 text-sm text-center">
+        <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 85%)' }}>Something went wrong</h3>
+        <p className="text-sm text-center" style={{ color: 'hsl(262, 60%, 55%)' }}>
           Failed to load your feed. Please try again.
         </p>
       </div>
@@ -52,12 +55,15 @@ export default function Feed() {
   if ((posts as any[]).length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 px-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{ 
+          background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
+          border: '1px solid hsl(262, 50%, 40%)'
+        }}>
           <span className="text-2xl">🎭</span>
         </div>
-        <h3 className="text-lg font-semibold mb-2 text-white">Your feed is empty</h3>
-        <p className="text-gray-400 text-sm text-center mb-6">
-          Follow other creators or create your first vibe to see content here!
+        <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 85%)' }}>your feed is empty</h3>
+        <p className="text-sm text-center mb-6" style={{ color: 'hsl(262, 60%, 55%)' }}>
+          follow other creators or create your first vibe to see content here! ✨
         </p>
       </div>
     );
