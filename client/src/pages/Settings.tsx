@@ -2,16 +2,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { ArrowLeft, LogOut, Moon, Bell, Shield, HelpCircle } from "lucide-react";
+import { ArrowLeft, LogOut, Moon, Bell, Shield, HelpCircle, Sun } from "lucide-react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/hooks/useAuth";
+import { useTheme } from "@/contexts/ThemeContext";
 import type { User } from "@shared/schema";
 
 export default function Settings() {
   const [, setLocation] = useLocation();
   const { user } = useAuth() as { user: User | null };
+  const { theme, toggleTheme } = useTheme();
   const [notifications, setNotifications] = useState(true);
-  const [darkMode, setDarkMode] = useState(true);
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   const handleLogout = () => {
@@ -19,7 +20,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-sm mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-4">
@@ -27,7 +28,7 @@ export default function Settings() {
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/profile")}
-            className="text-white p-2"
+            className="text-foreground p-2"
           >
             <ArrowLeft className="w-4 h-4" />
           </Button>
@@ -37,7 +38,7 @@ export default function Settings() {
 
         <div className="px-4 space-y-4">
           {/* User Profile Section */}
-          <Card className="glass-card border-white/10">
+          <Card className="bg-card border-border">
             <CardContent className="p-3">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
@@ -54,25 +55,25 @@ export default function Settings() {
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-white truncate">
+                  <p className="font-medium text-card-foreground truncate">
                     {user?.firstName && user?.lastName 
                       ? `${user.firstName} ${user.lastName}`
                       : user?.email || "User"
                     }
                   </p>
-                  <p className="text-xs text-gray-400 truncate">{user?.email}</p>
+                  <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Settings Options */}
-          <Card className="glass-card border-white/10">
+          <Card className="bg-card border-border">
             <CardContent className="p-3 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   <Bell className="w-4 h-4 text-gray-400" />
-                  <p className="text-white font-medium text-sm">Notifications</p>
+                  <p className="text-foreground font-medium text-sm">Notifications</p>
                 </div>
                 <Switch 
                   checked={notifications} 
@@ -82,18 +83,24 @@ export default function Settings() {
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <Moon className="w-4 h-4 text-gray-400" />
-                  <p className="text-white font-medium text-sm">Dark Mode</p>
+                  {theme === "dark" ? (
+                    <Moon className="w-4 h-4 text-gray-400" />
+                  ) : (
+                    <Sun className="w-4 h-4 text-gray-400" />
+                  )}
+                  <p className="text-foreground font-medium text-sm">
+                    {theme === "dark" ? "Dark Mode" : "Light Mode"}
+                  </p>
                 </div>
                 <Switch 
-                  checked={darkMode} 
-                  onCheckedChange={setDarkMode}
+                  checked={theme === "dark"} 
+                  onCheckedChange={toggleTheme}
                 />
               </div>
 
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-white hover:bg-white/10 p-2 h-auto"
+                className="w-full justify-start text-foreground hover:bg-accent p-2 h-auto"
               >
                 <Shield className="w-4 h-4 mr-3 text-gray-400" />
                 <p className="font-medium text-sm">Privacy Settings</p>
@@ -101,7 +108,7 @@ export default function Settings() {
 
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-white hover:bg-white/10 p-2 h-auto"
+                className="w-full justify-start text-foreground hover:bg-accent p-2 h-auto"
               >
                 <HelpCircle className="w-4 h-4 mr-3 text-gray-400" />
                 <p className="font-medium text-sm">Help & Support</p>
