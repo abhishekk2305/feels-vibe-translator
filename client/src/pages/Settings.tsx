@@ -72,7 +72,7 @@ export default function Settings() {
             <CardContent className="p-3 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <Bell className="w-4 h-4 text-gray-400" />
+                  <Bell className="w-4 h-4 text-muted-foreground" />
                   <p className="text-foreground font-medium text-sm">Notifications</p>
                 </div>
                 <Switch 
@@ -84,9 +84,9 @@ export default function Settings() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   {theme === "dark" ? (
-                    <Moon className="w-4 h-4 text-gray-400" />
+                    <Moon className="w-4 h-4 text-muted-foreground" />
                   ) : (
-                    <Sun className="w-4 h-4 text-gray-400" />
+                    <Sun className="w-4 h-4 text-muted-foreground" />
                   )}
                   <p className="text-foreground font-medium text-sm">
                     {theme === "dark" ? "Dark Mode" : "Light Mode"}
@@ -102,7 +102,7 @@ export default function Settings() {
                 variant="ghost" 
                 className="w-full justify-start text-foreground hover:bg-accent p-2 h-auto"
               >
-                <Shield className="w-4 h-4 mr-3 text-gray-400" />
+                <Shield className="w-4 h-4 mr-3 text-muted-foreground" />
                 <p className="font-medium text-sm">Privacy Settings</p>
               </Button>
 
@@ -110,7 +110,7 @@ export default function Settings() {
                 variant="ghost" 
                 className="w-full justify-start text-foreground hover:bg-accent p-2 h-auto"
               >
-                <HelpCircle className="w-4 h-4 mr-3 text-gray-400" />
+                <HelpCircle className="w-4 h-4 mr-3 text-muted-foreground" />
                 <p className="font-medium text-sm">Help & Support</p>
               </Button>
             </CardContent>

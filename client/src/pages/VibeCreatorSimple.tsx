@@ -179,19 +179,19 @@ export default function VibeCreatorSimple() {
             <Card className="bg-card border-border shadow-lg">
               <CardContent className="p-4">
                 <div className="flex items-center mb-3">
-                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
-                    <div className="w-5 h-5 text-purple-400">
+                  <div className="bg-muted rounded-full p-2 mr-3 border border-border">
+                    <div className="w-5 h-5 text-primary">
                       <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white flex items-center">
+                    <h3 className="font-semibold text-foreground flex items-center">
                       Tell AI Your Vibe
                       <span className="ml-2 text-xs">🧠</span>
                     </h3>
-                    <p className="text-sm text-gray-400">describe ur current mood and watch the magic happen</p>
+                    <p className="text-sm text-muted-foreground">describe ur current mood and watch the magic happen</p>
                   </div>
                 </div>
                 <div className="relative">
@@ -199,7 +199,7 @@ export default function VibeCreatorSimple() {
                     placeholder="what's ur vibe rn? feeling excited, stressed, creative, or something else entirely..."
                     value={textInput}
                     onChange={(e) => setTextInput(e.target.value)}
-                    className="bg-gray-800 border-gray-600 text-white resize-none placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20 transition-all duration-200"
+                    className="bg-input border-border text-foreground resize-none placeholder-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200"
                     rows={4}
                   />
                   {textInput && (
@@ -209,9 +209,9 @@ export default function VibeCreatorSimple() {
                   )}
                 </div>
                 {textInput && (
-                  <div className="mt-2 p-2 bg-gray-800 rounded-lg border border-gray-600">
-                    <p className="text-xs text-gray-300 flex items-center">
-                      <span className="text-green-400 mr-1">●</span>
+                  <div className="mt-2 p-2 bg-muted rounded-lg border border-border">
+                    <p className="text-xs text-muted-foreground flex items-center">
+                      <span className="text-green-500 mr-1">●</span>
                       vibe captured! ready to analyze ur energy
                     </p>
                   </div>
@@ -230,7 +230,7 @@ export default function VibeCreatorSimple() {
                 className={`flex-1 p-3 rounded-xl transition-all ${
                   showQuickActions 
                     ? "gradient-bg text-white border-transparent" 
-                    : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+                    : "bg-card text-foreground border-border hover:bg-accent"
                 }`}
               >
                 <Zap className="w-4 h-4 mr-2" />

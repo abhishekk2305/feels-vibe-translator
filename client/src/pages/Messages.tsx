@@ -89,7 +89,7 @@ export default function Messages() {
         {/* Search */}
         <div className="p-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <Input
               placeholder="Search messages..."
               value={searchQuery}
@@ -110,7 +110,7 @@ export default function Messages() {
               {filteredConversations.map((conversation: Conversation) => (
                 <div
                   key={conversation.user.id}
-                  className="flex items-center space-x-3 p-4 hover:bg-semi-dark cursor-pointer transition-colors"
+                  className="flex items-center space-x-3 p-4 hover:bg-accent cursor-pointer transition-colors"
                   onClick={() => {
                     // TODO: Navigate to individual conversation
                     console.log("Open conversation with", conversation.user.username);
@@ -118,7 +118,7 @@ export default function Messages() {
                 >
                   {/* Avatar */}
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-full bg-gray-700 overflow-hidden flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-muted overflow-hidden flex-shrink-0">
                       {conversation.user.profileImageUrl ? (
                         <img 
                           src={conversation.user.profileImageUrl} 
@@ -143,14 +143,14 @@ export default function Messages() {
                   {/* Message Info */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-semibold text-white truncate">
+                      <h4 className="font-semibold text-foreground truncate">
                         {getUserDisplayName(conversation.user)}
                       </h4>
-                      <span className="text-xs text-gray-400 flex-shrink-0">
+                      <span className="text-xs text-muted-foreground flex-shrink-0">
                         {formatTime(conversation.lastMessage.createdAt)}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-400 truncate">
+                    <p className="text-sm text-muted-foreground truncate">
                       {conversation.lastMessage.content}
                     </p>
                   </div>
@@ -159,13 +159,13 @@ export default function Messages() {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-12 px-6">
-              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-muted-foreground" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-white">No messages yet</h3>
-              <p className="text-gray-400 text-sm text-center mb-6">
+              <h3 className="text-lg font-semibold mb-2 text-foreground">No messages yet</h3>
+              <p className="text-muted-foreground text-sm text-center mb-6">
                 {searchQuery 
                   ? "No conversations match your search"
                   : "Start a conversation by sharing your vibes with friends!"
