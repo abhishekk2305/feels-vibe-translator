@@ -19,9 +19,9 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
   ];
 
   return (
-    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg">
+    <div className="bg-semi-dark border border-gray-600 rounded-2xl p-3 shadow-lg max-w-full">
       {/* Facebook-style horizontal scrolling row */}
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
         {quickActions.map((action, index) => (
           <Button
             key={index}
