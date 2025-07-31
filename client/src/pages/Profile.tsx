@@ -137,7 +137,7 @@ export default function Profile() {
             </div>
 
             <div className="mb-4">
-              <h2 className="text-2xl font-bold mb-1">
+              <h2 className="text-2xl font-bold mb-1 text-foreground">
                 {userProfile.firstName && userProfile.lastName 
                   ? `${userProfile.firstName} ${userProfile.lastName}`
                   : userProfile.username || "Unknown User"
@@ -229,10 +229,10 @@ export default function Profile() {
                 ) : (
                   <div className="text-center py-12">
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
-                      <Grid className="w-8 h-8" style={{ color: 'hsl(262, 83%, 58%)' }} />
+                      <Grid className="w-8 h-8 text-muted-foreground" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">No posts yet</h3>
-                    <p className="text-gray-400 text-sm">
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">No posts yet</h3>
+                    <p className="text-muted-foreground text-sm">
                       {isOwnProfile ? "Share your first vibe!" : "No posts to show"}
                     </p>
                   </div>
@@ -242,20 +242,20 @@ export default function Profile() {
               <TabsContent value="remixes" className="mt-4">
                 <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
-                    <Repeat className="w-8 h-8" style={{ color: 'hsl(262, 83%, 58%)' }} />
+                    <Repeat className="w-8 h-8 text-muted-foreground" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">No remixes yet</h3>
-                  <p className="text-gray-400 text-sm">Remixed content will appear here</p>
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">No remixes yet</h3>
+                  <p className="text-muted-foreground text-sm">Remixed content will appear here</p>
                 </div>
               </TabsContent>
 
               <TabsContent value="liked" className="mt-4">
                 <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
-                    <Heart className="w-8 h-8" style={{ color: 'hsl(262, 83%, 58%)' }} />
+                    <Heart className="w-8 h-8 text-muted-foreground" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">No liked posts yet</h3>
-                  <p className="text-gray-400 text-sm">Liked posts will appear here</p>
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">No liked posts yet</h3>
+                  <p className="text-muted-foreground text-sm">Liked posts will appear here</p>
                 </div>
               </TabsContent>
             </Tabs>
