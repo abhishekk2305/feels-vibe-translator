@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TopHeader from "@/components/TopHeader";
 import Stories from "@/components/Stories";
-import Feed from "@/components/Feed";
+import FeedTest from "@/components/FeedTest";
 import BottomNav from "@/components/BottomNav";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       <div className="max-w-sm mx-auto relative">
         <TopHeader />
         <Stories />
-        <Feed />
+        <FeedTest />
         <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
     </div>
