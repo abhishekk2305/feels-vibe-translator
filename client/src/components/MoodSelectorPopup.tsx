@@ -45,7 +45,7 @@ export default function MoodSelectorPopup({
               key={mood.id}
               onClick={() => handleMoodClick(mood.id)}
               className={`
-                flex-shrink-0 w-16 h-16 rounded-full p-0 transition-all duration-200 transform hover:scale-110
+                flex-shrink-0 w-16 h-16 rounded-full p-2 transition-all duration-200 transform hover:scale-110
                 ${isSelected 
                   ? `bg-gradient-to-r ${mood.color} text-white shadow-lg ring-2 ring-white/50` 
                   : "bg-gray-700 hover:bg-gray-600 text-gray-200"
@@ -53,9 +53,9 @@ export default function MoodSelectorPopup({
               `}
               variant="ghost"
             >
-              <div className="flex flex-col items-center">
-                <span className="text-xl">{mood.emoji}</span>
-                <span className="text-xs font-medium leading-tight">{mood.label}</span>
+              <div className="flex flex-col items-center justify-center h-full">
+                <span className="text-lg mb-0.5">{mood.emoji}</span>
+                <span className="text-xs font-medium leading-none text-center">{mood.label}</span>
               </div>
             </Button>
           );

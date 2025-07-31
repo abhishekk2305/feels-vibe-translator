@@ -24,12 +24,12 @@ export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupP
           <Button
             key={index}
             onClick={() => onActionSelect(action.prompt)}
-            className="flex-shrink-0 w-16 h-16 rounded-full p-0 bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
+            className="flex-shrink-0 w-16 h-16 rounded-full p-2 bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all duration-200 transform hover:scale-110"
             variant="ghost"
           >
-            <div className="flex flex-col items-center">
-              <span className="text-xl">{action.emoji}</span>
-              <span className="text-xs font-medium leading-tight">{action.label}</span>
+            <div className="flex flex-col items-center justify-center h-full">
+              <span className="text-lg mb-0.5">{action.emoji}</span>
+              <span className="text-xs font-medium leading-none text-center">{action.label}</span>
             </div>
           </Button>
         ))}
