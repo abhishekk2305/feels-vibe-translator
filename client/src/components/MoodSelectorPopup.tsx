@@ -20,6 +20,7 @@ export default function MoodSelectorPopup({
   onMoodChange, 
   maxSelection = 3 
 }: MoodSelectorPopupProps) {
+  // This shows actual mood selection - different from quick actions!
   const handleMoodClick = (moodId: string) => {
     let newSelectedMoods;
     if (selectedMoods.includes(moodId)) {

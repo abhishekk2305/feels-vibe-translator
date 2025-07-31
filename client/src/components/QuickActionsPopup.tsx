@@ -5,6 +5,7 @@ interface QuickActionsPopupProps {
 }
 
 export default function QuickActionsPopup({ onActionSelect }: QuickActionsPopupProps) {
+  // Quick vibe starters - different from mood selector!
   const quickActions = [
     { emoji: "🔥", label: "Hyped", prompt: "feeling so hyped and energetic right now, ready to take on anything!" },
     { emoji: "😴", label: "Chill", prompt: "just vibing and feeling super chill, no stress just good vibes" },
