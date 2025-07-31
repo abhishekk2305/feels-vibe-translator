@@ -247,11 +247,11 @@ export default function VibeCreator() {
                   <Button
                     variant={inputType === "text" ? "default" : "outline"}
                     onClick={() => setInputType("text")}
-                    className={`p-3 flex flex-col items-center space-y-1 ${
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 ${
                       inputType === "text" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    } max-w-full overflow-hidden`}
+                    } max-w-full overflow-hidden min-h-[80px]`}
                   >
                     <Keyboard className="w-6 h-6" />
                     <span className="text-xs">Type</span>
@@ -259,11 +259,11 @@ export default function VibeCreator() {
                   <Button
                     variant={inputType === "voice" ? "default" : "outline"}
                     onClick={() => setInputType("voice")}
-                    className={`p-3 flex flex-col items-center space-y-1 ${
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 ${
                       inputType === "voice" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    } max-w-full overflow-hidden`}
+                    } max-w-full overflow-hidden min-h-[80px]`}
                   >
                     <Mic className="w-6 h-6" />
                     <span className="text-xs">Voice</span>
@@ -274,11 +274,11 @@ export default function VibeCreator() {
                       setInputType("image");
                       fileInputRef.current?.click();
                     }}
-                    className={`p-3 flex flex-col items-center space-y-1 ${
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 ${
                       inputType === "image" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    } max-w-full overflow-hidden`}
+                    } max-w-full overflow-hidden min-h-[80px]`}
                   >
                     <Camera className="w-6 h-6" />
                     <span className="text-xs">Photo</span>
@@ -302,11 +302,11 @@ export default function VibeCreator() {
                   <Button
                     variant={contentStyle === "meme" ? "default" : "outline"}
                     onClick={() => setContentStyle("meme")}
-                    className={`p-3 flex flex-col items-center space-y-1 ${
+                    className={`p-3 flex flex-col items-center justify-center space-y-1 ${
                       contentStyle === "meme" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    } max-w-full overflow-hidden`}
+                    } max-w-full overflow-hidden min-h-[80px]`}
                   >
                     <Image className="w-6 h-6" />
                     <span className="text-xs">Meme</span>
@@ -314,7 +314,7 @@ export default function VibeCreator() {
                   <Button
                     variant="outline"
                     disabled
-                    className="p-3 flex flex-col items-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden"
+                    className="p-3 flex flex-col items-center justify-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden min-h-[80px]"
                   >
                     <Video className="w-6 h-6" />
                     <span className="text-xs">Video</span>
@@ -322,7 +322,7 @@ export default function VibeCreator() {
                   <Button
                     variant="outline"
                     disabled
-                    className="p-3 flex flex-col items-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden"
+                    className="p-3 flex flex-col items-center justify-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden min-h-[80px]"
                   >
                     <Quote className="w-6 h-6" />
                     <span className="text-xs">Quote</span>
