@@ -1,8 +1,8 @@
-# Remixz - AI Vibe Translator
+# Feels - AI Vibe Translator
 
 ## Overview
 
-Remixz is a Gen Z-focused social media app that transforms user emotions and moods into viral content using AI. The platform allows users to express their feelings through text, voice, or images, which are then processed by AI to generate memes, images, or short videos that match their "vibe."
+Feels is a modern social media app that transforms user emotions and moods into viral content using AI. The platform allows users to express their feelings through text, voice, or images, which are then processed by AI to generate memes, images, or short videos that match their "vibe."
 
 ## User Preferences
 

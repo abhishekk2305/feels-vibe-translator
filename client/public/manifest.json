@@ -1,7 +1,7 @@
 {
-  "name": "Remixz - AI Vibe Translator",
-  "short_name": "Remixz",
-  "description": "Transform your vibes into viral content with AI-powered meme and content generation for Gen Z",
+  "name": "Feels - AI Vibe Translator",
+  "short_name": "Feels",
+  "description": "Transform your emotions into viral content with AI-powered creativity and content generation",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F0F23",

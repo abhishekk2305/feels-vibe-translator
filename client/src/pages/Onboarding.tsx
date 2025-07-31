@@ -28,6 +28,29 @@ export default function Onboarding() {
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
   const { toast } = useToast();
 
+  const demoSteps = [
+    {
+      title: "Welcome to Feels!",
+      subtitle: "Let's create your first AI-powered vibe",
+      content: "In just 3 steps, you'll see how your emotions become viral content"
+    },
+    {
+      title: "Share Your Vibe",
+      subtitle: "Tell us how you're feeling right now",
+      content: "Type anything - your mood, what happened today, or just random thoughts"
+    },
+    {
+      title: "AI Magic in Progress",
+      subtitle: "Our AI is analyzing your emotions",
+      content: "Detecting mood, energy level, and the perfect content style for you"
+    },
+    {
+      title: "Your Viral Content",
+      subtitle: "AI-generated meme just for your vibe",
+      content: "Ready to share with the world!"
+    }
+  ];
+
   const analyzeVibeMutation = useMutation({
     mutationFn: async (text: string) => {
       const response = await apiRequest("POST", "/api/vibe/analyze-text", { text });
