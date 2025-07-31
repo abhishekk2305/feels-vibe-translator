@@ -365,35 +365,43 @@ export default function VibeCreator() {
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     onClick={() => {
-                      setShowARCreator(!showARCreator);
-                      setShowChallengeGenerator(false); // Close the other one
+                      if (showARCreator) {
+                        setShowARCreator(false); // Close if already open
+                      } else {
+                        setShowARCreator(true);
+                        setShowChallengeGenerator(false); // Close the other one
+                      }
                     }}
-                    className={`p-3 flex flex-col items-center space-y-2 rounded-xl transition-all ${
+                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all min-h-[80px] ${
                       showARCreator 
                         ? "gradient-bg text-white shadow-lg" 
-                        : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white border border-gray-600"
+                        : "bg-gray-700 text-gray-100 hover:bg-gray-600 hover:text-white border border-gray-600"
                     }`}
                   >
-                    <Sparkles className="w-5 h-5" />
+                    <Sparkles className="w-6 h-6" />
                     <div className="text-center">
-                      <div className="text-sm font-semibold">AR Stickers</div>
+                      <div className="text-sm font-bold">AR Stickers</div>
                       <div className="text-xs opacity-90">camera effects</div>
                     </div>
                   </Button>
                   <Button
                     onClick={() => {
-                      setShowChallengeGenerator(!showChallengeGenerator);
-                      setShowARCreator(false); // Close the other one
+                      if (showChallengeGenerator) {
+                        setShowChallengeGenerator(false); // Close if already open
+                      } else {
+                        setShowChallengeGenerator(true);
+                        setShowARCreator(false); // Close the other one
+                      }
                     }}
-                    className={`p-3 flex flex-col items-center space-y-2 rounded-xl transition-all ${
+                    className={`p-4 flex flex-col items-center space-y-2 rounded-xl transition-all min-h-[80px] ${
                       showChallengeGenerator 
                         ? "gradient-bg text-white shadow-lg" 
-                        : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white border border-gray-600"
+                        : "bg-gray-700 text-gray-100 hover:bg-gray-600 hover:text-white border border-gray-600"
                     }`}
                   >
-                    <TrendingUp className="w-5 h-5" />
+                    <TrendingUp className="w-6 h-6" />
                     <div className="text-center">
-                      <div className="text-sm font-semibold">Viral Challenge Generator</div>
+                      <div className="text-sm font-bold">Viral Challenge</div>
                       <div className="text-xs opacity-90">trending ideas</div>
                     </div>
                   </Button>
