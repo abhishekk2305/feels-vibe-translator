@@ -6,9 +6,10 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles, Zap, Heart, Smile } from "lucide-react";
 import QuickActions from "@/components/QuickActions";
 import AnalyzingAnimation from "@/components/AnalyzingAnimation";
+import MoodSelector from "@/components/MoodSelector";
 
 interface VibeResult {
   emotion: string;
@@ -26,11 +27,25 @@ interface MemeResult {
 export default function VibeCreatorSimple() {
   const [, setLocation] = useLocation();
   const [textInput, setTextInput] = useState("");
+  const [selectedMoods, setSelectedMoods] = useState<string[]>([]);
   const [vibeResult, setVibeResult] = useState<VibeResult | null>(null);
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
   const [step, setStep] = useState(1); // 1: input, 2: analysis, 3: result
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [showQuickActions, setShowQuickActions] = useState(false);
+  const [showMoodSelector, setShowMoodSelector] = useState(false);
   const { toast } = useToast();
+
+  const moods = [
+    { id: "happy", emoji: "😊", label: "Happy", color: "from-yellow-400 to-orange-400" },
+    { id: "chill", emoji: "😴", label: "Chill", color: "from-blue-400 to-cyan-400" },
+    { id: "excited", emoji: "🔥", label: "Excited", color: "from-red-400 to-pink-400" },
+    { id: "motivated", emoji: "💪", label: "Motivated", color: "from-green-400 to-emerald-400" },
+    { id: "thoughtful", emoji: "🤔", label: "Thoughtful", color: "from-purple-400 to-indigo-400" },
+    { id: "funny", emoji: "😂", label: "Funny", color: "from-pink-400 to-rose-400" },
+    { id: "sad", emoji: "😢", label: "Sad", color: "from-gray-400 to-slate-400" },
+    { id: "angry", emoji: "😠", label: "Angry", color: "from-red-500 to-orange-500" },
+  ];
 
   const analyzeTextMutation = useMutation({
     mutationFn: async (text: string) => {
@@ -114,6 +129,7 @@ export default function VibeCreatorSimple() {
       generateContentMutation.mutate({
         ...vibeResult,
         userText: textInput,
+        selectedMoods: selectedMoods,
         style: "meme",
       });
     }
@@ -128,6 +144,7 @@ export default function VibeCreatorSimple() {
         mediaType: "image",
         detectedEmotion: vibeResult.emotion,
         mood: vibeResult.mood,
+        selectedMoods: selectedMoods,
         caption: memeResult.caption,
         isStory: false,
       });
@@ -201,10 +218,72 @@ export default function VibeCreatorSimple() {
               </CardContent>
             </Card>
 
-            {!textInput && (
-              <QuickActions 
-                onActionSelect={(prompt) => setTextInput(prompt)}
-              />
+            {/* Popup Triggers - Facebook-style */}
+            <div className="flex gap-2 mb-4">
+              <Button
+                onClick={() => {
+                  setShowQuickActions(!showQuickActions);
+                  setShowMoodSelector(false);
+                }}
+                variant="outline"
+                className={`flex-1 p-3 rounded-xl transition-all ${
+                  showQuickActions 
+                    ? "gradient-bg text-white border-transparent" 
+                    : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+                }`}
+              >
+                <Zap className="w-4 h-4 mr-2" />
+                <span className="text-sm">Quick Vibes</span>
+              </Button>
+              <Button
+                onClick={() => {
+                  setShowMoodSelector(!showMoodSelector);
+                  setShowQuickActions(false);
+                }}
+                variant="outline"
+                className={`flex-1 p-3 rounded-xl transition-all ${
+                  showMoodSelector 
+                    ? "gradient-bg text-white border-transparent" 
+                    : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+                }`}
+              >
+                <Heart className="w-4 h-4 mr-2" />
+                <span className="text-sm">Select Mood</span>
+                {selectedMoods.length > 0 && (
+                  <span className="ml-1 bg-purple-500 text-xs px-1.5 py-0.5 rounded-full">
+                    {selectedMoods.length}
+                  </span>
+                )}
+              </Button>
+            </div>
+
+            {/* Quick Actions Popup */}
+            {showQuickActions && (
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200">
+                <QuickActions 
+                  onActionSelect={(prompt) => {
+                    setTextInput(prompt);
+                    setShowQuickActions(false);
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Mood Selector Popup */}
+            {showMoodSelector && (
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200">
+                <MoodSelector
+                  moods={moods}
+                  selectedMoods={selectedMoods}
+                  onMoodChange={(moods) => {
+                    setSelectedMoods(moods);
+                    if (moods.length > 0) {
+                      setTimeout(() => setShowMoodSelector(false), 500);
+                    }
+                  }}
+                  maxSelection={3}
+                />
+              </div>
             )}
 
             <Button
