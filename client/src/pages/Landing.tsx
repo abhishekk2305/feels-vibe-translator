@@ -19,9 +19,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-6 relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 50%, hsl(214, 95%, 61%) 100%)'
-    }}>
+    <div className="min-h-screen flex flex-col justify-center items-center p-6 bg-gray-50 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl animate-float"></div>
@@ -31,15 +29,15 @@ export default function Landing() {
       <div className="w-full max-w-sm mx-auto relative z-10">
         {/* App Icon */}
         <div className="text-center mb-8 animate-fade-scale">
-          <div className="w-24 h-24 mx-auto glass-card rounded-full flex items-center justify-center mb-6 animate-pulse-glow">
+          <div className="w-24 h-24 mx-auto bg-white shadow-xl rounded-full flex items-center justify-center mb-6">
             <span className="text-4xl">🎭</span>
           </div>
           <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight text-container">feels✨</h1>
           <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold mb-3 animate-bounce">
             ✨ UPDATED - JUL 31
           </div>
-          <p className="text-xl text-white/90 mb-2 font-medium">turn ur vibes into viral content 💫</p>
-          <p className="text-sm text-white/75">AI-powered creativity that just hits different</p>
+          <p className="text-xl text-gray-700 mb-2 font-medium">turn ur vibes into viral content 💫</p>
+          <p className="text-sm text-gray-600">AI-powered creativity that just hits different</p>
         </div>
 
         {!showDemo ? (
@@ -53,8 +51,7 @@ export default function Landing() {
             <Button 
               onClick={handleLogin}
               variant="outline"
-              className="w-full border-2 border-white/50 bg-white/20 backdrop-blur-sm hover:bg-white/30 hover:scale-105 transition-all duration-300 py-4 text-lg font-semibold rounded-2xl"
-              style={{ color: 'white' }}
+              className="w-full border-2 border-purple-500 bg-white text-purple-600 hover:bg-purple-50 hover:scale-105 transition-all duration-300 py-4 text-lg font-semibold rounded-2xl shadow-lg"
             >
               let's go ✨
             </Button>
@@ -68,7 +65,7 @@ export default function Landing() {
                   <span className="text-white text-xl">🎨</span>
                 </div>
               </div>
-              <p className="text-white font-medium">Preparing your magical experience...</p>
+              <p className="text-gray-700 font-medium">Preparing your magical experience...</p>
             </CardContent>
           </Card>
         )}
@@ -80,9 +77,9 @@ export default function Landing() {
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
                 <span className="text-sm">🎭</span>
               </div>
-              <span className="font-semibold text-white">Emotion Detection</span>
+              <span className="font-semibold text-gray-800">Emotion Detection</span>
             </div>
-            <p className="text-sm text-white/75 ml-11">Express through text, voice, or photos</p>
+            <p className="text-sm text-gray-600 ml-11">Express through text, voice, or photos</p>
           </div>
           
           <div className="glass-card rounded-2xl p-4 hover:scale-105 transition-all duration-300 animate-slide-up" style={{ animationDelay: '0.4s' }}>
@@ -90,9 +87,9 @@ export default function Landing() {
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-neon-green flex items-center justify-center">
                 <span className="text-sm">🤖</span>
               </div>
-              <span className="font-semibold text-white">AI Content Creation</span>
+              <span className="font-semibold text-gray-800">AI Content Creation</span>
             </div>
-            <p className="text-sm text-white/75">Instant viral content creation</p>
+            <p className="text-sm text-gray-600">Instant viral content creation</p>
           </div>
           
           <div className="glass-effect rounded-2xl p-4 border-white/20">
