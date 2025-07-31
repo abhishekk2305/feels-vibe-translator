@@ -197,7 +197,7 @@ export default function VibeCreator() {
 
   return (
     <div className="min-h-screen bg-dark-bg text-white">
-      <div className="max-w-sm mx-auto">
+      <div className="max-w-sm mx-auto overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 pt-8 bg-semi-dark">
           <Button
@@ -247,26 +247,26 @@ export default function VibeCreator() {
                   <Button
                     variant={inputType === "text" ? "default" : "outline"}
                     onClick={() => setInputType("text")}
-                    className={`p-4 flex flex-col items-center space-y-2 ${
+                    className={`p-3 flex flex-col items-center space-y-1 ${
                       inputType === "text" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    }`}
+                    } max-w-full overflow-hidden`}
                   >
                     <Keyboard className="w-6 h-6" />
-                    <span className="text-sm">Type</span>
+                    <span className="text-xs">Type</span>
                   </Button>
                   <Button
                     variant={inputType === "voice" ? "default" : "outline"}
                     onClick={() => setInputType("voice")}
-                    className={`p-4 flex flex-col items-center space-y-2 ${
+                    className={`p-3 flex flex-col items-center space-y-1 ${
                       inputType === "voice" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    }`}
+                    } max-w-full overflow-hidden`}
                   >
                     <Mic className="w-6 h-6" />
-                    <span className="text-sm">Voice</span>
+                    <span className="text-xs">Voice</span>
                   </Button>
                   <Button
                     variant={inputType === "image" ? "default" : "outline"}
@@ -274,14 +274,14 @@ export default function VibeCreator() {
                       setInputType("image");
                       fileInputRef.current?.click();
                     }}
-                    className={`p-4 flex flex-col items-center space-y-2 ${
+                    className={`p-3 flex flex-col items-center space-y-1 ${
                       inputType === "image" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    }`}
+                    } max-w-full overflow-hidden`}
                   >
                     <Camera className="w-6 h-6" />
-                    <span className="text-sm">Photo</span>
+                    <span className="text-xs">Photo</span>
                   </Button>
                 </div>
                 <Input
@@ -302,30 +302,30 @@ export default function VibeCreator() {
                   <Button
                     variant={contentStyle === "meme" ? "default" : "outline"}
                     onClick={() => setContentStyle("meme")}
-                    className={`p-4 flex flex-col items-center space-y-2 ${
+                    className={`p-3 flex flex-col items-center space-y-1 ${
                       contentStyle === "meme" 
                         ? "gradient-bg text-white" 
                         : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    }`}
+                    } max-w-full overflow-hidden`}
                   >
                     <Image className="w-6 h-6" />
-                    <span className="text-sm">Meme</span>
+                    <span className="text-xs">Meme</span>
                   </Button>
                   <Button
                     variant="outline"
                     disabled
-                    className="p-4 flex flex-col items-center space-y-2 bg-gray-800 text-gray-500 cursor-not-allowed"
+                    className="p-3 flex flex-col items-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden"
                   >
                     <Video className="w-6 h-6" />
-                    <span className="text-sm">Video</span>
+                    <span className="text-xs">Video</span>
                   </Button>
                   <Button
                     variant="outline"
                     disabled
-                    className="p-4 flex flex-col items-center space-y-2 bg-gray-800 text-gray-500 cursor-not-allowed"
+                    className="p-3 flex flex-col items-center space-y-1 bg-gray-800 text-gray-500 cursor-not-allowed max-w-full overflow-hidden"
                   >
                     <Quote className="w-6 h-6" />
-                    <span className="text-sm">Quote</span>
+                    <span className="text-xs">Quote</span>
                   </Button>
                 </div>
               </CardContent>

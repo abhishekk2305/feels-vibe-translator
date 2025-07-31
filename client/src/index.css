@@ -181,6 +181,59 @@
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Force text wrapping for all containers */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Specific container constraints to prevent overflow */
+.max-w-sm, .max-w-sm * {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Enhanced container constraints */
+.max-w-sm {
+  max-width: 24rem !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Grid and flex containers */
+.grid, .flex {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Card content constraints */
+.card-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+/* Button text constraints */
+button {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Button content */
+button * {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* Responsive text sizing for mobile */
@@ -189,6 +242,28 @@
   .text-4xl { font-size: 2rem !important; }
   .text-3xl { font-size: 1.75rem !important; }
   .text-2xl { font-size: 1.5rem !important; }
+  
+  /* Force smaller text on mobile for better fit */
+  h1, h2, h3 {
+    font-size: clamp(1rem, 4vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Container padding adjustments */
+  .p-4 { padding: 0.75rem !important; }
+  .p-6 { padding: 1rem !important; }
+  
+  /* Ensure all elements stay within bounds */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Fix grid items specifically */
+  .grid > * {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
 }
 
 .gradient-border {

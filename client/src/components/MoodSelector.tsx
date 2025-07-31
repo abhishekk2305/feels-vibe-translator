@@ -59,11 +59,11 @@ export default function MoodSelector({
               onMouseEnter={() => setHoveredMood(mood.id)}
               onMouseLeave={() => setHoveredMood(null)}
             >
-              <CardContent className="p-4 text-center relative z-10">
-                <div className={`text-3xl mb-2 transition-transform duration-300 ${isSelected ? 'scale-110' : ''}`}>
+              <CardContent className="p-3 text-center relative z-10 max-w-full overflow-hidden">
+                <div className={`text-2xl mb-1 transition-transform duration-300 ${isSelected ? 'scale-110' : ''}`}>
                   {mood.emoji}
                 </div>
-                <p className={`text-sm font-medium ${isSelected ? 'text-white' : 'text-gray-300'}`}>
+                <p className={`text-xs font-medium ${isSelected ? 'text-white' : 'text-gray-300'} truncate`}>
                   {mood.label}
                 </p>
                 

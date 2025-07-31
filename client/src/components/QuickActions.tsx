@@ -76,21 +76,24 @@ export default function QuickActions({ onActionSelect }: QuickActionsProps) {
               key={action.id}
               variant="outline"
               className={`
-                p-4 h-auto flex flex-col items-center space-y-2 
+                p-3 h-auto flex flex-col items-center space-y-2 
                 border-white/10 hover:border-white/30 
                 bg-gradient-to-r ${action.gradient} bg-opacity-10
                 hover:scale-105 transition-all duration-300
                 text-white hover:text-white
+                max-w-full overflow-hidden
               `}
               onClick={() => onActionSelect(action.prompt)}
             >
               <div className={`
-                w-10 h-10 rounded-full bg-gradient-to-r ${action.gradient} 
-                flex items-center justify-center
+                w-8 h-8 rounded-full bg-gradient-to-r ${action.gradient} 
+                flex items-center justify-center flex-shrink-0
               `}>
                 {action.icon}
               </div>
-              <span className="text-sm font-medium">{action.label}</span>
+              <span className="text-xs font-medium text-center leading-tight max-w-full truncate">
+                {action.label}
+              </span>
             </Button>
           ))}
         </div>
