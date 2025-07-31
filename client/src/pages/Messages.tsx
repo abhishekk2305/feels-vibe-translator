@@ -75,7 +75,7 @@ export default function Messages() {
             className="p-2"
             style={{ color: 'hsl(262, 83%, 58%)' }}
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-5 h-5" style={{ color: 'hsl(262, 83%, 58%)' }} />
           </Button>
           <h1 className="text-xl font-semibold" style={{ color: 'hsl(262, 83%, 58%)' }}>Messages</h1>
           <Button
@@ -84,7 +84,7 @@ export default function Messages() {
             className="p-2"
             style={{ color: 'hsl(262, 83%, 58%)' }}
           >
-            <Edit className="w-5 h-5" />
+            <Edit className="w-5 h-5" style={{ color: 'hsl(262, 83%, 58%)' }} />
           </Button>
         </div>
 

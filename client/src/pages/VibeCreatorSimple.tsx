@@ -164,7 +164,7 @@ export default function VibeCreatorSimple() {
             className="p-2 absolute left-4 top-8 z-10"
             style={{ color: 'hsl(262, 83%, 58%)' }}
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-5 h-5" style={{ color: 'hsl(262, 83%, 58%)' }} />
           </Button>
           <div className="text-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-1">

@@ -80,18 +80,20 @@ export default function Profile() {
               variant="ghost"
               size="sm"
               onClick={() => setLocation("/")}
-              className="text-white p-2"
+              className="p-2"
+              style={{ color: 'hsl(262, 83%, 58%)' }}
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4" style={{ color: 'hsl(262, 83%, 58%)' }} />
             </Button>
             {isOwnProfile && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLocation("/settings")}
-                className="text-white p-2"
+                className="p-2"
+                style={{ color: 'hsl(262, 83%, 58%)' }}
               >
-                <Settings className="w-4 h-4" />
+                <Settings className="w-4 h-4" style={{ color: 'hsl(262, 83%, 58%)' }} />
               </Button>
             )}
           </div>

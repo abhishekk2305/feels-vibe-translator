@@ -60,7 +60,7 @@ export default function Activity() {
               className="p-2"
               style={{ color: 'hsl(262, 83%, 58%)' }}
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-5 h-5" style={{ color: 'hsl(262, 83%, 58%)' }} />
             </Button>
             <h1 className="text-xl font-bold" style={{ color: 'hsl(262, 83%, 58%)' }}>Activity</h1>
           </div>

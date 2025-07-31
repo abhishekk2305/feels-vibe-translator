@@ -23,7 +23,7 @@ export default function TopHeader() {
           className="p-2 relative hover:bg-accent"
           style={{ color: 'hsl(262, 83%, 58%)' }}
         >
-          <Bell className="w-4 h-4" />
+          <Bell className="w-4 h-4" style={{ color: 'hsl(262, 83%, 58%)' }} />
           <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary rounded-full"></div>
         </Button>
         <Button
@@ -33,7 +33,7 @@ export default function TopHeader() {
           className="p-2 hover:bg-accent"
           style={{ color: 'hsl(262, 83%, 58%)' }}
         >
-          <MessageCircle className="w-4 h-4" />
+          <MessageCircle className="w-4 h-4" style={{ color: 'hsl(262, 83%, 58%)' }} />
         </Button>
       </div>
     </div>

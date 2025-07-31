@@ -78,7 +78,7 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               className="flex flex-col items-center space-y-1 p-2 min-w-0 hover:bg-transparent"
               style={{ color: 'hsl(262, 83%, 58%)' }}
             >
-              <Icon className="w-5 h-5" />
+              <Icon className="w-5 h-5" style={{ color: 'hsl(262, 83%, 58%)' }} />
               <span className="text-xs font-medium">{item.label}</span>
             </Button>
           );

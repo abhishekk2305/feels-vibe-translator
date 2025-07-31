@@ -31,7 +31,7 @@ export default function Settings() {
             className="p-2"
             style={{ color: 'hsl(262, 83%, 58%)' }}
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4" style={{ color: 'hsl(262, 83%, 58%)' }} />
           </Button>
           <h1 className="text-lg font-semibold" style={{ color: 'hsl(262, 83%, 58%)' }}>Settings</h1>
           <div className="w-8"></div>
