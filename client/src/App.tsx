@@ -13,6 +13,7 @@ import Profile from "@/pages/Profile";
 import Messages from "@/pages/Messages";
 import Settings from "@/pages/Settings";
 import Activity from "@/pages/Activity";
+import Search from "@/pages/Search";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
           <Route path="/messages" component={Messages} />
           <Route path="/settings" component={Settings} />
           <Route path="/activity" component={Activity} />
+          <Route path="/search" component={Search} />
         </>
       )}
       <Route component={NotFound} />

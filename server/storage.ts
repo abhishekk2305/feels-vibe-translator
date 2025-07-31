@@ -57,6 +57,11 @@ export interface IStorage {
   getConversation(userId1: string, userId2: string): Promise<Array<Message & { sender: User; receiver: User }>>;
   getConversations(userId: string): Promise<Array<{ user: User; lastMessage: Message; unreadCount: number }>>;
   markMessageAsRead(messageId: string): Promise<boolean>;
+
+  // Search operations
+  searchUsers(query: string): Promise<Array<User>>;
+  searchPosts(query: string): Promise<Array<Post & { user: User; likesCount: number; commentsCount: number }>>;
+  searchHashtags(query: string): Promise<Array<{ tag: string; count: number }>>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -397,6 +402,79 @@ export class DatabaseStorage implements IStorage {
       .set({ isRead: true })
       .where(eq(messages.id, messageId));
     return (result.rowCount ?? 0) > 0;
+  }
+
+  // Search operations
+  async searchUsers(query: string): Promise<Array<User>> {
+    const searchTerm = `%${query.toLowerCase()}%`;
+    return await db
+      .select()
+      .from(users)
+      .where(
+        or(
+          sql`LOWER(${users.username}) LIKE ${searchTerm}`,
+          sql`LOWER(${users.firstName}) LIKE ${searchTerm}`,
+          sql`LOWER(${users.lastName}) LIKE ${searchTerm}`,
+          sql`LOWER(CONCAT(${users.firstName}, ' ', ${users.lastName})) LIKE ${searchTerm}`
+        )
+      )
+      .limit(20);
+  }
+
+  async searchPosts(query: string): Promise<Array<Post & { user: User; likesCount: number; commentsCount: number }>> {
+    const searchTerm = `%${query.toLowerCase()}%`;
+    
+    const result = await db
+      .select({
+        post: posts,
+        user: users,
+        likesCount: count(likes.id),
+        commentsCount: count(comments.id),
+      })
+      .from(posts)
+      .innerJoin(users, eq(posts.userId, users.id))
+      .leftJoin(likes, eq(posts.id, likes.postId))
+      .leftJoin(comments, eq(posts.id, comments.postId))
+      .where(sql`LOWER(${posts.content}) LIKE ${searchTerm}`)
+      .groupBy(posts.id, users.id)
+      .orderBy(desc(posts.createdAt))
+      .limit(20);
+
+    return result.map(row => ({
+      ...row.post,
+      user: row.user,
+      likesCount: Number(row.likesCount || 0),
+      commentsCount: Number(row.commentsCount || 0),
+    }));
+  }
+
+  async searchHashtags(query: string): Promise<Array<{ tag: string; count: number }>> {
+    const searchTerm = `%#${query.toLowerCase()}%`;
+    
+    // Extract hashtags from post content and count occurrences
+    const result = await db
+      .select({
+        content: posts.content,
+      })
+      .from(posts)
+      .where(sql`LOWER(${posts.content}) LIKE ${searchTerm}`);
+
+    // Process hashtags (simplified implementation)
+    const hashtagCounts = new Map<string, number>();
+    result.forEach(row => {
+      const hashtags = row.content.match(/#\w+/g) || [];
+      hashtags.forEach(tag => {
+        const normalizedTag = tag.toLowerCase().substring(1);
+        if (normalizedTag.includes(query.toLowerCase())) {
+          hashtagCounts.set(normalizedTag, (hashtagCounts.get(normalizedTag) || 0) + 1);
+        }
+      });
+    });
+
+    return Array.from(hashtagCounts.entries())
+      .map(([tag, count]) => ({ tag, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 20);
   }
 }
 

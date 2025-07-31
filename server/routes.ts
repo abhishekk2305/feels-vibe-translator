@@ -259,6 +259,52 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Search routes
+  app.get('/api/users/search', isAuthenticated, async (req, res) => {
+    try {
+      const query = req.query.q as string;
+      if (!query || query.length < 2) {
+        return res.json([]);
+      }
+      
+      const users = await storage.searchUsers(query);
+      res.json(users);
+    } catch (error) {
+      console.error("Error searching users:", error);
+      res.status(500).json({ message: "Failed to search users" });
+    }
+  });
+
+  app.get('/api/posts/search', isAuthenticated, async (req, res) => {
+    try {
+      const query = req.query.q as string;
+      if (!query || query.length < 2) {
+        return res.json([]);
+      }
+      
+      const posts = await storage.searchPosts(query);
+      res.json(posts);
+    } catch (error) {
+      console.error("Error searching posts:", error);
+      res.status(500).json({ message: "Failed to search posts" });
+    }
+  });
+
+  app.get('/api/hashtags/search', isAuthenticated, async (req, res) => {
+    try {
+      const query = req.query.q as string;
+      if (!query || query.length < 2) {
+        return res.json([]);
+      }
+      
+      const hashtags = await storage.searchHashtags(query);
+      res.json(hashtags);
+    } catch (error) {
+      console.error("Error searching hashtags:", error);
+      res.status(500).json({ message: "Failed to search hashtags" });
+    }
+  });
+
   // Comment routes
   app.post('/api/posts/:id/comments', isAuthenticated, async (req: any, res) => {
     try {
