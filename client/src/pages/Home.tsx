@@ -8,7 +8,10 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen" style={{ 
+      background: 'linear-gradient(180deg, hsl(240, 21%, 9%) 0%, hsl(237, 22%, 15%) 100%)',
+      color: 'hsl(262, 70%, 85%)'
+    }}>
       <div className="max-w-sm mx-auto relative">
         <TopHeader />
         <Stories />

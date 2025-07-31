@@ -54,17 +54,29 @@ export default function Feed() {
 
   if ((posts as any[]).length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 px-6">
-        <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{ 
-          background: 'linear-gradient(135deg, hsl(262, 40%, 20%) 0%, hsl(324, 40%, 20%) 100%)',
-          border: '1px solid hsl(262, 50%, 40%)'
+      <div className="flex flex-col items-center justify-center py-12 px-6 min-h-[400px]">
+        <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ 
+          background: 'linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 100%)',
+          boxShadow: '0 10px 25px hsla(262, 83%, 58%, 0.3)'
         }}>
-          <span className="text-2xl">🎭</span>
+          <span className="text-3xl">🎭</span>
         </div>
-        <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 85%)' }}>your feed is empty</h3>
-        <p className="text-sm text-center mb-6" style={{ color: 'hsl(262, 60%, 55%)' }}>
+        <h3 className="text-xl font-bold mb-3" style={{ color: 'hsl(262, 83%, 58%)' }}>your feed is empty</h3>
+        <p className="text-base text-center mb-8 max-w-xs leading-relaxed" style={{ color: 'hsl(262, 70%, 85%)' }}>
           follow other creators or create your first vibe to see content here! ✨
         </p>
+        <div className="w-full max-w-xs">
+          <button 
+            onClick={() => window.location.href = '/create'}
+            className="w-full py-3 px-6 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105"
+            style={{ 
+              background: 'linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(324, 93%, 68%) 100%)',
+              boxShadow: '0 4px 15px hsla(262, 83%, 58%, 0.3)'
+            }}
+          >
+            create your first vibe ✨
+          </button>
+        </div>
       </div>
     );
   }

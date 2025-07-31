@@ -26,9 +26,9 @@ export default function Stories() {
   };
 
   return (
-    <div className="backdrop-blur-sm px-4 py-3" style={{ 
-      background: 'linear-gradient(90deg, hsl(262, 40%, 5%) 0%, hsl(324, 40%, 5%) 100%)',
-      borderBottom: '1px solid hsl(262, 50%, 20%)'
+    <div className="backdrop-blur-sm px-4 py-4" style={{ 
+      background: 'linear-gradient(90deg, hsl(262, 40%, 8%) 0%, hsl(324, 40%, 8%) 100%)',
+      borderBottom: '1px solid hsl(262, 50%, 25%)'
     }}>
       <div className="flex space-x-3 overflow-x-auto hide-scrollbar pb-2">
         {/* Add Story Button */}
