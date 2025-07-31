@@ -72,7 +72,7 @@ export default function Messages() {
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/")}
-            className="text-foreground p-2"
+            className="text-primary p-2"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
@@ -80,7 +80,7 @@ export default function Messages() {
           <Button
             variant="ghost"
             size="sm"
-            className="text-foreground p-2"
+            className="text-primary p-2"
           >
             <Edit className="w-5 h-5" />
           </Button>

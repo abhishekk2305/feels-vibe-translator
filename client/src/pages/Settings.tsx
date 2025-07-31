@@ -28,7 +28,7 @@ export default function Settings() {
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/profile")}
-            className="text-foreground p-2"
+            className="text-primary p-2"
           >
             <ArrowLeft className="w-4 h-4" />
           </Button>

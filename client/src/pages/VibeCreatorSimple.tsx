@@ -161,7 +161,7 @@ export default function VibeCreatorSimple() {
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/")}
-            className="text-foreground p-2 absolute left-4 top-8 z-10"
+            className="text-primary p-2 absolute left-4 top-8 z-10"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>

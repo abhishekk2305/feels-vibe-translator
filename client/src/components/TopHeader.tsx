@@ -20,7 +20,7 @@ export default function TopHeader() {
           variant="ghost"
           size="sm"
           onClick={handleNotifications}
-          className="text-foreground p-2 relative hover:bg-accent"
+          className="text-primary p-2 relative hover:bg-accent"
         >
           <Bell className="w-4 h-4" />
           <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary rounded-full"></div>
@@ -29,7 +29,7 @@ export default function TopHeader() {
           variant="ghost"
           size="sm"
           onClick={() => setLocation("/messages")}
-          className="text-foreground p-2 hover:bg-accent"
+          className="text-primary p-2 hover:bg-accent"
         >
           <MessageCircle className="w-4 h-4" />
         </Button>
