@@ -15,31 +15,77 @@ export default function Home() {
       <div className="max-w-sm mx-auto relative">
         <TopHeader />
         <Stories />
-        <div style={{ padding: '20px', backgroundColor: '#FFFFFF', margin: '20px', border: '5px solid #FF0000' }}>
-          <h1 style={{ color: '#FF0000', fontSize: '30px', fontWeight: 'bold' }}>
-            EMERGENCY TEST - CAN YOU SEE THIS RED TEXT?
-          </h1>
-          <div style={{ 
-            backgroundColor: '#8B5CF6',
-            color: '#FFFFFF',
-            padding: '20px',
-            borderRadius: '10px',
-            marginTop: '20px'
+        <div className="pb-20 px-4">
+          <div className="mb-6 p-6 rounded-2xl border-2 bg-white" style={{ 
+            borderColor: '#8B5CF6',
+            boxShadow: '0 8px 25px rgba(139, 92, 246, 0.15)'
           }}>
-            <h2 style={{ fontSize: '24px', marginBottom: '10px' }}>POST FROM SARAH</h2>
-            <p style={{ fontSize: '18px' }}>feeling absolutely amazing today! ✨</p>
-            <p style={{ fontSize: '16px', marginTop: '10px' }}>❤️ 42 likes | 💬 8 comments</p>
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ 
+                backgroundColor: '#8B5CF6'
+              }}>
+                <span className="text-white font-bold text-lg">S</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-lg" style={{ color: '#8B5CF6' }}>sarah_vibes</h4>
+                <p className="text-sm" style={{ color: '#A855F7' }}>2h ago • excited</p>
+              </div>
+            </div>
+            
+            <p className="text-lg mb-4 font-medium" style={{ color: '#6B21A8' }}>feeling absolutely amazing today! ✨</p>
+            <p className="text-base mb-4 italic" style={{ color: '#A855F7' }}>AI turned my happiness into this magical moment</p>
+            
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-6">
+                <button className="flex items-center space-x-2" style={{ color: '#EC4899' }}>
+                  <span className="text-xl">❤️</span>
+                  <span className="text-base font-semibold">42</span>
+                </button>
+                <button className="flex items-center space-x-2" style={{ color: '#A855F7' }}>
+                  <span className="text-xl">💬</span>
+                  <span className="text-base font-semibold">8</span>
+                </button>
+              </div>
+              <button style={{ color: '#A855F7' }}>
+                <span className="text-xl">📤</span>
+              </button>
+            </div>
           </div>
-          <div style={{ 
-            backgroundColor: '#EC4899',
-            color: '#FFFFFF',
-            padding: '20px',
-            borderRadius: '10px',
-            marginTop: '20px'
+
+          <div className="mb-6 p-6 rounded-2xl border-2 bg-white" style={{ 
+            borderColor: '#8B5CF6',
+            boxShadow: '0 8px 25px rgba(139, 92, 246, 0.15)'
           }}>
-            <h2 style={{ fontSize: '24px', marginBottom: '10px' }}>POST FROM MIKE</h2>
-            <p style={{ fontSize: '18px' }}>when the weekend hits different 🚀</p>
-            <p style={{ fontSize: '16px', marginTop: '10px' }}>❤️ 67 likes | 💬 12 comments</p>
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ 
+                backgroundColor: '#8B5CF6'
+              }}>
+                <span className="text-white font-bold text-lg">M</span>
+              </div>
+              <div>
+                <h4 className="font-bold text-lg" style={{ color: '#8B5CF6' }}>mike_creates</h4>
+                <p className="text-sm" style={{ color: '#A855F7' }}>1h ago • hyped</p>
+              </div>
+            </div>
+            
+            <p className="text-lg mb-4 font-medium" style={{ color: '#6B21A8' }}>when the weekend hits different 🚀</p>
+            <p className="text-base mb-4 italic" style={{ color: '#A855F7' }}>AI created the perfect weekend vibe</p>
+            
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-6">
+                <button className="flex items-center space-x-2" style={{ color: '#EC4899' }}>
+                  <span className="text-xl">❤️</span>
+                  <span className="text-base font-semibold">67</span>
+                </button>
+                <button className="flex items-center space-x-2" style={{ color: '#A855F7' }}>
+                  <span className="text-xl">💬</span>
+                  <span className="text-base font-semibold">12</span>
+                </button>
+              </div>
+              <button style={{ color: '#A855F7' }}>
+                <span className="text-xl">📤</span>
+              </button>
+            </div>
           </div>
         </div>
         <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />

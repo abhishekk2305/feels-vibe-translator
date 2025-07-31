@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force cache refresh */
+html { opacity: 0.999; }
+
 :root {
   --background: hsl(0, 0%, 98%);
   --foreground: hsl(260, 30%, 25%);
