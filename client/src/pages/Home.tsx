@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{ 
-      background: '#000000',
-      color: '#FFFFFF'
+      background: 'linear-gradient(180deg, hsl(0, 0%, 98%) 0%, hsl(220, 13%, 95%) 100%)',
+      color: 'hsl(262, 70%, 45%)'
     }}>
       <div className="max-w-sm mx-auto relative">
         <TopHeader />

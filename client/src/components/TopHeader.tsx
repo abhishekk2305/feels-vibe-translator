@@ -11,9 +11,9 @@ export default function TopHeader() {
 
   return (
     <div className="flex items-center justify-between px-4 py-3 sticky top-0 z-40" style={{ 
-      background: 'hsla(240, 21%, 9%, 0.95)',
+      background: 'hsla(0, 0%, 98%, 0.95)',
       backdropFilter: 'blur(10px)',
-      borderBottom: '1px solid hsl(262, 50%, 20%)'
+      borderBottom: '1px solid hsl(262, 50%, 80%)'
     }}>
       <div className="flex items-center">
         <h1 className="text-xl font-bold gradient-text font-poppins">feels✨</h1>

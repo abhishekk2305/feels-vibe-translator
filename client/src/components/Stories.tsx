@@ -27,8 +27,8 @@ export default function Stories() {
 
   return (
     <div className="backdrop-blur-sm px-4 py-4" style={{ 
-      background: 'linear-gradient(90deg, hsl(262, 40%, 8%) 0%, hsl(324, 40%, 8%) 100%)',
-      borderBottom: '1px solid hsl(262, 50%, 25%)'
+      background: 'linear-gradient(90deg, hsl(262, 40%, 95%) 0%, hsl(324, 40%, 95%) 100%)',
+      borderBottom: '1px solid hsl(262, 50%, 75%)'
     }}>
       <div className="flex space-x-3 overflow-x-auto hide-scrollbar pb-2">
         {/* Add Story Button */}
@@ -39,7 +39,7 @@ export default function Stories() {
           >
             <Plus className="w-6 h-6 text-white" />
           </Button>
-          <span className="text-xs" style={{ color: 'hsl(262, 60%, 55%)' }}>Your Story</span>
+          <span className="text-xs" style={{ color: 'hsl(262, 70%, 45%)' }}>Your Story</span>
         </div>
         
         {/* Story Items */}
@@ -63,7 +63,7 @@ export default function Stories() {
                 )}
               </div>
             </div>
-            <span className="text-xs mt-1 block truncate w-16" style={{ color: 'hsl(262, 60%, 55%)' }}>
+            <span className="text-xs mt-1 block truncate w-16" style={{ color: 'hsl(262, 70%, 45%)' }}>
               {story.user.username}
             </span>
           </div>

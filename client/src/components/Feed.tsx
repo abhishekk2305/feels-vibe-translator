@@ -103,8 +103,8 @@ export default function Feed() {
         }}>
           <span className="text-3xl">🎭</span>
         </div>
-        <h3 className="text-xl font-bold mb-3" style={{ color: '#FFFFFF' }}>your feed is empty</h3>
-        <p className="text-base text-center mb-8 max-w-xs leading-relaxed" style={{ color: '#FFFFFF' }}>
+        <h3 className="text-xl font-bold mb-3" style={{ color: 'hsl(262, 83%, 58%)' }}>your feed is empty</h3>
+        <p className="text-base text-center mb-8 max-w-xs leading-relaxed" style={{ color: 'hsl(262, 70%, 45%)' }}>
           follow other creators or create your first vibe to see content here! ✨
         </p>
         <div className="w-full max-w-xs">
