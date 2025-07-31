@@ -22,25 +22,25 @@ export default function Settings() {
     <div className="min-h-screen bg-dark-bg text-white">
       <div className="max-w-sm mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 pt-8">
+        <div className="flex items-center justify-between p-4">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setLocation("/profile")}
             className="text-white p-2"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4" />
           </Button>
           <h1 className="text-lg font-semibold">Settings</h1>
-          <div className="w-9"></div> {/* Spacer for center alignment */}
+          <div className="w-8"></div>
         </div>
 
-        <div className="px-4 space-y-6">
+        <div className="px-4 space-y-4">
           {/* User Profile Section */}
           <Card className="glass-card border-white/10">
-            <CardContent className="p-4">
+            <CardContent className="p-3">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
                   {user?.profileImageUrl ? (
                     <img 
                       src={user.profileImageUrl} 
@@ -48,37 +48,31 @@ export default function Settings() {
                       className="w-full h-full object-cover rounded-full"
                     />
                   ) : (
-                    <span className="text-lg font-semibold text-white">
+                    <span className="text-sm font-semibold text-white">
                       {user?.firstName?.[0] || user?.email?.[0] || "?"}
                     </span>
                   )}
                 </div>
-                <div className="flex-1">
-                  <p className="font-semibold text-white">
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium text-white truncate">
                     {user?.firstName && user?.lastName 
                       ? `${user.firstName} ${user.lastName}`
                       : user?.email || "User"
                     }
                   </p>
-                  <p className="text-sm text-gray-400">{user?.email}</p>
+                  <p className="text-xs text-gray-400 truncate">{user?.email}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* App Settings */}
+          {/* Settings Options */}
           <Card className="glass-card border-white/10">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg text-white">App Settings</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="p-3 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <Bell className="w-5 h-5 text-gray-400" />
-                  <div>
-                    <p className="text-white font-medium">Push Notifications</p>
-                    <p className="text-sm text-gray-400">Get notified about new vibes</p>
-                  </div>
+                  <Bell className="w-4 h-4 text-gray-400" />
+                  <p className="text-white font-medium text-sm">Notifications</p>
                 </div>
                 <Switch 
                   checked={notifications} 
@@ -88,91 +82,59 @@ export default function Settings() {
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <Moon className="w-5 h-5 text-gray-400" />
-                  <div>
-                    <p className="text-white font-medium">Dark Mode</p>
-                    <p className="text-sm text-gray-400">Always on for better vibes</p>
-                  </div>
+                  <Moon className="w-4 h-4 text-gray-400" />
+                  <p className="text-white font-medium text-sm">Dark Mode</p>
                 </div>
                 <Switch 
                   checked={darkMode} 
                   onCheckedChange={setDarkMode}
-                  disabled
                 />
               </div>
-            </CardContent>
-          </Card>
 
-          {/* Privacy & Security */}
-          <Card className="glass-card border-white/10">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg text-white">Privacy & Security</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-white hover:bg-white/10 p-3 h-auto"
+                className="w-full justify-start text-white hover:bg-white/10 p-2 h-auto"
               >
-                <Shield className="w-5 h-5 mr-3 text-gray-400" />
-                <div className="text-left">
-                  <p className="font-medium">Privacy Settings</p>
-                  <p className="text-sm text-gray-400">Control who can see your content</p>
-                </div>
+                <Shield className="w-4 h-4 mr-3 text-gray-400" />
+                <p className="font-medium text-sm">Privacy Settings</p>
               </Button>
 
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-white hover:bg-white/10 p-3 h-auto"
+                className="w-full justify-start text-white hover:bg-white/10 p-2 h-auto"
               >
-                <HelpCircle className="w-5 h-5 mr-3 text-gray-400" />
-                <div className="text-left">
-                  <p className="font-medium">Help & Support</p>
-                  <p className="text-sm text-gray-400">Get help or report an issue</p>
-                </div>
+                <HelpCircle className="w-4 h-4 mr-3 text-gray-400" />
+                <p className="font-medium text-sm">Help & Support</p>
               </Button>
-            </CardContent>
-          </Card>
-
-          {/* App Info */}
-          <Card className="glass-card border-white/10">
-            <CardContent className="p-4">
-              <div className="text-center space-y-2">
-                <h3 className="text-lg font-bold gradient-text">Feels</h3>
-                <p className="text-sm text-gray-400">Version 1.0.0</p>
-                <p className="text-xs text-gray-500">Transform your vibes into viral content</p>
-              </div>
             </CardContent>
           </Card>
 
           {/* Logout Section */}
           <Card className="glass-card border-red-500/20 bg-red-500/5">
-            <CardContent className="p-4">
+            <CardContent className="p-3">
               {!showLogoutConfirm ? (
                 <Button 
                   variant="ghost" 
                   onClick={() => setShowLogoutConfirm(true)}
-                  className="w-full justify-start text-red-400 hover:bg-red-500/10 p-3 h-auto"
+                  className="w-full justify-start text-red-400 hover:bg-red-500/10 p-2 h-auto"
                 >
-                  <LogOut className="w-5 h-5 mr-3" />
-                  <div className="text-left">
-                    <p className="font-medium">Sign Out</p>
-                    <p className="text-sm text-gray-400">Sign out of your account</p>
-                  </div>
+                  <LogOut className="w-4 h-4 mr-3" />
+                  <p className="font-medium text-sm">Sign Out</p>
                 </Button>
               ) : (
-                <div className="space-y-3">
-                  <p className="text-white font-medium text-center">Are you sure you want to sign out?</p>
-                  <div className="flex space-x-3">
+                <div className="space-y-2">
+                  <p className="text-white font-medium text-center text-sm">Sign out of your account?</p>
+                  <div className="flex space-x-2">
                     <Button 
                       variant="outline" 
                       onClick={() => setShowLogoutConfirm(false)}
-                      className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-700"
+                      className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-700 text-sm py-2"
                     >
                       Cancel
                     </Button>
                     <Button 
                       onClick={handleLogout}
-                      className="flex-1 bg-red-600 hover:bg-red-700 text-white"
+                      className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2"
                     >
                       Sign Out
                     </Button>
@@ -182,8 +144,13 @@ export default function Settings() {
             </CardContent>
           </Card>
 
+          {/* App Info - Compact */}
+          <div className="text-center py-4">
+            <p className="text-sm text-gray-400">feels✨ v1.0.0</p>
+          </div>
+
           {/* Bottom Spacing */}
-          <div className="h-8"></div>
+          <div className="h-20"></div>
         </div>
       </div>
     </div>
