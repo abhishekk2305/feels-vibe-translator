@@ -7,9 +7,9 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
 import { ArrowLeft, Sparkles, Zap, Heart, Smile } from "lucide-react";
-import QuickActions from "@/components/QuickActions";
+import QuickActionsPopup from "@/components/QuickActionsPopup";
 import AnalyzingAnimation from "@/components/AnalyzingAnimation";
-import MoodSelector from "@/components/MoodSelector";
+import MoodSelectorPopup from "@/components/MoodSelectorPopup";
 
 interface VibeResult {
   emotion: string;
@@ -68,7 +68,7 @@ export default function VibeCreatorSimple() {
   });
 
   const generateContentMutation = useMutation({
-    mutationFn: async (data: VibeResult & { userText: string; style: string }) => {
+    mutationFn: async (data: VibeResult & { userText: string; selectedMoods: string[]; style: string }) => {
       const response = await apiRequest("POST", "/api/vibe/generate-meme", {
         emotion: data.emotion,
         mood: data.mood,
@@ -260,7 +260,7 @@ export default function VibeCreatorSimple() {
             {/* Quick Actions Popup */}
             {showQuickActions && (
               <div className="mb-4 animate-in slide-in-from-top-2 duration-200">
-                <QuickActions 
+                <QuickActionsPopup 
                   onActionSelect={(prompt) => {
                     setTextInput(prompt);
                     setShowQuickActions(false);
@@ -272,7 +272,7 @@ export default function VibeCreatorSimple() {
             {/* Mood Selector Popup */}
             {showMoodSelector && (
               <div className="mb-4 animate-in slide-in-from-top-2 duration-200">
-                <MoodSelector
+                <MoodSelectorPopup
                   moods={moods}
                   selectedMoods={selectedMoods}
                   onMoodChange={(moods) => {
