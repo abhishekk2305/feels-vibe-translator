@@ -297,27 +297,32 @@ export default function VibeCreatorSimple() {
             </Button>
 
             {/* Viral Challenge Section - Always Open */}
-            <Card className="bg-gradient-to-r from-pink-900/30 to-orange-900/30 border-pink-600/50 shadow-lg mb-4">
+            <Card className="bg-semi-dark border-gray-700 shadow-lg mb-4">
               <CardContent className="p-3">
-                <div className="flex items-center mb-2">
-                  <div className="bg-gradient-to-r from-pink-600 to-orange-600 rounded-full p-1.5 mr-2">
-                    <span className="text-white text-sm">🔥</span>
+                <div className="flex items-center mb-3">
+                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
+                    <div className="w-4 h-4 text-red-400">
+                      <span>🔥</span>
+                    </div>
                   </div>
                   <div>
-                    <h3 className="text-pink-200 font-semibold text-sm">Viral Challenges</h3>
-                    <p className="text-pink-300/70 text-xs">join trending challenges</p>
+                    <h3 className="font-semibold text-white flex items-center">
+                      Viral Challenges
+                      <span className="ml-2 text-xs">🚀</span>
+                    </h3>
+                    <p className="text-sm text-gray-400">join trending challenges</p>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-1.5">
+                <div className="space-y-2">
                   {[
-                    { name: "Vibe Check", hashtag: "#VibeCheck2025", trend: "🔥", color: "from-red-500 to-pink-500" },
-                    { name: "Mood Flip", hashtag: "#MoodFlip", trend: "✨", color: "from-purple-500 to-pink-500" },
-                    { name: "Energy Boost", hashtag: "#EnergyBoost", trend: "💯", color: "from-orange-500 to-red-500" }
+                    { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥 Trending", accent: "border-red-500/50 bg-red-500/10" },
+                    { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨ Hot", accent: "border-purple-500/50 bg-purple-500/10" },
+                    { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯 Viral", accent: "border-cyan-500/50 bg-cyan-500/10" }
                   ].map((challenge, idx) => (
                     <Button
                       key={idx}
-                      className={`w-full text-left bg-gradient-to-r ${challenge.color} hover:opacity-90 border-0 p-2 h-auto transition-all`}
+                      className={`w-full text-left bg-gray-800 hover:bg-gray-700 border ${challenge.accent} p-3 h-auto transition-all`}
                       onClick={() => {
                         toast({
                           title: "Challenge Started!",
@@ -327,10 +332,12 @@ export default function VibeCreatorSimple() {
                     >
                       <div className="flex justify-between items-center">
                         <div>
-                          <p className="text-white text-xs font-medium">{challenge.name}</p>
-                          <p className="text-white/70 text-xs">{challenge.hashtag}</p>
+                          <p className="text-white font-medium text-sm">{challenge.name}</p>
+                          <p className="text-gray-400 text-xs">{challenge.hashtag}</p>
                         </div>
-                        <span className="text-sm">{challenge.trend}</span>
+                        <span className="text-xs bg-gray-700 text-gray-200 px-2 py-1 rounded-full border border-gray-600">
+                          {challenge.trend}
+                        </span>
                       </div>
                     </Button>
                   ))}
