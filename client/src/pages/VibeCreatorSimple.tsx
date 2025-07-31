@@ -176,23 +176,23 @@ export default function VibeCreatorSimple() {
 
         {/* Step 1: Input */}
         {step === 1 && (
-          <div className="p-3 space-y-3">
+          <div className="p-4 space-y-4">
             <Card className="bg-semi-dark border-gray-700 shadow-lg">
-              <CardContent className="p-3">
-                <div className="flex items-center mb-2">
-                  <div className="bg-gray-800 rounded-full p-1.5 mr-2 border border-gray-600">
-                    <div className="w-4 h-4 text-purple-400">
+              <CardContent className="p-4">
+                <div className="flex items-center mb-3">
+                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
+                    <div className="w-5 h-5 text-purple-400">
                       <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-white flex items-center">
+                    <h3 className="font-semibold text-white flex items-center">
                       Tell AI Your Vibe
-                      <span className="ml-1 text-xs">🧠</span>
+                      <span className="ml-2 text-xs">🧠</span>
                     </h3>
-                    <p className="text-xs text-gray-400">describe ur current mood and watch the magic happen</p>
+                    <p className="text-sm text-gray-400">describe ur current mood and watch the magic happen</p>
                   </div>
                 </div>
                 <div className="relative">
@@ -201,7 +201,7 @@ export default function VibeCreatorSimple() {
                     value={textInput}
                     onChange={(e) => setTextInput(e.target.value)}
                     className="bg-gray-800 border-gray-600 text-white resize-none placeholder-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20 transition-all duration-200"
-                    rows={3}
+                    rows={4}
                   />
                   {textInput && (
                     <div className="absolute top-2 right-2">
@@ -221,21 +221,21 @@ export default function VibeCreatorSimple() {
             </Card>
 
             {/* Popup Triggers - Facebook-style */}
-            <div className="flex gap-2 mb-3">
+            <div className="flex gap-3 mb-4">
               <Button
                 onClick={() => {
                   setShowQuickActions(!showQuickActions);
                   setShowMoodSelector(false);
                 }}
                 variant="outline"
-                className={`flex-1 p-2 rounded-lg transition-all ${
+                className={`flex-1 p-3 rounded-xl transition-all ${
                   showQuickActions 
                     ? "gradient-bg text-white border-transparent" 
                     : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
                 }`}
               >
-                <Zap className="w-3 h-3 mr-1" />
-                <span className="text-xs">Quick Vibes</span>
+                <Zap className="w-4 h-4 mr-2" />
+                <span className="text-sm">Quick Vibes</span>
               </Button>
               <Button
                 onClick={() => {
@@ -243,16 +243,16 @@ export default function VibeCreatorSimple() {
                   setShowQuickActions(false);
                 }}
                 variant="outline"
-                className={`flex-1 p-2 rounded-lg transition-all ${
+                className={`flex-1 p-3 rounded-xl transition-all ${
                   showMoodSelector 
                     ? "gradient-bg text-white border-transparent" 
                     : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
                 }`}
               >
-                <Heart className="w-3 h-3 mr-1" />
-                <span className="text-xs">Select Mood</span>
+                <Heart className="w-4 h-4 mr-2" />
+                <span className="text-sm">Select Mood</span>
                 {selectedMoods.length > 0 && (
-                  <span className="ml-1 bg-purple-500 text-xs px-1 py-0.5 rounded-full">
+                  <span className="ml-1 bg-purple-500 text-xs px-1.5 py-0.5 rounded-full">
                     {selectedMoods.length}
                   </span>
                 )}
@@ -261,7 +261,7 @@ export default function VibeCreatorSimple() {
 
             {/* Quick Actions Popup */}
             {showQuickActions && (
-              <div className="mb-3 animate-in slide-in-from-top-2 duration-200 w-full">
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 w-full">
                 <QuickActionsPopup 
                   onActionSelect={(prompt) => {
                     setTextInput(prompt);
@@ -273,7 +273,7 @@ export default function VibeCreatorSimple() {
 
             {/* Mood Selector Popup */}
             {showMoodSelector && (
-              <div className="mb-3 animate-in slide-in-from-top-2 duration-200 w-full">
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 w-full">
                 <MoodSelectorPopup
                   moods={moods}
                   selectedMoods={selectedMoods}
@@ -291,7 +291,7 @@ export default function VibeCreatorSimple() {
             <Button
               onClick={handleAnalyze}
               disabled={!textInput.trim() || analyzeTextMutation.isPending}
-              className="w-full gradient-bg text-white py-3 rounded-xl font-semibold text-base mb-3"
+              className="w-full gradient-bg text-white py-4 rounded-2xl font-semibold text-lg mb-4"
             >
               <span className="mr-2">✨</span>
               Analyze My Vibe
@@ -299,43 +299,145 @@ export default function VibeCreatorSimple() {
 
             {/* Creative Tools Section */}
             <Card className="bg-semi-dark border-gray-700 shadow-lg">
-              <CardContent className="p-3">
-                <div className="flex items-center mb-2">
-                  <div className="bg-gray-800 rounded-full p-1.5 mr-2 border border-gray-600">
-                    <div className="w-4 h-4 text-cyan-400">
+              <CardContent className="p-4">
+                <div className="flex items-center mb-3">
+                  <div className="bg-gray-800 rounded-full p-2 mr-3 border border-gray-600">
+                    <div className="w-5 h-5 text-cyan-400">
                       <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-white flex items-center">
+                    <h3 className="font-semibold text-white flex items-center">
                       Creative Tools
-                      <span className="ml-1 text-xs">🎨</span>
+                      <span className="ml-2 text-xs">🎨</span>
                     </h3>
-                    <p className="text-xs text-gray-400">AR stickers & viral challenges</p>
+                    <p className="text-sm text-gray-400">AR stickers & viral challenges</p>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   <Button
                     onClick={() => setShowARStickers(true)}
-                    className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-3 py-2 rounded-lg text-xs"
+                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-4 py-3 rounded-xl text-sm"
                   >
-                    <div className="w-3 h-3">📱</div>
+                    <div className="w-4 h-4">📱</div>
                     AR Stickers
                   </Button>
                   
                   <Button
                     onClick={() => setShowViralChallenge(true)}
-                    className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white px-3 py-2 rounded-lg text-xs"
+                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white px-4 py-3 rounded-xl text-sm"
                   >
-                    <div className="w-3 h-3">🔥</div>
+                    <div className="w-4 h-4">🔥</div>
                     Viral Challenge
                   </Button>
                 </div>
               </CardContent>
             </Card>
+
+            {/* AR Stickers Popup */}
+            {showARStickers && (
+              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                <div className="bg-semi-dark border border-gray-600 rounded-2xl p-6 shadow-2xl max-w-md w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+                      <span>📱</span>
+                      AR Stickers
+                    </h3>
+                    <Button
+                      onClick={() => setShowARStickers(false)}
+                      variant="ghost"
+                      className="text-gray-400 hover:text-white p-1 h-auto"
+                    >
+                      ✕
+                    </Button>
+                  </div>
+                  <p className="text-gray-300 mb-4">Add interactive AR stickers to your photos and videos!</p>
+                  <div className="grid grid-cols-3 gap-3 mb-4">
+                    {['😎', '🔥', '💯', '✨', '🎉', '💖'].map((emoji, idx) => (
+                      <Button
+                        key={idx}
+                        className="aspect-square bg-gray-700 hover:bg-gray-600 text-2xl border border-gray-600"
+                        onClick={() => {
+                          toast({
+                            title: "Sticker Added!",
+                            description: `${emoji} sticker ready to use`,
+                          });
+                          setShowARStickers(false);
+                        }}
+                      >
+                        {emoji}
+                      </Button>
+                    ))}
+                  </div>
+                  <Button
+                    onClick={() => setShowARStickers(false)}
+                    className="w-full bg-cyan-600 hover:bg-cyan-700 text-white"
+                  >
+                    Done
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {/* Viral Challenge Popup */}
+            {showViralChallenge && (
+              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                <div className="bg-semi-dark border border-gray-600 rounded-2xl p-6 shadow-2xl max-w-md w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+                      <span>🔥</span>
+                      Viral Challenge
+                    </h3>
+                    <Button
+                      onClick={() => setShowViralChallenge(false)}
+                      variant="ghost"
+                      className="text-gray-400 hover:text-white p-1 h-auto"
+                    >
+                      ✕
+                    </Button>
+                  </div>
+                  <p className="text-gray-300 mb-4">Join trending challenges and create viral content!</p>
+                  <div className="space-y-3 mb-4">
+                    {[
+                      { name: "Vibe Check Challenge", hashtag: "#VibeCheck2025", trend: "🔥 Trending" },
+                      { name: "Mood Transformation", hashtag: "#MoodFlip", trend: "✨ Hot" },
+                      { name: "Energy Boost Dance", hashtag: "#EnergyBoost", trend: "💯 Viral" }
+                    ].map((challenge, idx) => (
+                      <Button
+                        key={idx}
+                        className="w-full text-left bg-gray-700 hover:bg-gray-600 border border-gray-600 p-3 h-auto"
+                        onClick={() => {
+                          toast({
+                            title: "Challenge Started!",
+                            description: `${challenge.name} challenge activated`,
+                          });
+                          setShowViralChallenge(false);
+                        }}
+                      >
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <p className="text-white font-medium">{challenge.name}</p>
+                            <p className="text-gray-400 text-sm">{challenge.hashtag}</p>
+                          </div>
+                          <span className="text-xs bg-pink-600 text-white px-2 py-1 rounded-full">
+                            {challenge.trend}
+                          </span>
+                        </div>
+                      </Button>
+                    ))}
+                  </div>
+                  <Button
+                    onClick={() => setShowViralChallenge(false)}
+                    className="w-full bg-pink-600 hover:bg-pink-700 text-white"
+                  >
+                    Done
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
