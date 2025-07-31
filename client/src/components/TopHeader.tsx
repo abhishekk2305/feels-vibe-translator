@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Bell, MessageCircle, Search } from "lucide-react";
+import { Bell, MessageCircle } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function TopHeader() {
@@ -16,15 +16,6 @@ export default function TopHeader() {
       </div>
       
       <div className="flex items-center space-x-2">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setLocation("/search")}
-          className="p-2 hover:bg-accent"
-          style={{ color: 'hsl(262, 83%, 58%)' }}
-        >
-          <Search className="w-4 h-4" style={{ color: 'hsl(262, 83%, 58%)' }} />
-        </Button>
         <Button
           variant="ghost"
           size="sm"

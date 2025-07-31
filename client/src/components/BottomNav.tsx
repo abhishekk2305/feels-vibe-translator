@@ -25,10 +25,10 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
       path: "/",
     },
     {
-      id: "discover",
-      label: "Discover",
+      id: "search",
+      label: "Search",
       icon: Search,
-      path: "/discover",
+      path: "/search",
     },
     {
       id: "create",
