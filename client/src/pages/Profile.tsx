@@ -111,7 +111,7 @@ export default function Profile() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-xl" style={{ color: 'hsl(270, 60%, 70%)' }}>
+                  <div className="w-full h-full flex items-center justify-center text-xl" style={{ color: 'hsl(262, 70%, 65%)' }}>
                     {userProfile.firstName?.[0] || userProfile.username?.[0] || "?"}
                   </div>
                 )}
@@ -137,35 +137,35 @@ export default function Profile() {
             </div>
 
             <div className="mb-4">
-              <h2 className="text-2xl font-bold mb-1" style={{ color: 'hsl(270, 60%, 70%)' }}>
+              <h2 className="text-2xl font-bold mb-1" style={{ color: 'hsl(262, 70%, 65%)' }}>
                 {userProfile.firstName && userProfile.lastName 
                   ? `${userProfile.firstName} ${userProfile.lastName}`
                   : userProfile.username || "Unknown User"
                 }
               </h2>
-              <p className="mb-2" style={{ color: 'hsl(270, 55%, 65%)' }}>@{userProfile.username || "unknown"}</p>
+              <p className="mb-2" style={{ color: 'hsl(262, 65%, 60%)' }}>@{userProfile.username || "unknown"}</p>
               {userProfile.bio && (
-                <p className="text-sm" style={{ color: 'hsl(270, 50%, 60%)' }}>{userProfile.bio}</p>
+                <p className="text-sm" style={{ color: 'hsl(262, 60%, 55%)' }}>{userProfile.bio}</p>
               )}
             </div>
 
             {/* Stats */}
             <div className="flex items-center space-x-6 mb-6">
               <div className="text-center">
-                <div className="text-xl font-bold" style={{ color: 'hsl(270, 60%, 70%)' }}>{userProfile.stats.posts}</div>
-                <div className="text-xs" style={{ color: 'hsl(270, 50%, 60%)' }}>Posts</div>
+                <div className="text-xl font-bold" style={{ color: 'hsl(262, 70%, 65%)' }}>{userProfile.stats.posts}</div>
+                <div className="text-xs" style={{ color: 'hsl(262, 60%, 55%)' }}>Posts</div>
               </div>
               <div className="text-center">
-                <div className="text-xl font-bold" style={{ color: 'hsl(270, 60%, 70%)' }}>{userProfile.stats.followers}</div>
-                <div className="text-xs" style={{ color: 'hsl(270, 50%, 60%)' }}>Followers</div>
+                <div className="text-xl font-bold" style={{ color: 'hsl(262, 70%, 65%)' }}>{userProfile.stats.followers}</div>
+                <div className="text-xs" style={{ color: 'hsl(262, 60%, 55%)' }}>Followers</div>
               </div>
               <div className="text-center">
-                <div className="text-xl font-bold" style={{ color: 'hsl(270, 60%, 70%)' }}>{userProfile.stats.following}</div>
-                <div className="text-xs" style={{ color: 'hsl(270, 50%, 60%)' }}>Following</div>
+                <div className="text-xl font-bold" style={{ color: 'hsl(262, 70%, 65%)' }}>{userProfile.stats.following}</div>
+                <div className="text-xs" style={{ color: 'hsl(262, 60%, 55%)' }}>Following</div>
               </div>
               <div className="text-center">
                 <div className="text-xl font-bold gradient-text">{userProfile.stats.vibeScore}</div>
-                <div className="text-xs" style={{ color: 'hsl(270, 50%, 60%)' }}>Vibe Score</div>
+                <div className="text-xs" style={{ color: 'hsl(262, 60%, 55%)' }}>Vibe Score</div>
               </div>
             </div>
 
@@ -229,10 +229,10 @@ export default function Profile() {
                 ) : (
                   <div className="text-center py-12">
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
-                      <Grid className="w-8 h-8" style={{ color: 'hsl(270, 50%, 60%)' }} />
+                      <Grid className="w-8 h-8" style={{ color: 'hsl(262, 60%, 55%)' }} />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(270, 60%, 70%)' }}>No posts yet</h3>
-                    <p className="text-sm" style={{ color: 'hsl(270, 50%, 60%)' }}>
+                    <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 65%)' }}>No posts yet</h3>
+                    <p className="text-sm" style={{ color: 'hsl(262, 60%, 55%)' }}>
                       {isOwnProfile ? "Share your first vibe!" : "No posts to show"}
                     </p>
                   </div>
@@ -242,20 +242,20 @@ export default function Profile() {
               <TabsContent value="remixes" className="mt-4">
                 <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
-                    <Repeat className="w-8 h-8" style={{ color: 'hsl(270, 50%, 60%)' }} />
+                    <Repeat className="w-8 h-8" style={{ color: 'hsl(262, 60%, 55%)' }} />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(270, 60%, 70%)' }}>No remixes yet</h3>
-                  <p className="text-sm" style={{ color: 'hsl(270, 50%, 60%)' }}>Remixed content will appear here</p>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 65%)' }}>No remixes yet</h3>
+                  <p className="text-sm" style={{ color: 'hsl(262, 60%, 55%)' }}>Remixed content will appear here</p>
                 </div>
               </TabsContent>
 
               <TabsContent value="liked" className="mt-4">
                 <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full flex items-center justify-center mb-4">
-                    <Heart className="w-8 h-8" style={{ color: 'hsl(270, 50%, 60%)' }} />
+                    <Heart className="w-8 h-8" style={{ color: 'hsl(262, 60%, 55%)' }} />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(270, 60%, 70%)' }}>No liked posts yet</h3>
-                  <p className="text-sm" style={{ color: 'hsl(270, 50%, 60%)' }}>Liked posts will appear here</p>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'hsl(262, 70%, 65%)' }}>No liked posts yet</h3>
+                  <p className="text-sm" style={{ color: 'hsl(262, 60%, 55%)' }}>Liked posts will appear here</p>
                 </div>
               </TabsContent>
             </Tabs>
