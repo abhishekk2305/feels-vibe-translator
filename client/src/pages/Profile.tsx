@@ -34,7 +34,7 @@ export default function Profile() {
   const [, setLocation] = useLocation();
   const { userId } = useParams();
   const { user: currentUser } = useAuth();
-  const profileUserId = userId || currentUser?.id;
+  const profileUserId = userId || (currentUser as any)?.id;
   const isOwnProfile = !userId || userId === (currentUser as any)?.id;
 
   const { data: profile, isLoading: profileLoading } = useQuery({
@@ -89,6 +89,7 @@ export default function Profile() {
               <Button
                 variant="ghost"
                 size="sm"
+                onClick={() => setLocation("/settings")}
                 className="absolute top-8 right-4 text-white p-2 z-10"
               >
                 <Settings className="w-5 h-5" />

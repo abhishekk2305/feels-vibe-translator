@@ -32,7 +32,7 @@ export default function Landing() {
           <div className="w-24 h-24 mx-auto glass-card rounded-full flex items-center justify-center mb-6 animate-pulse-glow">
             <span className="text-4xl">🎭</span>
           </div>
-          <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight">Feels</h1>
+          <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight text-container">Feels</h1>
           <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold mb-3 animate-bounce">
             ✨ UPDATED - JUL 31
           </div>

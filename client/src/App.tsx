@@ -10,6 +10,7 @@ import Onboarding from "@/pages/Onboarding";
 import VibeCreator from "@/pages/VibeCreator";
 import Profile from "@/pages/Profile";
 import Messages from "@/pages/Messages";
+import Settings from "@/pages/Settings";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
           <Route path="/create" component={VibeCreator} />
           <Route path="/profile/:userId?" component={Profile} />
           <Route path="/messages" component={Messages} />
+          <Route path="/settings" component={Settings} />
         </>
       )}
       <Route component={NotFound} />

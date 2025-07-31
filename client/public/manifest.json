@@ -70,7 +70,7 @@
       "sizes": "375x812",
       "type": "image/svg+xml",
       "form_factor": "narrow",
-      "label": "Remixz App Screenshot"
+      "label": "Feels App Screenshot"
     }
   ],
   "prefer_related_applications": false,
@@ -82,7 +82,7 @@
   ],
   "protocol_handlers": [
     {
-      "protocol": "web+remixz",
+      "protocol": "web+feels",
       "url": "/?action=%s"
     }
   ]

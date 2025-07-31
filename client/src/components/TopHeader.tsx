@@ -8,7 +8,7 @@ export default function TopHeader() {
   return (
     <div className="flex items-center justify-between p-4 pt-8 bg-semi-dark sticky top-0 z-40">
       <div className="flex items-center space-x-3">
-        <h1 className="text-2xl font-bold gradient-text font-poppins">Remixz</h1>
+        <h1 className="text-2xl font-bold gradient-text font-poppins">Feels</h1>
       </div>
       
       <div className="flex items-center space-x-4">

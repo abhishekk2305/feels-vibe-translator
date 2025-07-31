@@ -1,4 +1,4 @@
-const CACHE_NAME = 'feels-v2';
+const CACHE_NAME = 'feels-v3-' + Date.now();
 const urlsToCache = [
   '/',
   '/static/js/bundle.js',
@@ -136,7 +136,7 @@ self.addEventListener('push', (event) => {
   };
   
   event.waitUntil(
-    self.registration.showNotification('Remixz', options)
+    self.registration.showNotification('Feels', options)
   );
 });
 
