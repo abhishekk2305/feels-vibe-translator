@@ -1,0 +1,84 @@
+Ultimate Replit Prompt for Polished, Investor-Ready MVP
+General Goal
+Upgrade my existing Gen Z “feels” AI app MVP (currently a functional web app) to be visually appealing, professional, and investor-ready. I want it to look and feel like a public beta, not a hackathon demo.
+
+Detailed Instructions
+1. UI/UX Polish:
+
+Apply modern, bold, and playful styling using Tailwind CSS or similar—think Gen Z aesthetics: gradients, rounded corners, energetic colors (lavender, blue, pink, light neutral).
+
+Make all primary buttons large, vibrant, and clearly labeled.
+
+Add space, use card-like containers for chat blocks or results.
+
+Add app logo, favicon, and a clean navigation/header bar with your brand name (“feels ✨”).
+
+Elevate font to something bolder and rounded (e.g., Poppins/Montserrat).
+
+Animate button hovers and transitions for delight.
+
+2. Robust Mobile Responsiveness:
+
+Use CSS grid/flexbox and media queries to ensure the UI rearranges on mobile (one column for inputs/chat, buttons large and touch-friendly).
+
+No horizontal scroll or overlapping components on mobile.
+
+All text should be 15px+ on phones (for readability).
+
+Test and polish on both iOS & Android browser emulators right in the browser.
+
+Add a test “mobile first” flow for entering a vibe, submitting, and reading output.
+
+3. “Vibe Presets”/Tone Dropdown:
+
+Add a dropdown/select at the top of the input form with 4–6 preset moods (e.g., “Happy,” “Sad,” “Anxious,” “Silly,” “Excited,” “Random!”).
+
+User should be able to:
+
+Either select a preset (button) or type a custom mood (text input).
+
+When a preset is selected, show it as active (highlighted button).
+
+On submit, combine user’s input (“I feel ___” or selected preset) for the AI prompt.
+
+Present the presets as colored “pill” buttons on desktop, and as a space-saving dropdown on mobile.
+
+Default to the “Happy” or “Trending” preset on page load.
+
+4. Copy/Export Result:
+
+Add a “Copy to Clipboard” button below every AI output.
+
+Show a “Copied!” tooltip/animation when clicked.
+
+Optionally, add a “Download as image/text” button for easy sharing.
+
+5. Basic Analytics:
+
+Integrate a privacy-respecting analytics tool (like Plausible, Posthog, or a simple custom server-side counter):
+
+Log: site visits, “vibe” submissions, most selected preset, most frequent result copy-button presses.
+
+Show an admin-only / hidden dashboard with basic stats (“123 vibes generated today”).
+
+Even a simple badge (“Total vibes so far: 1,234”) in the footer is enough for demo.
+
+6. Hosting on a Custom Domain:
+
+Prepare app for easy deployment on Vercel or Netlify.
+
+Provide a README with deploy instructions.
+
+Add a clear “deployed on [domain]” badge/link.
+
+Ensure all resources (images/fonts/analytics) load on the custom domain.
+
+7. Misc/Final Touches:
+
+Add a light/dark mode toggle.
+
+Include a “Report a bug/feedback” link (mailto/email/Typeform popup).
+
+Make sure the “demo” link and brand are visible and clickable on every page.
+
+Test major flows for accessibility (keyboard navigation, color contrast).

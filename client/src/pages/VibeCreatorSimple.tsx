@@ -6,10 +6,15 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useLocation } from "wouter";
-import { ArrowLeft, Sparkles, Zap, Heart, Smile } from "lucide-react";
+import { ArrowLeft, Sparkles, Zap, Heart, Smile, Download } from "lucide-react";
 import AnalyzingAnimation from "@/components/AnalyzingAnimation";
 import MoodSelectorPopup from "@/components/MoodSelectorPopup";
 import QuickActionsPopup from "@/components/QuickActionsPopup";
+import VibePresets from "@/components/VibePresets";
+import CopyButton from "@/components/CopyButton";
+import ThemeToggle from "@/components/ThemeToggle";
+import AnalyticsCounter from "@/components/AnalyticsCounter";
+import type { VibePreset } from "@/components/VibePresets";
 
 interface VibeResult {
   emotion: string;
@@ -28,6 +33,7 @@ export default function VibeCreatorSimple() {
   const [, setLocation] = useLocation();
   const [textInput, setTextInput] = useState("");
   const [selectedMoods, setSelectedMoods] = useState<string[]>([]);
+  const [selectedPreset, setSelectedPreset] = useState<string | null>("happy");
   const [vibeResult, setVibeResult] = useState<VibeResult | null>(null);
   const [memeResult, setMemeResult] = useState<MemeResult | null>(null);
   const [step, setStep] = useState(1); // 1: input, 2: analysis, 3: result
@@ -112,17 +118,29 @@ export default function VibeCreatorSimple() {
     },
   });
 
+  const handlePresetSelect = (preset: VibePreset) => {
+    setSelectedPreset(preset.id);
+    // If user had custom text, combine with preset
+    if (textInput.trim()) {
+      setTextInput(`${textInput} (feeling ${preset.label.toLowerCase()})`);
+    } else {
+      setTextInput(`I'm feeling ${preset.label.toLowerCase()} ${preset.emoji}`);
+    }
+  };
+
   const handleAnalyze = () => {
-    if (!textInput.trim()) {
+    const finalText = textInput.trim() || (selectedPreset ? `I'm feeling ${selectedPreset}` : '');
+    
+    if (!finalText) {
       toast({
         title: "Tell us your vibe!",
-        description: "Please enter how you're feeling",
+        description: "Please enter how you're feeling or select a preset",
         variant: "destructive",
       });
       return;
     }
     setIsAnalyzing(true);
-    analyzeTextMutation.mutate(textInput);
+    analyzeTextMutation.mutate(finalText);
   };
 
   const handleGenerate = () => {
@@ -176,11 +194,25 @@ export default function VibeCreatorSimple() {
 
         {/* Step 1: Input */}
         {step === 1 && (
-          <div className="p-4 space-y-4 max-h-screen overflow-y-auto">
-            <Card className="bg-card border-border shadow-lg">
+          <div className="p-4 space-y-6 max-h-screen overflow-y-auto">
+            {/* Analytics Counter */}
+            <AnalyticsCounter />
+            
+            {/* Vibe Presets */}
+            <Card className="bg-card dark:bg-card border-border shadow-lg card-hover">
+              <CardContent className="p-4">
+                <VibePresets 
+                  onPresetSelect={handlePresetSelect}
+                  selectedPreset={selectedPreset}
+                />
+              </CardContent>
+            </Card>
+
+            {/* Text Input */}
+            <Card className="bg-card dark:bg-card border-border shadow-lg card-hover">
               <CardContent className="p-4">
                 <div className="flex items-center mb-3">
-                  <div className="bg-muted rounded-full p-2 mr-3 border border-border">
+                  <div className="bg-muted dark:bg-muted rounded-full p-2 mr-3 border border-border">
                     <div className="w-5 h-5 text-primary">
                       <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
@@ -188,11 +220,11 @@ export default function VibeCreatorSimple() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground flex items-center">
+                    <h3 className="font-semibold text-foreground dark:text-foreground flex items-center font-poppins">
                       Tell AI Your Vibe
                       <span className="ml-2 text-xs">🧠</span>
                     </h3>
-                    <p className="text-sm text-muted-foreground">describe ur current mood and watch the magic happen</p>
+                    <p className="text-sm text-muted-foreground dark:text-muted-foreground">describe ur current mood and watch the magic happen</p>
                   </div>
                 </div>
                 <div className="relative">
@@ -200,7 +232,7 @@ export default function VibeCreatorSimple() {
                     placeholder="what's ur vibe rn? feeling excited, stressed, creative, or something else entirely..."
                     value={textInput}
                     onChange={(e) => setTextInput(e.target.value)}
-                    className="bg-input border-border text-foreground resize-none placeholder-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200"
+                    className="bg-input dark:bg-input border-border text-foreground dark:text-foreground resize-none placeholder-muted-foreground dark:placeholder-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 mobile-text-lg font-poppins"
                     rows={4}
                   />
                   {textInput && (
@@ -210,8 +242,8 @@ export default function VibeCreatorSimple() {
                   )}
                 </div>
                 {textInput && (
-                  <div className="mt-2 p-2 bg-muted rounded-lg border border-border">
-                    <p className="text-xs text-muted-foreground flex items-center">
+                  <div className="mt-2 p-2 bg-muted dark:bg-muted rounded-lg border border-border">
+                    <p className="text-xs text-muted-foreground dark:text-muted-foreground flex items-center">
                       <span className="text-green-500 mr-1">●</span>
                       vibe captured! ready to analyze ur energy
                     </p>

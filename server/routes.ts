@@ -5,6 +5,7 @@ import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { openaiService } from "./openaiService";
 import { insertPostSchema, insertCommentSchema, insertMessageSchema } from "@shared/schema";
+import { setupAnalytics } from "./analyticsRoutes";
 
 const upload = multer({ 
   storage: multer.memoryStorage(),
@@ -16,6 +17,9 @@ const upload = multer({
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
   await setupAuth(app);
+  
+  // Analytics setup
+  setupAnalytics(app);
 
   // Auth routes
   app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {

@@ -1,45 +1,45 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = "dark" | "light";
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first, then system preference, default to dark
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark" || saved === "light") {
-      return saved as Theme;
-    }
-    
-    // Check system preference
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      return "light";
-    }
-    
-    return "dark";
-  });
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    // Apply theme to document
-    document.documentElement.classList.remove("light", "dark");
+    // Check localStorage for saved theme preference
+    const savedTheme = localStorage.getItem('feels-theme') as Theme | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark ? 'dark' : 'light');
+    }
+  }, []);
+
+  useEffect(() => {
+    // Apply theme class to document
+    document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(theme);
     
     // Save to localStorage
-    localStorage.setItem("theme", theme);
+    localStorage.setItem('feels-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === "dark" ? "light" : "dark");
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -48,7 +48,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 }

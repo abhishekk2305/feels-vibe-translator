@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Bell, MessageCircle } from "lucide-react";
+import { Bell, MessageCircle, Bug } from "lucide-react";
 import { useLocation } from "wouter";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function TopHeader() {
   const [, setLocation] = useLocation();
@@ -20,6 +21,17 @@ export default function TopHeader() {
       </div>
       
       <div className="flex items-center space-x-2">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => window.open('mailto:feedback@feels.app?subject=Bug Report')}
+          className="p-2 hover:bg-accent"
+          title="Report Bug / Feedback"
+          style={{ color: 'hsl(262, 83%, 58%)' }}
+        >
+          <Bug className="w-4 h-4" />
+        </Button>
+        <ThemeToggle />
         <Button
           variant="ghost"
           size="sm"
