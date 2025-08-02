@@ -195,16 +195,6 @@ export default function VibeCreatorSimple() {
         {/* Step 1: Input */}
         {step === 1 && (
           <div className="p-4 space-y-6 max-h-screen overflow-y-auto">
-            {/* Vibe Presets - Single Location */}
-            <Card className="bg-card dark:bg-card border-border shadow-lg card-hover">
-              <CardContent className="p-4">
-                <VibePresets 
-                  onPresetSelect={handlePresetSelect}
-                  selectedPreset={selectedPreset}
-                />
-              </CardContent>
-            </Card>
-
             {/* Text Input */}
             <Card className="bg-card dark:bg-card border-border shadow-lg card-hover">
               <CardContent className="p-4">
@@ -249,7 +239,79 @@ export default function VibeCreatorSimple() {
               </CardContent>
             </Card>
 
+            {/* Quick Actions and Mood Selector tabs */}
+            <div className="flex gap-3 mb-4">
+              <Button
+                onClick={() => {
+                  setShowQuickActions(!showQuickActions);
+                  setShowMoodSelector(false);
+                }}
+                variant="outline"
+                className={`flex-1 p-3 rounded-xl transition-all ${
+                  showQuickActions 
+                    ? "gradient-bg text-white border-transparent" 
+                    : "bg-card border-border hover:bg-accent"
+                }`}
+                style={{ 
+                  color: showQuickActions ? 'white' : 'hsl(262, 70%, 65%)'
+                }}
+              >
+                <Zap className="w-4 h-4 mr-2" />
+                <span className="text-sm">Quick Actions</span>
+              </Button>
+              <Button
+                onClick={() => {
+                  setShowMoodSelector(!showMoodSelector);
+                  setShowQuickActions(false);
+                }}
+                variant="outline"
+                className={`flex-1 p-3 rounded-xl transition-all ${
+                  showMoodSelector 
+                    ? "gradient-bg text-white border-transparent" 
+                    : "bg-card border-border hover:bg-accent"
+                }`}
+                style={{ 
+                  color: showMoodSelector ? 'white' : 'hsl(262, 70%, 65%)'
+                }}
+              >
+                <Heart className="w-4 h-4 mr-2" />
+                <span className="text-sm">Extra Moods</span>
+                {selectedMoods.length > 0 && (
+                  <span className="ml-1 bg-purple-500 text-xs px-1.5 py-0.5 rounded-full">
+                    {selectedMoods.length}
+                  </span>
+                )}
+              </Button>
+            </div>
 
+            {/* Quick Actions Popup */}
+            {showQuickActions && (
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 w-full">
+                <QuickActionsPopup 
+                  onActionSelect={(prompt) => {
+                    setTextInput(prompt);
+                    setShowQuickActions(false);
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Mood Selector Popup */}
+            {showMoodSelector && (
+              <div className="mb-4 animate-in slide-in-from-top-2 duration-200 w-full">
+                <MoodSelectorPopup
+                  moods={moods}
+                  selectedMoods={selectedMoods}
+                  onMoodChange={(moods) => {
+                    setSelectedMoods(moods);
+                    if (moods.length > 0) {
+                      setTimeout(() => setShowMoodSelector(false), 500);
+                    }
+                  }}
+                  maxSelection={3}
+                />
+              </div>
+            )}
 
             <Button
               onClick={handleAnalyze}
