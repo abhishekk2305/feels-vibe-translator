@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import Landing from "@/pages/Landing";
 import Home from "@/pages/Home";
 import Onboarding from "@/pages/Onboarding";
-import VibeCreator from "@/pages/VibeCreatorMobile";
+import VibeCreator from "@/pages/VibeCreatorSimple";
 import Profile from "@/pages/Profile";
 import Messages from "@/pages/Messages";
 import Settings from "@/pages/Settings";

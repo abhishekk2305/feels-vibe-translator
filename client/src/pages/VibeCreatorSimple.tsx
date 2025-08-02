@@ -198,7 +198,7 @@ export default function VibeCreatorSimple() {
             {/* Analytics Counter */}
             <AnalyticsCounter />
             
-            {/* Vibe Presets */}
+            {/* Vibe Presets - Single Location */}
             <Card className="bg-card dark:bg-card border-border shadow-lg card-hover">
               <CardContent className="p-4">
                 <VibePresets 
@@ -252,7 +252,7 @@ export default function VibeCreatorSimple() {
               </CardContent>
             </Card>
 
-            {/* Popup Triggers - Facebook-style */}
+            {/* Additional Options - Removed duplicate preset sections */}
             <div className="flex gap-3 mb-4">
               <Button
                 onClick={() => {
@@ -270,7 +270,7 @@ export default function VibeCreatorSimple() {
                 }}
               >
                 <Zap className="w-4 h-4 mr-2" />
-                <span className="text-sm">Quick Vibes</span>
+                <span className="text-sm">Quick Actions</span>
               </Button>
               <Button
                 onClick={() => {
@@ -281,14 +281,14 @@ export default function VibeCreatorSimple() {
                 className={`flex-1 p-3 rounded-xl transition-all ${
                   showMoodSelector 
                     ? "gradient-bg text-white border-transparent" 
-                    : "bg-gray-800 border-gray-600 hover:bg-gray-700"
+                    : "bg-card border-border hover:bg-accent"
                 }`}
                 style={{ 
                   color: showMoodSelector ? 'white' : 'hsl(262, 70%, 65%)'
                 }}
               >
                 <Heart className="w-4 h-4 mr-2" />
-                <span className="text-sm">Select Mood</span>
+                <span className="text-sm">Extra Moods</span>
                 {selectedMoods.length > 0 && (
                   <span className="ml-1 bg-purple-500 text-xs px-1.5 py-0.5 rounded-full">
                     {selectedMoods.length}
