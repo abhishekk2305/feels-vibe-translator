@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLocation } from "wouter";
+import feelsLogoUrl from "@assets/feels-logo-cool-512x512_1754127124238.png";
 
 export default function Landing() {
   const [, setLocation] = useLocation();
@@ -29,8 +30,12 @@ export default function Landing() {
       <div className="w-full max-w-sm mx-auto relative z-10">
         {/* App Icon */}
         <div className="text-center mb-8 animate-fade-scale">
-          <div className="w-24 h-24 mx-auto bg-white shadow-xl rounded-full flex items-center justify-center mb-6">
-            <span className="text-4xl">🎭</span>
+          <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6">
+            <img 
+              src={feelsLogoUrl} 
+              alt="feels app icon" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <h1 className="text-5xl font-bold gradient-text mb-4 font-black tracking-tight text-container">feels✨</h1>
           <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-semibold mb-3 animate-bounce">
