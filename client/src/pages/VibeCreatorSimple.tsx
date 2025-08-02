@@ -195,9 +195,6 @@ export default function VibeCreatorSimple() {
         {/* Step 1: Input */}
         {step === 1 && (
           <div className="p-4 space-y-6 max-h-screen overflow-y-auto">
-            {/* Analytics Counter */}
-            <AnalyticsCounter />
-            
             {/* Vibe Presets - Single Location */}
             <Card className="bg-card dark:bg-card border-border shadow-lg card-hover">
               <CardContent className="p-4">
