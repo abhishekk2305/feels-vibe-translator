@@ -1,6 +1,6 @@
-# ✨ Feels — Turn Your Vibes into Viral Content ✨
+# ✨ feels — Turn Your Vibes into Viral Content ✨
 
-Feels is an AI-powered meme & content generator that transforms your mood into instantly shareable creations.  
+feels is an AI-powered meme & content generator that transforms your mood into instantly shareable creations.  
 Built for Gen Z creators who want **fast, authentic, and fun tools** that just hit different.
 
 🔗 **Live Demo:** [Try Feels here](https://vibe-translator-abhishekdhama18.replit.app/)  
@@ -47,7 +47,8 @@ MIT — see [LICENSE.md](./LICENSE.md)
 ---
 
 ## 🙌 A Note from the Maker
-Feels started as a playful experiment:  
+Hi, this is Abhishek Dhama, a Product Manager
+feels started as a playful experiment:  
 > Could a single person ship a Gen Z-facing AI app in under two weeks and test if people would use it?  
 
 This repo documents that journey — design, analytics, and lessons learned.  
