@@ -24,13 +24,13 @@ Built for Gen Z creators who want **fast, authentic, and fun tools** that just h
 
 ---
 
-## 📊 Pilot Metrics (from GA, Aug 2025)
-- **Users:** 3 early users  
-- **Events:** 14 tracked interactions  
-- **New Users:** 3  
-- **Traffic Sources:** Organic Social + Direct  
-- **Geographies:** UAE, Thailand, Vietnam  
-- **Engagement Flow:** Users created vibes, viewed feed, and explored challenges  
+## 📊 Pilot Metrics (28 Days, Aug 2025)
+- **Users:** 26  
+- **New Users:** 26  
+- **Event Count:** 185 interactions  
+- **Page Views:** 77 (vibe creator)  
+- **Traffic Sources:** Referral (12), Direct (10), Organic Social (7)  
+- **Geographies:** US, India, UAE, Canada, Cyprus, Hong Kong, Nepal  
 
 ---
 
@@ -47,9 +47,11 @@ MIT — see [LICENSE.md](./LICENSE.md)
 ---
 
 ## 🙌 A Note from the Maker
-Hi, this is Abhishek Dhama, Product Manager.
-I'd like to mention here that feels started as a playful experiment:  
+feels started as a playful experiment:  
 > Could a single person ship a Gen Z-facing AI app in under two weeks and test if people would use it?  
 
 This repo documents that journey — design, analytics, and lessons learned.  
 Feedback is welcome on both the **product** and the **approach**.  
+
+---
+This product is made by Abhishek Dhama, Product Manager.
