@@ -1,4 +1,4 @@
-# Pilot Report — feels (Aug 2025)
+# Pilot Report — feels (Aug 2025, Last 28 Days)
 
 ## Objective
 Test whether Gen Z users will try an AI-powered vibe-to-meme generator and engage with its features.
@@ -8,22 +8,23 @@ Test whether Gen Z users will try an AI-powered vibe-to-meme generator and engag
 - Shared via LinkedIn (organic post)  
 - Tracked with Google Analytics  
 
-## Results
-- **Users:** 3  
-- **New Users:** 3  
-- **Events Recorded:** 14 interactions  
-- **Time to First Creation:** ~45s avg  
-- **Traffic Sources:** Organic social, direct  
-- **Geo:** UAE, Thailand, Vietnam  
+## Results (28 Days)
+- **Users:** 26  
+- **New Users:** 26  
+- **Events Recorded:** 185  
+- **Page Views:** 77 (main creator page)  
+- **Traffic Sources:** Referral (12), Direct (10), Organic Social (7)  
+- **Geographies:** US (8), India (7), UAE (2), Canada (2), Cyprus (1), Hong Kong (1), Nepal (1)  
 
 ## Observations
 - Users explored create → feed → challenges flow  
-- Early interest but no significant repeat usage yet  
-- Strong UX reception (based on feedback: fun + easy to try)  
+- Good geographic spread (7 countries, majority US + India)  
+- Engagement visible (185 events, avg TTFC ~45s)  
+- Still early: retention + share rates unproven  
 
 ## Next Steps
 - Improve output quality (better memes, varied formats)  
 - Add instant sharing/remix buttons  
 - Run a small challenge campaign to drive repeat usage  
-- Expand test pool to 20–30 users  
+- Expand test pool to 50–100 users  
 
