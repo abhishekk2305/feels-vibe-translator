@@ -47,8 +47,8 @@ MIT — see [LICENSE.md](./LICENSE.md)
 ---
 
 ## 🙌 A Note from the Maker
-Hi, this is Abhishek Dhama, a Product Manager
-feels started as a playful experiment:  
+Hi, this is Abhishek Dhama, Product Manager.
+I'd like to mention here that feels started as a playful experiment:  
 > Could a single person ship a Gen Z-facing AI app in under two weeks and test if people would use it?  
 
 This repo documents that journey — design, analytics, and lessons learned.  
