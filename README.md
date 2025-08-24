@@ -21,8 +21,12 @@ Built for Gen Z creators who want **fast, authentic, and fun tools** that just h
 ### 🏠 Landing Page
 ![Landing](./docs/screenshots/feels-landing.png)
 
+
+
 ### 🎨 Create Vibe
 ![Create Vibe](./docs/screenshots/feels-create.png)
+
+
 
 ### 📰 Feed (Trending Vibes)
 ![Feed](./docs/screenshots/feels-feed.png)
