@@ -18,9 +18,9 @@
 - Google Analytics (GA4)  
 - Replit hosting metrics (basic)  
 
-## Pilot Findings (Aug 2025)
-- Users: 3  
-- Interactions: 14  
-- TTFC: <60s (achieved)  
-- Share rate: TBD (low sample)  
-- Geo: UAE, Thailand, Vietnam  
+## Pilot Findings (28 Days, Aug 2025)
+- **Users:** 26  
+- **Events:** 185  
+- **Page Views:** 77  
+- **Traffic Sources:** Referral (12), Direct (10), Organic Social (7)  
+- **Geo:** US (8), India (7), UAE (2), Canada (2), Cyprus (1), Hong Kong (1), Nepal (1)  
