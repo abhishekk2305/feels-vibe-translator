@@ -33,6 +33,7 @@ Enable Gen Z to instantly translate emotions into viral content — fast, fun, a
 - No mobile app yet (web only MVP)  
 
 ## Metrics of Success
-- Avg time-to-first creation (goal <60s)  
+- Avg time-to-first creation (goal <60s; pilot ~45s)  
 - Share rate (goal >30%)  
 - D1 retention (goal >20% after scale)  
+- Event count growth (baseline: 185 events in 28 days)    
