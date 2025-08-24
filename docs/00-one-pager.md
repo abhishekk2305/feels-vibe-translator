@@ -23,13 +23,14 @@ Input your mood (text/voice/photo) → AI generates memes, captions, and visuals
 - India + global — 200M+ daily active meme sharers  
 - TAM: $100B+ creator economy  
 
-## Traction (Pilot, Aug 2025)
-- 3 users, 14 interactions  
-- Traffic via organic social (LinkedIn post)  
-- Early users explored multiple flows (create, feed, challenge)  
+## Traction (Pilot, Aug 2025 — 28 Days)
+- **Users:** 26  
+- **Events:** 185 interactions  
+- **Page Views:** 77  
+- **Traffic Sources:** Referral (12), Direct (10), Organic Social (7)  
+- **Geographies:** US, India, UAE, Canada, Cyprus, Hong Kong, Nepal  
 
 ## Roadmap
 - Short term: Better outputs, retention experiments  
 - Mid term: Mobile-first, social leaderboards  
 - Long term: Monetization via premium packs & brand collabs  
-
